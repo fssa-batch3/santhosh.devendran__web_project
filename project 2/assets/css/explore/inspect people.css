@@ -1,0 +1,121 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+/*--header--*/
+body .header{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: center;
+    height: 70px;
+    background-color: #00acee;
+    position: sticky;
+    top: 0px;
+    width: auto;
+}
+body .header .logo img{
+    border-radius: 25px;
+    margin-left: 30px;
+}
+body .header .options{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: center;
+    margin-right: 100px;
+}
+body .header .options a{
+    margin-left: 50px;
+    margin-right: 20px;
+    text-decoration: none;
+    font-size: 20px;
+}
+/*--header 2*/
+body header{
+    position: sticky;
+    top:0px;
+    background-color: #ffff;
+}
+body header .search_bar{
+    margin: 20px 0px 0px 600px;
+}
+body header .search_bar .search{
+    padding: 5px 50px;
+}
+body header .search_bar input{
+    border: 2px solid #00acee;
+    border-radius: 10px;
+}
+body header .search_bar .fa{
+    margin-left: -20px;
+    color: #00acee;
+}
+body header .list{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding-top: 15px;
+    max-width: 35rem;
+    margin: auto;
+    border-bottom: 2px solid #00acee;
+}
+body header .list h3{
+    padding: 2px 20px;
+ }
+body header .list a{
+    text-decoration: none;
+    color:black;
+}
+body header .list .hilight{
+    border-bottom: 2px solid #4267B2;
+}
+body .top{
+    display: flex;
+    flex-direction: row;
+    border-radius: 10px;
+    border-bottom: 1px solid #00acee;
+    max-width: 30rem;
+    padding: 20px 0px 10px 100px;
+    margin: auto;
+    margin-top: 20px;
+
+}
+.top .follow_button button{
+    padding: 10px 25px;
+    margin: 10px 0px 0px 200px;
+    border: 1px solid white;
+    border-radius: 10px;
+    background-color: #00acee;
+    color: white;
+}
+.top .user_list p{
+    padding:4px 0px 0px 20px;
+}
+.top .user_list .user_name{
+    font-weight: 500;
+    font-size: 20px;
+    color: #00acee;
+}
+.top .user_list .user_bio{
+    color: gray;
+}
+.top .img{
+    padding-top: 10px;
+}
+.top .img .profile_img{
+    border-radius: 30px;
+}
+body header .home_button{
+    float: right;
+    margin-top: -40px;
+}
+body header .home_button button{
+    padding: 5px 25px;
+    background-color: white;
+    border-radius: 10px;
+    border:2px solid #00acee;
+    color: #00acee;
+}

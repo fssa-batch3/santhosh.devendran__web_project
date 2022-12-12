@@ -1,0 +1,119 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+/*--header--*/
+body header{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: center;
+    height: 70px;
+    background-color: #00acee;
+    position: sticky;
+    top: 0px;
+    width: auto;
+}
+body header .logo img{
+    border-radius: 25px;
+    margin-left: 30px;
+}
+body header .options{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: center;
+    margin-right: 100px;
+}
+body header .options a{
+    margin-left: 50px;
+    margin-right: 20px;
+    text-decoration: none;
+    font-size: 20px;
+}
+/*--post--*/
+.post{
+    border-bottom: 1px solid #00acee;
+    border-radius: 10px;
+    margin: auto;
+    margin-top: 20px;
+    max-width: 35rem;
+}
+.post:hover{
+    background-color: #F2F3F4;
+}
+.post .user_list{
+    display: flex;
+    flex-direction: row;
+}
+.post .user_list .img{
+    margin-left: 10px;
+    padding-top: 10px;   
+}
+.post .user_list .img .profile_img{
+    border-radius: 25px;
+}
+.post .user .user_name{
+    font-size: 18px;
+    padding:15px 0px 0px 10px;
+    color:#00acee;
+}
+.post .user a{
+    text-decoration: none;
+}
+.post .user .post_cuntent{
+    padding:10px 0px 0px 30px;
+    max-width: 25rem;
+}
+.post .post_img{
+    max-width: 20rem;
+    height: auto;
+    padding: 10px 0px 0px 80px;
+}
+.post .post_img img{
+    width:100%;
+    border-radius: 15px;
+}
+.post .like_comand{
+    display: flex;
+    flex-direction: row;
+    margin: 20px 0px 10px 80px;
+}
+.post .like_comand .comand{
+    padding-left: 20px;
+}
+body header .home_button{
+    float: right;
+    margin-top: -40px;
+}
+body header .home_button button{
+    padding: 5px 15px;
+}
+.tag{
+    color: #00acee;
+}
+/*--create new--*/
+.post_list .create_new_post{
+    max-width: 35rem;
+    padding-bottom: 20px;
+    margin: auto;
+    border-bottom: 1px solid gray;
+}
+.post_list .create_new_post .new_post .file_upload .file{
+    padding: 10px;
+    float: right;
+}
+.post_list .create_new_post .new_post .post_content .input{
+    width: 25rem;
+    height: 5rem;
+    margin: 10px 0px 10px 50px;
+ }
+.post_list .create_new_post .submit .post{
+    padding: 10px 35px;
+    margin: 20px 0px 0px 400px;
+    border: 2px solid #00acee;
+    background-color: white;
+    color: #00acee;
+ }

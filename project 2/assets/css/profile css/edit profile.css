@@ -1,0 +1,76 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+/*--header--*/
+body header{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: center;
+    height: 70px;
+    background-color: #00acee;
+    position: sticky;
+    top: 0px;
+    width: auto;
+}
+body header .logo img{
+    border-radius: 25px;
+    margin-left: 30px;
+}
+body header .options{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: center;
+    margin-right: 100px;
+}
+body header .options a{
+    margin-left: 50px;
+    margin-right: 30px;
+    text-decoration: none;
+    font-size: 20px;
+}
+/*--center--*/
+.center{
+    height: 100%;
+    width:35rem;
+    margin: auto;
+}
+.center .profile_photo .dp img{
+    border-radius: 300px;
+    margin-top: -80px;
+    border: 3px solid white;
+}
+.center .photo_change{
+    display: flex;
+    flex-direction: row;
+}
+.center .data_change{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.center .data_change input{
+    margin-top: 20px;
+    padding: 10px;
+    background-color: lightgrey;
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+.center .submit{
+    display: flex;
+    justify-content: flex-end;
+    height: 150px;
+}
+.center .submit .sb{
+    margin-top: 100px;
+}
+.center .submit .sb button{
+    padding: 10px 25px 10px 25px;
+    border: 2px solid #00acee;
+    border-radius: 15px;
+    background-color: white;
+}

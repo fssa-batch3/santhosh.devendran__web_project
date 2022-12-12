@@ -1,0 +1,65 @@
+
+*{
+    padding: 0px;
+    margin: 0px;
+}
+
+body .main{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: auto;
+    margin-top: 10rem;
+    background-color: #00acee;
+   border-radius: 300px;
+   width: 900px;
+   height: 600px;
+}
+.main  .logo img{
+    border-radius: 200px;
+}
+.formlist{
+    display: flex;
+    flex-direction: column;
+}
+.form{
+    display: flex;
+    flex-direction: column;
+}
+.with_mobile h2{
+    margin-bottom: 30px;
+    margin-left: 10px;
+    font-size: 30px;
+    color: #ffffff;
+}
+.bn{
+    padding-top: 15px;
+}
+.main .with_mobile .formlist .form{
+    padding-bottom: 10px;
+    color: white;
+}
+.main .with_mobile .formlist .list{
+    font-size: 18px;
+    height: 25px;
+    border:2px solid #ffffff;
+    border-radius: 15px;
+}
+.main .with_mobile .bn .loginbn{
+    padding: 6px 20px;
+    width: 45px;
+    border-radius: 15px;
+    border: 2px solid #ffffff;
+    background-color: #00acee;
+    color: white;
+}
+.main .with_mobile .bn a{
+    text-decoration: none;
+}
+.create{
+    margin-top: 10px;
+}
+.create a{
+    text-decoration: none;
+}

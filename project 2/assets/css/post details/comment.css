@@ -1,0 +1,132 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+/*--header--*/
+body header{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: center;
+    height: 70px;
+    background-color: #00acee;
+    position: sticky;
+    top: 0px;
+    width: auto;
+}
+body header .logo img{
+    border-radius: 25px;
+    margin-left: 30px;
+}
+body header .options{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: center;
+    margin-right: 100px;
+}
+body header .options a{
+    margin-left: 50px;
+    margin-right: 20px;
+    text-decoration: none;
+    font-size: 20px;
+}
+/*--post details*/
+.post_details{
+    height: 100%;
+    max-width:35rem;
+    margin: auto;
+}
+.post_details .post .comment{
+    display: flex;
+    flex-direction: unset;
+    justify-content: space-evenly;
+    padding-top: 30px;
+}
+.post_details .post .comment input{
+    padding: 10px;
+    width: 200px;
+
+}
+.post_details .post .comment button{
+    border-radius: 10px;
+    border: 1px solid black;
+    background-color: #3CA6A6;
+    padding: 10px 25px;
+}
+/*--comment list*/
+.main .post_details .comment_list{
+    margin-top: 20px;
+}
+.main .post_details .comment_list .user_list .user .user_name{
+    padding-left: 10px;
+    font-size: 20px;
+    color: #3CA6A6;
+}
+.main .post_details .comment_list .user_list .user .post_cuntent{
+    padding: 10px 0px 0px 10px;
+    color: #333333;
+    max-width: 300px;
+}
+.main .post_details .comment_list .user_list{
+    display: flex;
+    flex-direction: row;
+}
+.user_list .user{
+    margin-left: 20px;
+    padding: 3px 15px;
+    background-color: #F2F3F4;
+    border-radius: 20px;
+}
+/*--post--*/
+.main .post{
+    border-bottom: 1px solid #3CA6A6;
+    border-radius: 10px;
+    margin: auto;
+    margin-top: 20px;
+    padding-bottom: 20px;
+}
+
+.post:hover{
+    background-color: #F2F3F4;
+}
+.post .user_list{
+    display: flex;
+    flex-direction: row;
+}
+.post .user_list .img{
+    padding-top: 10px;   
+}
+.post .user_list .img .profile_img{
+    border-radius: 30px;
+}
+.post .user .user_name{
+    font-size: 24px;
+    padding:15px 0px 0px 10px;
+    color: #3CA6A6;
+}
+.post .user .post_cuntent{
+    padding:10px 0px 0px 30px;
+    max-width: 25rem;
+}
+.post .post_img{
+    max-width: 20rem;
+    height: auto;
+    padding: 10px 0px 0px 80px;
+}
+.post .post_img img{
+    width:100%;
+    border-radius: 15px;
+}
+body header .home_button{
+    float: right;
+    margin-top: -40px;
+}
+body header .home_button button{
+    padding: 5px 15px;
+}
+.center .post .comment{
+    padding-bottom: 20px;
+}
