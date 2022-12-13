@@ -54,10 +54,17 @@ main .notification_list .list .profile{
     margin-top: 10px;
     margin-left: 10px;
 }
+main .notification_list .list .profile img{
+    border-radius: 25px;
+}
 main .notification_list .list .content{
     margin-left: 20px;
     padding-top: 10px;
     max-width: 15rem;
+}
+main .notification_list .list .content a{
+    text-decoration: none;
+    color: black;
 }
 main .notification_list .list .follow button{
     margin-top: 25px;

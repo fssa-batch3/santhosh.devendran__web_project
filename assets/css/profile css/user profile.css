@@ -67,14 +67,22 @@ body header .options a{
 }
 .center .birth .born p{
     color: gray;
-    border-bottom: 1px solid #00acee;
 }
 .center .buttons{
     display: flex;
     align-items: flex-end;
-    margin-top: 50px;
+    margin-top: -50px;
+    float: right;
 }
-
+.center .follower_count,.center .follower_count span{
+    display: flex;
+    flex-direction: row;
+    margin-left: 20px;
+}
+.center .follower_count .gray{
+    color: gray;
+    margin-left: 3px;
+}
 /*---post---*/
 main .my_post{
     margin-left: 29rem;

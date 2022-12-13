@@ -127,3 +127,6 @@ body header .home_button{
 body header .home_button button{
     padding: 5px 15px;
 }
+.tag{
+    color: #00acee;
+}
