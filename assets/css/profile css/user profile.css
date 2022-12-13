@@ -36,8 +36,11 @@ body header .options a{
 
 .center{
     height: 100%;
-    width:35rem;
+    width:38rem;
     margin: auto;
+}
+.center .profile_photo .cover_img img{
+    height: 200px;
 }
 .center .profile_photo .dp img{
     border-radius: 300px;
