@@ -33,15 +33,24 @@ body header .options a{
     font-size: 20px;
 }
 /*--profile--*/
+main{
+    max-width: 38rem;
+    margin: auto;
+    height: 100%;
+    padding: 0px 5px 0px 5px;
+    box-shadow: 6px 0 4px -4px #999, -6px 0 4px -4px #999;
+}
 
 .center{
     height: 100%;
-    width:35rem;
-    margin: auto;
+    width:100%;
+}
+.center .profile_photo .cover_img img{
+    width: 38rem;
 }
 .center .profile_photo .dp img{
     border-radius: 300px;
-    margin-top: -80px;
+    margin-top: -70px;
     border: 2px solid white;
     background-color: white;
 }
@@ -54,9 +63,8 @@ body header .options a{
 }
 .center .about_user{
     margin-top: 15px;
-    width: 100%;
+    width: 80%;
     height: 50px;
-    border: 1px solid #00acee;
     border-radius: 10px;
 }
 .center .about_user p{
@@ -108,11 +116,10 @@ main .my_post{
     color: #00acee;
 }
 .post{
-    max-width: 35rem;
-    border-bottom: 1px solid #00acee;
-    border-radius: 10px;
+    max-width: 38rem;
     margin: auto;
-    margin-top: 20px;
+    margin-top: 15px;
+    box-shadow: 0 3px 3px -4px #999, 0 -3px 3px -4px #999;
 }
 .post:hover{
     background-color: #F2F3F4;
@@ -126,9 +133,11 @@ main .my_post{
 }
 .post .user_list .img .profile_img{
     border-radius: 30px;
+    margin-left: 20px;
 }
 .post .user .user_name{
-    font-size: 24px;
+    font-size: 20px;
+    color: #00acee;
     padding:15px 0px 0px 10px;
 }
 .post .user .post_cuntent{

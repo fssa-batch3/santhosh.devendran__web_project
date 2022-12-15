@@ -34,12 +34,43 @@ body header .options a{
     font-size: 20px;
 }
 /*--post--*/
-.post{
-    border-bottom: 1px solid #00acee;
-    border-radius: 10px;
+main .post_list{
+    max-width: 38rem;
     margin: auto;
-    margin-top: 20px;
-    max-width: 35rem;
+    box-shadow: 3px 0 4px -4px #999, -3px 0 4px -4px #999; 
+}
+main .post_list .create_new_post .new_post .post_content{
+    display: flex;
+    flex-direction: row;
+}
+main .post_list .create_new_post .new_post .post_content img{
+    margin-top: 30px;
+    border-radius: 25px;
+}
+main .post_list .create_new_post .new_post .post_content .option{
+    width: 8rem;
+    height: 1.5rem;
+    margin-top: 40px;
+    margin-left: 15px;
+    border: 1px solid gray;
+    border-radius: 10px;
+    color: #00acee;
+}
+main .post_list .create_new_post .new_post .post_content .option:focus{
+    outline: 0px;
+}
+main .post_list .create_new_post .new_post .post_content .input{
+    border: 0px;
+}
+main .post_list .create_new_post .new_post .post_content .input:focus{
+    outline: 0px;
+}
+.submit{
+    margin-top: -20px;
+}
+.post{
+    margin-top: 15px;
+    box-shadow: 0 3px 3px -4px #999, 0 -3px 3px -4px #999;
 }
 .post:hover{
     background-color: #F2F3F4;
@@ -80,6 +111,13 @@ body header .options a{
     display: flex;
     flex-direction: row;
     margin: 20px 0px 10px 80px;
+    padding-bottom: 15px;
+}
+.post .like_comand .like_count{
+    font-size: 14px;
+    color: gray;
+    margin-left: 5px;
+    margin-top: -10px;
 }
 .post .like_comand .comand{
     padding-left: 20px;

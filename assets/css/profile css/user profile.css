@@ -38,38 +38,62 @@ body header .options a{
     height: 100%;
     width:38rem;
     margin: auto;
+    padding: 0px 3px 0px 3px;
+    box-shadow: 6px 0 4px -4px #999, -6px 0 4px -4px #999; 
 }
+.center .profile_top{
+    display: flex;
+    flex-direction: row;
+    padding: 5px;
+}
+.center .profile_top .back_button{
+    padding-top: 8px;
+}
+.center .profile_top .back_button a{
+    color: black;
+}
+.center .profile_top .user{
+    margin-left: 30px;
+}
+.center .profile_top .post_count{
+    font-size: 12;
+    color: gray;
+}
+
 .center .profile_photo .cover_img img{
-    height: 200px;
+    width: 38rem;
 }
 .center .profile_photo .dp img{
     border-radius: 300px;
-    margin-top: -80px;
+    margin-top: -60px;
     border: 2px solid white;
     background-color: white;
 }
-.center h2{
+.center .username{
     color: #00acee;
+    margin-left: 20px;
+
 }
-.center h3{
+.center .bio{
     padding-top: 30px;
     color: #00acee;
+    margin-left: 20px;
 }
 .center .about_user{
-    margin-top: 15px;
-    width: 100%;
-    height: 50px;
-    border: 1px solid #00acee;
-    border-radius: 10px;
+    margin-top: 10px;
+    width: 80%;
+  
+    margin-left: 20px;
 }
 .center .about_user p{
     margin-left: 5px;
 }
 .center .birth{
-    padding: 30px 0px 30px 0px;
+    padding: 5px 0px 5px 0px;
 }
 .center .birth .born p{
     color: gray;
+    margin-left: 20px;
 }
 .center .buttons{
     display: flex;
@@ -86,18 +110,40 @@ body header .options a{
     color: gray;
     margin-left: 3px;
 }
+.center .followed_by{
+    display: flex;
+    flex-direction: row;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+.center .followed_by div .follower{
+    border-radius: 9px;
+    margin-top: 3px;
+}
+.center .followed_by .follow2{
+    margin-left: -9px;
+}
+.center .followed_by .you_follow span{
+color: gray;
+padding-left: 10px;
+font-size: 14px;
+}
+.center .followed_by .you_follow a{
+    color: gray;  
+    text-decoration: none;
+}
 /*---post---*/
 main .my_post{
-    margin-left: 29rem;
     margin-top: 20px;
+    margin-left: 20px;
     color: #00acee;
 }
 .post{
-    max-width: 35rem;
-    border-bottom: 1px solid #00acee;
-    border-radius: 10px;
+    max-width: 100%;
     margin: auto;
-    margin-top: 20px;
+    margin-top: 15px;
+    box-shadow: 0 3px 3px -4px #999, 0 -3px 3px -4px #999;
+    
 }
 .post:hover{
     background-color: #F2F3F4;
@@ -107,13 +153,15 @@ main .my_post{
     flex-direction: row;
 }
 .post .user_list .img{
-    padding-top: 10px;   
+    padding-top: 10px; 
+    margin-left: 20px;  
 }
 .post .user_list .img .profile_img{
     border-radius: 30px;
 }
 .post .user .user_name{
-    font-size: 24px;
+    font-size: 20px;
+    color: #00acee;
     padding:15px 0px 0px 10px;
 }
 .post .user .post_cuntent{
@@ -133,6 +181,12 @@ main .my_post{
     display: flex;
     flex-direction: row;
     margin: 20px 0px 10px 80px;
+}
+.post .like_comand .like_count{
+    font-size: 14px;
+    color: gray;
+    margin-left: 5px;
+    margin-top: -10px;
 }
 .post .like_comand .comand{
     padding-left: 20px;

@@ -2,6 +2,12 @@
     padding: 0px;
     margin: 0px;
 }
+main{
+    max-width: 38rem;
+    margin: auto;
+    height: 100%;
+    box-shadow: 6px 0 4px -4px #999, -6px 0 4px -4px #999; 
+}
 /*--header--*/
 body .header{
     display: flex;
@@ -58,7 +64,7 @@ body header .list{
     flex-direction: row;
     justify-content: space-evenly;
     padding-top: 15px;
-    max-width: 35rem;
+    max-width: 38.1rem;
     margin: auto;
     border-bottom: 2px solid #00acee;
 }
@@ -74,11 +80,11 @@ body header .list .hilight{
 }
 /*--post--*/
 .post{
-    border-bottom: 1px solid #00acee;
-    border-radius: 10px;
+
     margin: auto;
-    margin-top: 20px;
     max-width: 35rem;
+    margin-top: 15px;
+    box-shadow: 0 3px 3px -4px #999, 0 -3px 3px -4px #999;
 }
 .post:hover{
     background-color: #F2F3F4;
@@ -111,6 +117,12 @@ body header .list .hilight{
 .post .post_img img{
     width:100%;
     border-radius: 15px;
+}
+.post .like_comand .like_count{
+    font-size: 14px;
+    color: gray;
+    margin-left: 5px;
+    margin-top: -10px;
 }
 .post .like_comand{
     display: flex;

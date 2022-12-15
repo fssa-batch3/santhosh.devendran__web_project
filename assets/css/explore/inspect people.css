@@ -2,6 +2,12 @@
     padding: 0px;
     margin: 0px;
 }
+main{
+    max-width: 38rem;
+    margin: auto;
+    height: 100vh;
+    box-shadow: 6px 0 4px -4px #999, -6px 0 4px -4px #999; 
+}
 /*--header--*/
 body .header{
     display: flex;
@@ -58,7 +64,7 @@ body header .list{
     flex-direction: row;
     justify-content: space-evenly;
     padding-top: 15px;
-    max-width: 35rem;
+    max-width: 38.1rem;
     margin: auto;
     border-bottom: 2px solid #00acee;
 }
@@ -80,7 +86,6 @@ body .top{
     max-width: 30rem;
     padding: 20px 0px 10px 100px;
     margin: auto;
-    margin-top: 20px;
 
 }
 .top .follow_button button{
