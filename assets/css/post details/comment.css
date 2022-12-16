@@ -106,10 +106,6 @@ body header .options a{
     padding-bottom: 20px;
     
 }
-.post_details{
-    height: 100vh;
-    box-shadow: 6px 0 4px -4px #999, -6px 0 4px -4px #999; 
-}
 .post:hover{
     background-color: #F2F3F4;
 }

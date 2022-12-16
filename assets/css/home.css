@@ -39,28 +39,18 @@ main .post_list{
     margin: auto;
     
 }
-main .post_list .create_new_post .new_post .post_content{
-    display: flex;
-    flex-direction: row;
-}
 main .post_list .create_new_post .new_post .post_content img{
     margin-top: 30px;
+    margin-left: 20px;
     border-radius: 25px;
-}
-main .post_list .create_new_post .new_post .post_content .option{
-    width: 8rem;
-    height: 1.5rem;
-    margin-top: 40px;
-    margin-left: 15px;
-    border: 1px solid gray;
-    border-radius: 10px;
-    color: #00acee;
-}
-main .post_list .create_new_post .new_post .post_content .option:focus{
-    outline: 0px;
 }
 main .post_list .create_new_post .new_post .post_content .input{
     border: 0px;
+    width: 30rem;
+    max-height: 3rem;
+    margin-top: 30px;
+    margin-left: 10px;
+    border-radius: 10px;
 }
 main .post_list .create_new_post .new_post .post_content .input:focus{
     outline: 0px;
@@ -141,29 +131,42 @@ body header .home_button button{
     border-radius: 15px;
     background-color: #fafafa;
 }
-.post_list .create_new_post .new_post .file_upload .file{
-    padding: 10px;
-    float: right;
-}
-.post_list .create_new_post .new_post .post_content .input{
-    width: 20rem;
-    height: 3rem;
-    margin: 10px 0px 10px 50px;
-    background-color: #fafafa;
- }
- .post_list .create_new_post .new_post .post_content .np{
+.post_list .create_new_post .new_post .post_content{
     display: flex;
     flex-direction: column;
- }
-.post_list .create_new_post .submit .post{
-    padding: 10px 25px;
-    border-radius: 20px;
+}
+.profile{
+    display: flex;
+    flex-direction: row;
+}
+.file_upload{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+.post_content .file_upload{
+    margin-top: 10px;
+}
+.post_content .file_upload .file_icon .file{
+    margin-top: -30px;
+}
+.post_content .file_upload .file_icon .file input{
+    opacity: calc(0);
+    max-width: 3rem;
+    margin-left: 30px;
+}
+.post_content .file_upload .file_icon .icon{
+    margin-top: 20px;
+    margin-left: 50px;
+}
+.post_content .file_upload .submit{
+    margin-left: 20rem;
+    margin-top: 1rem;
+}
+.post_content .file_upload .submit .post{
+    padding: 8px 22px;
+    border-radius: 5px;
     background-color: #00acee;
+    margin-top: -20px;
     color: white;
-    width: 8rem;
-    height: 2rem;
-    margin-left: 25rem;
- }
- .post_list .create_new_post .new_post .post_content .profile{
-    margin-left: 10px;
- }
+}
