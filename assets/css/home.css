@@ -37,7 +37,7 @@ body header .options a{
 main .post_list{
     max-width: 38rem;
     margin: auto;
-    box-shadow: 3px 0 4px -4px #999, -3px 0 4px -4px #999; 
+    
 }
 main .post_list .create_new_post .new_post .post_content{
     display: flex;
@@ -70,10 +70,11 @@ main .post_list .create_new_post .new_post .post_content .input:focus{
 }
 .post{
     margin-top: 15px;
-    box-shadow: 0 3px 3px -4px #999, 0 -3px 3px -4px #999;
+    border-radius: 15px;
+    background-color:  #fafafa;
 }
 .post:hover{
-    background-color: #F2F3F4;
+    background-color:#e0e0e0;
 }
 .post .user_list{
     display: flex;
@@ -134,24 +135,35 @@ body header .home_button button{
 }
 /*--create new--*/
 .post_list .create_new_post{
-    max-width: 35rem;
+    max-width: 38rem;
     padding-bottom: 20px;
     margin: auto;
-    border-bottom: 1px solid gray;
+    border-radius: 15px;
+    background-color: #fafafa;
 }
 .post_list .create_new_post .new_post .file_upload .file{
     padding: 10px;
     float: right;
 }
 .post_list .create_new_post .new_post .post_content .input{
-    width: 25rem;
-    height: 5rem;
+    width: 20rem;
+    height: 3rem;
     margin: 10px 0px 10px 50px;
+    background-color: #fafafa;
+ }
+ .post_list .create_new_post .new_post .post_content .np{
+    display: flex;
+    flex-direction: column;
  }
 .post_list .create_new_post .submit .post{
-    padding: 10px 35px;
-    margin: 20px 0px 0px 400px;
-    border: 2px solid #00acee;
-    background-color: white;
-    color: #00acee;
+    padding: 10px 25px;
+    border-radius: 20px;
+    background-color: #00acee;
+    color: white;
+    width: 8rem;
+    height: 2rem;
+    margin-left: 25rem;
+ }
+ .post_list .create_new_post .new_post .post_content .profile{
+    margin-left: 10px;
  }
