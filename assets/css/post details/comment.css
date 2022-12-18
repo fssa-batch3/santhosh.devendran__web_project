@@ -51,14 +51,15 @@ body header .options a{
     padding: 10px;
     width: 200px;
     border: 0px;
+    border-radius: 5px;
 }
 .post_details .post .comment input:focus{
     outline: 0px;
 }
 .post_details .post .comment button{
     border-radius: 10px;
-    border: 1px solid black;
-    background-color: #3CA6A6;
+    border: 2px solid #00acee;
+    background-color: white;
     padding: 10px 25px;
     margin-left: -6rem;
 }
@@ -70,7 +71,7 @@ body header .options a{
 .main .post_details .comment_list .user_list .user .user_name{
     padding-left: 10px;
     font-size: 20px;
-    color: #3CA6A6;
+    color: #00acee;
 }
 .main .post_details .comment_list .user_list .user .post_cuntent{
     padding: 10px 0px 0px 10px;
@@ -86,21 +87,31 @@ body header .options a{
 }
 .user_list .user{
     margin-left: 20px;
-    padding: 3px 15px;
+    padding: 5px 15px;
     background-color: #F2F3F4;
     border-radius: 20px;
 }
 .comment_list .like{
-    margin-left: 10rem;
+    width: 5rem;
+    height: 1.5rem;
+    background-color: #d4d4d4;
+    border-radius: 15px;
+    margin: 6px 0px 6px 70px;
+
 }
 .comment_list .like .like_count{
     font-size: 14px;
     color: gray;
-    padding-left: 5px;
+    margin-left: 15px;
+    margin-top: -10px;
+}
+.comment_list .like a{
+    margin-top: 10px;
+    margin-left: 10px;
 }
 /*--post--*/
 .main .post{
-    border-bottom: 1px solid #3CA6A6;
+    background-color: #F2F3F4;
     border-radius: 10px;
     margin: auto;
     padding-bottom: 20px;
@@ -112,17 +123,22 @@ body header .options a{
 .post .user_list{
     display: flex;
     flex-direction: row;
+    padding: 10px 0px 10px 0px;
+    border: 1px solid #F2F3F4;
+    border-radius: 10px;
 }
 .post .user_list .img{
     padding-top: 10px;   
 }
 .post .user_list .img .profile_img{
     border-radius: 30px;
+    margin-top: 15px;
+    margin-left: 20px;
 }
 .post .user .user_name{
     font-size: 24px;
-    padding:15px 0px 0px 10px;
-    color: #3CA6A6;
+    padding:15px 0px 0px 0px;
+    color: #00acee;
 }
 .post .user .post_cuntent{
     padding:10px 0px 15px 30px;
@@ -149,5 +165,9 @@ body header .home_button button{
 }
 .tag{
     color: #00acee;
+}
+a{
+    text-decoration: none;
+    color: black;
 }
 

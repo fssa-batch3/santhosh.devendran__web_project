@@ -43,8 +43,9 @@ body .main{
 .main .with_mobile .formlist .list{
     font-size: 18px;
     height: 25px;
-    border:2px solid #ffffff;
-    border-radius: 15px;
+    border:1px solid #ffffff;
+    border-radius: 10px;
+    padding-left: 15px;
 }
 .main .with_mobile .bn .loginbn{
     padding: 6px 20px;
@@ -62,4 +63,5 @@ body .main{
 }
 .create a{
     text-decoration: none;
+    font-size: 18px;
 }

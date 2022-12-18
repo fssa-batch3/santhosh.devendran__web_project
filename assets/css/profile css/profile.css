@@ -38,15 +38,38 @@ main{
     margin: auto;
     height: 100%;
     padding: 0px 5px 0px 5px;
-    box-shadow: 6px 0 4px -4px #999, -6px 0 4px -4px #999;
 }
 
 .center{
-    height: 100%;
-    width:100%;
+    border-radius: 10px;
+    margin-top: 10px;
+    background-color: #f2f3f4;
+    padding: 10px 0px 15px 0px;
 }
+
+.center .profile_top{
+    display: flex;
+    flex-direction: row;
+    padding: 5px;
+}
+.center .profile_top .back_button{
+    padding-top: 8px;
+}
+.center .profile_top .back_button a{
+    color: black;
+}
+.center .profile_top .user{
+    margin-left: 30px;
+}
+.center .profile_top .post_count{
+    font-size: 12;
+    color: gray;
+}
+
+
 .center .profile_photo .cover_img img{
     width: 38rem;
+    height: 200px;
 }
 .center .profile_photo .dp img{
     border-radius: 300px;
@@ -54,35 +77,57 @@ main{
     border: 2px solid white;
     background-color: white;
 }
+.center .profile_photo .dp {
+    width: 135px;
+    margin: auto;
+}
+.user_details{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 .center h2{
     color: #00acee;
+    display: inline;
+    margin: auto;
 }
 .center h3{
-    padding-top: 30px;
+    padding-top: 10px;
+    display: inline;
+    margin: auto;
     color: #00acee;
 }
 .center .about_user{
     margin-top: 15px;
-    width: 80%;
-    height: 50px;
+    max-width: 80%;
+    height: 20px;
     border-radius: 10px;
+    display: inline;
+    margin: auto;
 }
 .center .about_user p{
     margin-left: 5px;
+    display: inline;
+    margin: auto;
 }
 .center .birth{
-    padding: 30px 0px 30px 0px;
+    padding: 15px 0px 15px 0px;
+    display: inline;
+    margin: auto;
 }
-.center .birth .born p{
+.center .birth  p{
     color: gray;
+    display: inline;
+    margin: auto;
 }
-.center .buttons{
-    display: flex;
-    align-items: flex-end;
-    margin-top: 50px;
+.center .bn{
+    margin-top: 30px;
+}
+.center .bn .edit{
+    margin-left: 270px;
 }
 .edit{
-    padding: 10px 35px;
+    padding: 10px 30px;
     border: 2px solid #00acee;
     border-radius: 15px;
     color: #00acee;
@@ -93,42 +138,58 @@ main{
     color: white;
     background-color: #00acee;
 }
-.buttons .delete{
-    border: 0px solid;
-    border-radius: 10px;
-    background-color: #d11a2a;
-    padding: 10px 15px;
-    color: white;
-}
-.center .follower_count,.center .follower_count span{
+.center .follower_count{
     display: flex;
     flex-direction: row;
-    margin-left: 20px;
+    justify-content: space-evenly;
+}
+.center .follower_count span{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 10px 30px 10px 30px;
+    background-color: #d4d4d4;
+    border-radius: 15px;
+}
+.center .follower_count span b{
+    display: inline;
+    margin: auto;
 }
 .center .follower_count .gray{
     color: gray;
     margin-left: 3px;
 }
 /*---post---*/
-main .my_post{
-    margin-left: 29rem;
-    margin-top: 20px;
-    color: #00acee;
+main .mypost .my_post{
+    text-align: center;
+    padding: 8px;
+    font-size: 20px;
+}
+main .mypost{
+    height: 3rem;
+    background-color: #f2f3f4;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-radius: 10px;
+    position: sticky;
+    top: 70px;
 }
 .post{
     max-width: 38rem;
     margin: auto;
     margin-top: 15px;
-    box-shadow: 0 3px 3px -4px #999, 0 -3px 3px -4px #999;
+    border-radius: 15px;
+    background-color:  #f2f3f4;
 }
 .post:hover{
-    background-color: #F2F3F4;
+    background-color: #e0e0e0;
 }
 .post .user_list{
     display: flex;
     flex-direction: row;
 }
 .post .user_list .img{
+    margin-left: 10px;
     padding-top: 10px;   
 }
 .post .user_list .img .profile_img{
@@ -157,12 +218,37 @@ main .my_post{
     display: flex;
     flex-direction: row;
     margin: 20px 0px 10px 80px;
+    padding-bottom: 15px;
+}
+.post .like_comand .like_count{
+    font-size: 14px;
+    color: gray;
+    margin-left: 15px;
+    margin-top: -10px;
+}
+.post .like_comand .like{
+    width: 8rem;
+    height: 2rem;
+    background-color: #d4d4d4;
+    border-radius: 15px;
+    margin: 6px 0px 6px 0px;
 }
 .post .like_comand .comand{
-    padding-left: 20px;
+    width: 8rem;
+    height: 2rem;
+    background-color: #d4d4d4;
+    border-radius: 15px;
+    margin: 6px 0px 6px 30px;
+}
+.like i,.comand i{
+    margin-top: 5px;
+    margin-left: 15px;
 }
 .user .delete{
     margin:0px 0px 0px 380px;
+}
+.post .like_comand a{
+    text-decoration: none;
 }
 .deletebn{
     padding: 5px;

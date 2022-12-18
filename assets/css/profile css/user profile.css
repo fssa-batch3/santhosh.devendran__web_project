@@ -33,13 +33,17 @@ body header .options a{
     font-size: 20px;
 }
 /*--profile--*/
-
-.center{
-    height: 100%;
-    width:38rem;
+main{
+    max-width: 38rem;
     margin: auto;
-    padding: 0px 3px 0px 3px;
-    box-shadow: 6px 0 4px -4px #999, -6px 0 4px -4px #999; 
+    height: 100%;
+    padding: 0px 5px 0px 5px;
+}
+.center{
+    border-radius: 10px;
+    margin-top: 10px;
+    background-color: #f2f3f4;
+    padding: 10px 0px 15px 0px;
 }
 .center .profile_top{
     display: flex;
@@ -62,49 +66,87 @@ body header .options a{
 
 .center .profile_photo .cover_img img{
     width: 38rem;
+    height: 200px;
 }
 .center .profile_photo .dp img{
     border-radius: 300px;
-    margin-top: -60px;
+    margin-top: -70px;
     border: 2px solid white;
     background-color: white;
 }
-.center .username{
-    color: #00acee;
-    margin-left: 20px;
-
+.center .profile_photo .dp {
+    width: 135px;
+    margin: auto;
 }
-.center .bio{
-    padding-top: 30px;
+.user_details{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.center h2{
     color: #00acee;
-    margin-left: 20px;
+    display: inline;
+    margin: auto;
+}
+.center h3{
+    padding-top: 10px;
+    display: inline;
+    margin: auto;
+    color: #00acee;
 }
 .center .about_user{
-    margin-top: 10px;
-    width: 80%;
-  
-    margin-left: 20px;
+    margin-top: 15px;
+    max-width: 80%;
+    height: 20px;
+    border-radius: 10px;
+    display: inline;
+    margin: auto;
 }
 .center .about_user p{
     margin-left: 5px;
+    display: inline;
+    margin: auto;
 }
 .center .birth{
-    padding: 5px 0px 5px 0px;
+    padding: 15px 0px 15px 0px;
+    display: inline;
+    margin: auto;
 }
-.center .birth .born p{
+.center .birth p{
     color: gray;
-    margin-left: 20px;
+    display: inline;
+    margin: auto;
 }
-.center .buttons{
-    display: flex;
-    align-items: flex-end;
-    margin-top: -50px;
-    float: right;
+.center .bn{
+    margin-top: 30px;
 }
-.center .follower_count,.center .follower_count span{
+.center .bn .edit{
+    margin-left: 270px;
+}
+.edit{
+    padding: 10px 30px;
+    border: 2px solid #00acee;
+    border-radius: 15px;
+    color: #00acee;
+    background-color: white;
+}
+.center .follower_count{
     display: flex;
     flex-direction: row;
+    justify-content: space-evenly;
     margin-left: 20px;
+}
+.center .follower_count span{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 10px 30px 10px 30px;
+    background-color: #d4d4d4;
+    border-radius: 15px;
+}
+.center .follower_count span b{
+    display: inline;
+    margin: auto;
 }
 .center .follower_count .gray{
     color: gray;
@@ -113,6 +155,7 @@ body header .options a{
 .center .followed_by{
     display: flex;
     flex-direction: row;
+    justify-content: center;
     margin-left: 20px;
     margin-top: 20px;
 }
@@ -133,20 +176,34 @@ font-size: 14px;
     text-decoration: none;
 }
 /*---post---*/
-main .my_post{
-    margin-top: 20px;
-    margin-left: 20px;
+.postandlikes{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: #d4d4d4;
+    border-radius: 10px;
+    position: sticky;
+    top: 70px;
+}
+main .postandlikes h2{
+    
+    padding-top: 5px;
+    padding-bottom: 3px;
+}
+main .postandlikes .hilight{
     color: #00acee;
+    border-bottom: 3px solid #00acee;
 }
 .post{
     max-width: 100%;
     margin: auto;
     margin-top: 15px;
-    box-shadow: 0 3px 3px -4px #999, 0 -3px 3px -4px #999;
-    
+    background-color:  #f2f3f4;
 }
 .post:hover{
-    background-color: #F2F3F4;
+    background-color: #e0e0e0;
 }
 .post .user_list{
     display: flex;
@@ -157,10 +214,10 @@ main .my_post{
     margin-left: 20px;  
 }
 .post .user_list .img .profile_img{
-    border-radius: 30px;
+    border-radius: 25px;
 }
 .post .user .user_name{
-    font-size: 20px;
+    font-size: 18px;
     color: #00acee;
     padding:15px 0px 0px 10px;
 }
@@ -177,26 +234,47 @@ main .my_post{
     width:100%;
     border-radius: 15px;
 }
-.post .like_comand{
-    display: flex;
-    flex-direction: row;
-    margin: 20px 0px 10px 80px;
-}
 .post .like_comand .like_count{
     font-size: 14px;
     color: gray;
     margin-left: 5px;
     margin-top: -10px;
 }
+.post .like_comand{
+    display: flex;
+    flex-direction: row;
+    margin: 20px 0px 10px 80px;
+    padding-bottom: 15px;
+}
+.post .like_comand .like{
+    width: 8rem;
+    height: 2rem;
+    background-color: #d4d4d4;
+    border-radius: 15px;
+    margin: 6px 0px 6px 0px;
+}
+.post .like_comand .comand{
+    width: 8rem;
+    height: 2rem;
+    background-color: #d4d4d4;
+    border-radius: 15px;
+    margin: 6px 0px 6px 30px;
+}
+.post .like_comand a{
+    text-decoration: none;
+}
+.like i,.comand i{
+    margin-top: 5px;
+    margin-left: 15px;
+}
 .post .like_comand .comand{
     padding-left: 20px;
 }
-.follow{
-    padding: 10px 25px;
-    border: 2px solid #00acee;
-    border-radius: 10px;
-    background-color: white;
-}
+
 .tag{
     color: #00acee;
+}
+a{
+    text-decoration: none;
+    color: black;
 }

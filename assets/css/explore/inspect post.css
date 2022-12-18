@@ -6,7 +6,6 @@ main{
     max-width: 38rem;
     margin: auto;
     height: 100%;
-    box-shadow: 6px 0 4px -4px #999, -6px 0 4px -4px #999; 
 }
 /*--header--*/
 body .header{
@@ -82,9 +81,11 @@ body header .list .hilight{
 .post{
 
     margin: auto;
-    max-width: 35rem;
-    margin-top: 15px;
-    box-shadow: 0 3px 3px -4px #999, 0 -3px 3px -4px #999;
+    max-width: 38rem;
+    margin-top: 10px;
+    margin-top: 10px;
+    background-color: #F2F3F4;
+    border-radius: 10px;
 }
 .post:hover{
     background-color: #F2F3F4;
@@ -128,6 +129,28 @@ body header .list .hilight{
     display: flex;
     flex-direction: row;
     margin: 20px 0px 10px 80px;
+    padding-bottom: 15px;
+}
+.post .like_comand .like{
+    width: 8rem;
+    height: 2rem;
+    background-color: #d4d4d4;
+    border-radius: 15px;
+    margin: 6px 0px 6px 0px;
+}
+.post .like_comand .comand{
+    width: 8rem;
+    height: 2rem;
+    background-color: #d4d4d4;
+    border-radius: 15px;
+    margin: 6px 0px 6px 30px;
+}
+.post .like_comand a{
+    text-decoration: none;
+}
+.like i,.comand i{
+    margin-top: 5px;
+    margin-left: 15px;
 }
 .post .like_comand .comand{
     padding-left: 20px;

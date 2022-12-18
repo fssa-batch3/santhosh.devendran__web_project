@@ -51,6 +51,7 @@ main .post_list .create_new_post .new_post .post_content .input{
     margin-top: 30px;
     margin-left: 10px;
     border-radius: 10px;
+    padding-left: 10px;
 }
 main .post_list .create_new_post .new_post .post_content .input:focus{
     outline: 0px;
@@ -59,9 +60,9 @@ main .post_list .create_new_post .new_post .post_content .input:focus{
     margin-top: -20px;
 }
 .post{
-    margin-top: 15px;
+    margin-top: 10px;
     border-radius: 15px;
-    background-color:  #fafafa;
+    background-color:  #f2f3f4;
 }
 .post:hover{
     background-color:#e0e0e0;
@@ -107,11 +108,29 @@ main .post_list .create_new_post .new_post .post_content .input:focus{
 .post .like_comand .like_count{
     font-size: 14px;
     color: gray;
-    margin-left: 5px;
+    margin-left: 15px;
     margin-top: -10px;
 }
+.post .like_comand .like{
+    width: 8rem;
+    height: 2rem;
+    background-color: #d4d4d4;
+    border-radius: 15px;
+    margin: 6px 0px 6px 0px;
+}
 .post .like_comand .comand{
-    padding-left: 20px;
+    width: 8rem;
+    height: 2rem;
+    background-color: #d4d4d4;
+    border-radius: 15px;
+    margin: 6px 0px 6px 30px;
+}
+.post .like_comand a{
+    text-decoration: none;
+}
+.like i,.comand i{
+    margin-top: 5px;
+    margin-left: 15px;
 }
 body header .home_button{
     float: right;
@@ -129,7 +148,7 @@ body header .home_button button{
     padding-bottom: 20px;
     margin: auto;
     border-radius: 15px;
-    background-color: #fafafa;
+    background-color: #f2f3f4;
 }
 .post_list .create_new_post .new_post .post_content{
     display: flex;
@@ -143,9 +162,10 @@ body header .home_button button{
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
+    margin-top: 10px;
 }
 .post_content .file_upload{
-    margin-top: 10px;
+    padding-top: 10px;
 }
 .post_content .file_upload .file_icon .file{
     margin-top: -30px;
@@ -153,11 +173,10 @@ body header .home_button button{
 .post_content .file_upload .file_icon .file input{
     opacity: calc(0);
     max-width: 3rem;
-    margin-left: 30px;
+    margin-left: 20px;
 }
 .post_content .file_upload .file_icon .icon{
-    margin-top: 20px;
-    margin-left: 50px;
+    margin-left: 20px;
 }
 .post_content .file_upload .submit{
     margin-left: 20rem;

@@ -7,7 +7,7 @@ main{
     max-width: 38rem;
     margin: auto;
     height: 100vh;
-    box-shadow: 6px 0 4px -4px #999, -6px 0 4px -4px #999; 
+    
 }
 body .header{
     display: flex;
@@ -86,10 +86,11 @@ body .top{
     flex-direction: row;
     justify-content: space-between;
     border-radius: 10px;
-    border-bottom: 1px solid #00acee;
-    max-width: 30rem;
+    background-color: #f2f3f4;
+    max-width: 38rem;
     padding: 20px 0px 10px 100px;
     margin: auto;
+    margin-top: 10px;
 }
 body .top .hash{
     display: flex;
