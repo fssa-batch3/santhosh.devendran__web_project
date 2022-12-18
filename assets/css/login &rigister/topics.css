@@ -55,6 +55,14 @@ body .next{
     background-color: white;
     color: black;
 }
+.next .button .skip{
+    padding: 5px 10px;
+    color: white;
+    font-size: 18px;
+}
+.next .button .skip:hover{
+    font-weight: bolder;
+}
 .checkbox{
     margin-left: 200px;
     height: 20px;
@@ -91,4 +99,7 @@ body .next{
     background-color: #F2E3D5;
     border-radius: 8px;
     border: 1px solid white;
+}
+a{
+    text-decoration: none;
 }
