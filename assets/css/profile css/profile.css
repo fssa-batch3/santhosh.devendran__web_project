@@ -28,7 +28,6 @@ body header .options{
 }
 body header .options a{
     margin-left: 50px;
-    margin-right: 20px;
     text-decoration: none;
     font-size: 20px;
 }
@@ -98,12 +97,13 @@ main{
     color: #00acee;
 }
 .center .about_user{
+    margin: auto;
     margin-top: 15px;
     max-width: 80%;
     height: 20px;
     border-radius: 10px;
     display: inline;
-    margin: auto;
+   
 }
 .center .about_user p{
     margin-left: 5px;

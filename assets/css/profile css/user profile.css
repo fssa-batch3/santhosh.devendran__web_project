@@ -95,12 +95,12 @@ main{
     color: #00acee;
 }
 .center .about_user{
+    margin: auto;
     margin-top: 15px;
     max-width: 80%;
     height: 20px;
     border-radius: 10px;
     display: inline;
-    margin: auto;
 }
 .center .about_user p{
     margin-left: 5px;
