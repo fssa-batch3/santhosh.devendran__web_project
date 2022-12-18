@@ -45,7 +45,10 @@ body header{
     background-color: #ffff;
 }
 body header .search_bar{
-    margin: 20px 0px 0px 600px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 20px 0px 0px 0px;
 }
 body header .search_bar .search{
     padding: 5px 50px;
@@ -55,8 +58,10 @@ body header .search_bar input{
     border-radius: 10px;
 }
 body header .search_bar .fa{
-    margin-left: -20px;
     color: #00acee;
+}
+body header .search_bar .search_icon{
+    margin: 5px 0px 0px -20px;
 }
 body header .list{
     display: flex;
@@ -163,4 +168,7 @@ body header .home_button button{
 }
 .tag{
     color: #00acee;
+}
+a{
+    text-decoration: none;
 }

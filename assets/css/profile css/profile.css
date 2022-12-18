@@ -28,6 +28,7 @@ body header .options{
 }
 body header .options a{
     margin-left: 50px;
+    margin-right: 20px;
     text-decoration: none;
     font-size: 20px;
 }
@@ -159,19 +160,24 @@ main{
     margin-left: 3px;
 }
 /*---post---*/
-main .mypost .my_post{
-    text-align: center;
-    padding: 8px;
-    font-size: 20px;
-}
-main .mypost{
-    height: 3rem;
-    background-color: #f2f3f4;
-    margin-top: 5px;
-    margin-bottom: 5px;
+.postandlikes{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: #d4d4d4;
     border-radius: 10px;
     position: sticky;
     top: 70px;
+}
+main .postandlikes h2{
+    padding-top: 5px;
+    padding-bottom: 3px;
+}
+main .postandlikes .hilight{
+    color: #00acee;
+    border-bottom: 3px solid #00acee;
 }
 .post{
     max-width: 38rem;
@@ -258,4 +264,8 @@ main .mypost{
 }
 .tag{
     color: #00acee;
+}
+a{
+    color: black;
+    text-decoration: none;
 }

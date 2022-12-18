@@ -35,18 +35,50 @@ body header .options a{
 }
 /*--center--*/
 .center{
-    height: 100%;
-    width:35rem;
+    height: 38rem;
+    width:38rem;
     margin: auto;
+    margin-top: 10px;
+    border-radius: 10px;
+    background-color: #f2f3f4;
 }
 .center .profile_photo .dp img{
+    display: block;
+    margin: auto;
     border-radius: 300px;
-    margin-top: -80px;
+    margin-top: -70px;
     border: 3px solid white;
 }
-.center .photo_change{
-    display: flex;
-    flex-direction: row;
+.center .profile_photo .cover_img img{
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.center .profile_photo .cover_img .profile{
+    margin-top: -25px;
+    width: 3rem;
+    float: right;
+    position: sticky;
+    top: 160px;
+    opacity: calc(0);
+    z-index: 1;
+}
+.center .profile_photo .cover_img .fa{
+    margin-top: -25px;
+    float: right;
+    position: sticky;
+    margin-right: 10px
+}
+.center .profile_photo .dp .profile{
+    width: 4rem;
+    display: block;
+    margin: auto;
+    margin-top: -25px;
+    opacity: calc(0);
+}
+.center .profile_photo .dp .fa{
+    margin-left: 300px;
+    display: block;
+    margin-top: -23px;
 }
 .center .data_change{
     display: flex;
@@ -54,19 +86,22 @@ body header .options a{
     justify-content: space-evenly;
 }
 .center .data_change input{
-    margin-top: 20px;
+    margin: auto;
+    margin-top: 30px;
     padding: 10px;
-    background-color: lightgrey;
-    border: 1px solid gray;
-    border-radius: 5px;
+    background-color: white;
+    border: 1px solid #00acee;
+    border-radius: 10px;
+    width: 20rem;
 }
 .center .submit{
     display: flex;
-    justify-content: flex-end;
-    height: 150px;
+    justify-content: center;
+    height: 50px;
+    margin-top: 30px;
 }
 .center .submit .sb{
-    margin-top: 100px;
+    margin-top: 20px;
 }
 .center .submit .sb button{
     padding: 10px 25px 10px 25px;

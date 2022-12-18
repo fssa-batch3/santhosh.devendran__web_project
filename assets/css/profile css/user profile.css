@@ -28,7 +28,7 @@ body header .options{
 }
 body header .options a{
     margin-left: 50px;
-    margin-right: 30px;
+    margin-right: 20px;
     text-decoration: none;
     font-size: 20px;
 }
@@ -43,7 +43,7 @@ main{
     border-radius: 10px;
     margin-top: 10px;
     background-color: #f2f3f4;
-    padding: 10px 0px 15px 0px;
+    padding: 0px 0px 10px 0px;
 }
 .center .profile_top{
     display: flex;
@@ -100,22 +100,22 @@ main{
     max-width: 80%;
     height: 20px;
     border-radius: 10px;
-    display: inline;
+    text-align: center;
 }
 .center .about_user p{
     margin-left: 5px;
     display: inline;
+
     
 }
 .center .birth{
     padding: 15px 0px 15px 0px;
-    display: inline;
-    margin: auto;
+    text-align: center;
+    margin-top: 15px;
 }
 .center .birth p{
     color: gray;
-    display: inline;
-    margin: auto;
+    
 }
 .center .bn{
     margin-top: 30px;
@@ -188,7 +188,6 @@ font-size: 14px;
     top: 70px;
 }
 main .postandlikes h2{
-    
     padding-top: 5px;
     padding-bottom: 3px;
 }
@@ -277,4 +276,37 @@ main .postandlikes .hilight{
 a{
     text-decoration: none;
     color: black;
+}
+/*--job aleart-*/
+
+main .job_aleart{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-content: center;
+    height: 4rem;
+    width: 38rem;
+    margin-top: 10px;
+    background-color: #f2f3f4;
+    border-radius: 10px;
+}
+main .job_aleart .profile img{
+    border-radius: 25px;
+}
+main .job_aleart .jobv{
+    width: 25rem;
+    padding-top: 15px;
+    padding-left: 5px;
+}
+main .job_aleart .jobv .gray{
+    color: gray;
+}
+main .job_aleart .bn button{
+  border: 0px;
+  border-radius: 10px;
+  background-color: #00acee;
+  color: white;
+  padding: 10px 25px;
+  margin-top: 10px;
 }
