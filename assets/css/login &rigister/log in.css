@@ -3,6 +3,18 @@
     padding: 0px;
     margin: 0px;
 }
+.title{
+    font-size: 50px;
+    font-weight: bold;
+    color: #00acee;
+    display: inline;
+    margin-top: 3rem;
+    
+}
+.td{
+    text-align: center;
+    padding-top: 5rem;
+}
 .main .logo h3{
     max-width: 20rem;
     color: #ffffff;
@@ -17,7 +29,7 @@ body .main{
     align-items: center;
     justify-content: space-evenly;
     margin: auto;
-    margin-top: 10rem;
+    margin-top: 1rem;
     background-color: #00acee;
    border-radius: 200px;
    width: 900px;
