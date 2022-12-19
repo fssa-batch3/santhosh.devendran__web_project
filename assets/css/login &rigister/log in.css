@@ -3,7 +3,14 @@
     padding: 0px;
     margin: 0px;
 }
+.main .logo h3{
+    max-width: 20rem;
+    color: #ffffff;
+}
+.main .logo .li{
+    color: #ffffff;
 
+}
 body .main{
     display: flex;
     flex-direction: row;
