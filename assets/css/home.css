@@ -6,9 +6,9 @@
 body header{
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-content: center;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: center;
     height: 70px;
     background-color: #00acee;
     position: sticky;
@@ -16,16 +16,17 @@ body header{
     width: auto;
 }
 body header .logo img{
+    height: 50px;
+    width: 50px;
     border-radius: 25px;
     margin-left: 30px;
 }
 body header .options{
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: space-between;
-    align-content: center;
-    margin-right: 100px;
+    align-items: center;
 }
 body header .options a{
     margin-left: 50px;
@@ -36,8 +37,7 @@ body header .options a{
 /*--post--*/
 main .post_list{
     max-width: 38rem;
-    margin: auto;
-    
+    margin: auto;    
 }
 main .post_list .create_new_post .new_post .post_content img{
     margin-top: 30px;
@@ -188,4 +188,63 @@ body header .home_button button{
     background-color: #00acee;
     margin-top: -20px;
     color: white;
+}
+/*--responsive--*/
+
+
+@media only screen and (max-width: 420px){
+    body{
+        width: 100%;
+    }
+    body header{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        align-items: center;
+        height: 50px;
+    }
+    body header .logo img{
+        height: 30px;
+        width: 30px;
+        border-radius: 15px;
+        margin-left: 20px;
+    }
+    body header .options a{
+        margin-left: 10px;
+        margin-right: 2px;
+        text-decoration: none;
+        font-size: 15px;
+    }
+    .post_content .file_upload .submit{
+        margin-left: 8rem;
+        margin-top: 3px;
+    }
+    .post_list .create_new_post{
+        width: 95vw;
+        height: 17vh;
+        padding-bottom: 20px;
+        margin: auto;
+        border-radius: 15px;
+        background-color: #f2f3f4;
+    }
+    main .post_list{
+        max-width: 95vw;
+        margin: auto;    
+    }
+    .post .post_img{
+        max-width: 20rem;
+        height: auto;
+        padding: 10px 0px 0px 10px;
+    }
+    .post .like_comand{
+        display: flex;
+        flex-direction: row;
+        margin: 20px 0px 10px 10px;
+        padding-bottom: 15px;
+    }
+    main .post_list .create_new_post .new_post .post_content .input{
+        width: 15rem;
+    }
+    
 }
