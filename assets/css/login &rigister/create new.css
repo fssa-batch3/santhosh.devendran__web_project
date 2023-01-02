@@ -20,7 +20,7 @@ body h2{
     align-items: center;
     align-content: center;
     width: 450px;
-    height: 650px;
+    height: 680px;
     background-color: #ffffff;
     border-radius: 20px;
     box-shadow: 3px 2px 3px gray ;
@@ -55,7 +55,7 @@ body main .form{
 .flex{
     display: flex;
     flex-direction: column;
-    padding-top: 10px;
+    padding-top: 3px;
 }
 .name .input{
     padding: 5px;
