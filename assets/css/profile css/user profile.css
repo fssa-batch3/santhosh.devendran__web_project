@@ -258,6 +258,7 @@ main .postandlikes .hilight{
     background-color: #d4d4d4;
     border-radius: 15px;
     margin: 6px 0px 6px 30px;
+    padding-left: 20px;
 }
 .post .like_comand a{
     text-decoration: none;
@@ -266,10 +267,6 @@ main .postandlikes .hilight{
     margin-top: 5px;
     margin-left: 15px;
 }
-.post .like_comand .comand{
-    padding-left: 20px;
-}
-
 .tag{
     color: #00acee;
 }
