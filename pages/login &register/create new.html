@@ -15,36 +15,36 @@
                 <div class="name">
                     <div class="firstname">
                         <lable class="lable">First Name:</lable>
-                        <input type="text" class="input" placeholder="First Name" required>
+                        <input id="firstname" type="text" class="input" placeholder="First Name" value="santhosh" required>
                     </div>
                     <div class="lastname">
                         <label class="lable">Last Name:</label>
-                        <input type="text" class="input" placeholder="Last Name" required>
+                        <input id="lastname" type="text" class="input" placeholder="Last Name" value="D" required>
                     </div>
                 </div>
                 <div class="flex">
                     <lable class="lable">user name:</lable>
-                    <input type="text" class="input" required>
+                    <input id="username" type="text" class="input" value="sandy02" required>
                 </div>
                 <div class="flex">
                     <lable class="lable">D.O.B:</lable>
-                    <input type="date" class="input" required>
+                    <input id="dob" type="date" class="input" value="2002-08-28" required>
                 </div>
                 <div class="flex">
                     <lable class="lable">Mail ID:</lable>
-                    <input type="email" class="input" placeholder="firstname@domain.com" required>
+                    <input id="email" type="email" class="input" placeholder="firstname@domain.com" value="santhosh2002@fw.com" required>
                 </div>
                 <div class="flex">
                     <lable class="lable">Mobile Number:</lable>
-                    <input type="tel" class="input" placeholder="+91 89250 *****" required>
+                    <input id="mobilenumber" type="tel" class="input" placeholder="+91 89250 *****" value="8925054118" required>
                 </div>
                 <div class="flex">
                     <lable class="lable">Password:</lable>
-                    <input type="password" class="input" placeholder="Enter Your password" required>
+                    <input id="password" type="password"  class="input" placeholder="Enter Your password" value="sandy" required>
                 </div>
                 <div class="flex">
                     <lable class="lable">Confirm Password:</lable>
-                    <input type="password" class="input" placeholder="Reenter Your Password" required>
+                    <input id="confirmpassword" type="password" class="input" placeholder="Reenter Your Password" value="santhosh" required>
                 </div>
 
                 <div class="submit">
@@ -57,6 +57,20 @@
 
     </section>
 </main>
+
+
+<script>
+
+    const mobilenumber =  document.getElementById("mobilenumber").value 
+    const password =  document.getElementById("password").value
+    
+
+      
+
+    console.log(mobilenumber)
+    console.log(password)
+
+</script>
     
     </body>
 </html>

@@ -8,7 +8,7 @@
     <body>
         <header>
             <div class="logo">
-                <img src="../../assets/img/logo/logo.jpg" alt="logo" height="50px" width="50px"/>
+                <img src="../../assets/img/logo/logo.jpg" alt="logo"/><span class="name">Door Step</span>
             </div>
             <div class="options">
                 <a href="../home.html">
@@ -38,116 +38,155 @@
 
         <main>
             <section class="notification_list">
-                <div class="list">
-                    <div class="profile">
-                        <a href="../profile page/user profile/elon musk.html"><img alt="profile image" src="../../assets/img/user/elon musk.jpg" width="50px" height="50px"/></a>
-                    </div>
 
-                    <div class="content">
-                        <p><a href="../profile page/user profile/elon musk.html"><b>Elon Musk</b></a><span>   started following you.</span><span class="time"> 2h</span> </p>
-                    </div>
-                    <div class="follow">
-                        <button>follow back</button>
-                    </div>
-                </div>
 
-                <div class="list">
-                    <div class="profile">
-                        <a href="../profile page/user profile/elon musk.html"><img alt="profile image" src="../../assets/img/user/elon musk.jpg" width="50px" height="50px"/></a>
-                    </div>
-
-                    <div class="content">
-                        <p><a href="../profile page/user profile/elon musk.html"><b>Elon Musk</b></a><span>   commented on your post.</span><span class="time"> 2h</span> </p>
-                    </div>
-                    
-                </div>
-
-                <div class="list">
-                    <div class="profile">
-                        <a href="../profile page/user profile/Freshworks Inc.html"><img alt="profile image" src="../../assets/img/user/freshworks.jpg" width="50px" height="50px"/></a>
-                    </div>
-
-                    <div class="content">
-                        <p><a href="../profile page/user profile/Freshworks Inc.html"><b>Freshworks Inc</b></a><span> started following you.</span><span class="time"> 6h</span> </p>
-                    </div>
-                    <div class="follow">
-                        <button>follow back</button>
-                    </div>
-                </div>
-
-                <div class="list">
-                    <div class="profile">
-                        <a href="../profile page/user profile/Girish Mathrubootham.html"><img alt="profile image" src="../../assets/img/user/girish sir.jpg" width="50px" height="50px"/></a>
-                    </div>
-
-                    <div class="content">
-                        <p><a href="../profile page/user profile/Girish Mathrubootham.html"><b>Girish Mathrubootham</b></a><span>started following you.</span><span class="time"> 8h</span> </p>
-                    </div>
-                    <div class="follow">
-                        <button>follow back</button>
-                    </div>
-                </div>
-
-                <div class="list">
-                    <div class="profile">
-                        <a href="../profile page/user profile/Girish Mathrubootham.html"><img alt="profile image" src="../../assets/img/user/girish sir.jpg" width="50px" height="50px"/></a>
-                    </div>
-
-                    <div class="content">
-                        <p><a href="../profile page/user profile/Girish Mathrubootham.html"><b>Girish Mathrubootham</b></a><span>   commented on your post.</span><span class="time"> 2h</span> </p>
-                    </div>
-                </div>
-
-                <div class="list">
-                    <div class="profile">
-                        <a href="../profile page/user profile/HVinoth.html"><img alt="profile image" src="../../assets/img/user/hvinoth.jpg" width="50px" height="50px"/></a>
-                    </div>
-
-                    <div class="content">
-                        <p><a href="../profile page/user profile/HVinoth.html"><b>HVinoth</b></a> <span>   started following you.</span><span class="time"> 9h</span> </p>
-                    </div>
-                    <div class="follow">
-                        <button>follow back</button>
-                    </div>
-                </div>
-
-                <div class="list">
-                    <div class="profile">
-                        <a href="../profile page/user profile/Silambarasan TR.html"><img alt="profile image" src="../../assets/img/user/str.jpg" width="50px" height="50px"/></a>
-                    </div>
-
-                    <div class="content">
-                        <p> <a href="../profile page/user profile/Silambarasan TR.html"><b>Silambarasan TR</b></a> <span>   started following you.</span><span class="time"> 12h</span> </p>
-                    </div>
-                    <div class="follow">
-                        <button>follow back</button>
-                    </div>
-                </div>
-
-                <div class="list">
-                    <div class="profile">
-                        <a href="../profile page/user profile/HVinoth.html"><img alt="profile image" src="../../assets/img/user/hvinoth.jpg" width="50px" height="50px"/></a>
-                    </div>
-
-                    <div class="content">
-                        <p><a href="../profile page/user profile/HVinoth.html"><b>HVinoth</b></a><span>   commented on your post.</span><span class="time"> 2h</span> </p>
-                    </div>
-                    
-                </div>
-
-                <div class="list">
-                    <div class="profile">
-                        <a href="../profile page/user profile/Silambarasan TR.html"><img alt="profile image" src="../../assets/img/user/str.jpg" width="50px" height="50px"/></a>
-                    </div>
-
-                    <div class="content">
-                        <p><a href="../profile page/user profile/Silambarasan TR.html"><b>Silambarasan TR</b></a><span>   commented on your post.</span><span class="time"> 2h</span> </p>
-                    </div>
-                    
-                </div>
-
+ 
                
             </section>
         </main>
+        <script>
+            let div_list;
+            let div_profile;
+            let a;
+            let image_a;
+            let div_content;
+            let p;
+            let a_1;
+            let b;
+            let span_0;
+            let span_1;
+            let div_follow;
+            let button;
+
+
+
+            const notification_list = [
+         {
+           "name": "Elon Musk",
+           "profile": "../../assets/img/user/elon musk.jpg",
+           "content":"started following you.",
+          "time":"2h",
+         },
+         {
+           "name": "Elon Musk",
+           "profile": "../../assets/img/user/elon musk.jpg",
+           "content":"started following you.",
+          "time":"3h",
+         },
+         {
+           "name": "Freshworks Inc",
+           "profile": "../../assets/img/user/freshworks.jpg",
+           "content":"started following you.",
+          "time":"2h",
+         },
+         {
+           "name": "Girish Mathrubootham",
+           "profile": "../../assets/img/user/girish sir.jpg",
+           "content":"started following you.",
+          "time":"2h",
+         },
+         {
+           "name": "Girish Mathrubootham",
+           "profile": "../../assets/img/user/girish sir.jpg",
+           "content":"started following you.",
+          "time":"2h",
+         },
+         {
+           "name": "HVinoth",
+           "profile": "../../assets/img/user/hvinoth.jpg",
+           "content":"started following you.",
+          "time":"2h",
+         },
+         {
+           "name": "Silambarasan TR",
+           "profile": "../../assets/img/user/str.jpg",
+           "content":"started following you.",
+          "time":"2h",
+         },
+         {
+           "name": "HVinoth",
+           "profile": "../../assets/img/user/hvinoth.jpg",
+           "content":"started following you.",
+          "time":"2h",
+         },
+         {
+           "name": "Silambarasan TR",
+           "profile": "../../assets/img/user/str.jpg",
+           "content":"started following you.",
+          "time":"2h",
+         }
+       
+        ]
+
+
+            for(let i=0; i<9; i++){
+                //  <div class="list"> </div>
+        div_list = document.createElement("div");
+        div_list.setAttribute("class", "list");
+        console.log(div_list);
+            
+        //  <div class="profile"> </div>
+        div_profile = document.createElement("div");
+        div_profile.setAttribute("class", "profile");
+        div_list.append(div_profile);
+
+         //<a href="./details.html"></a>
+        a= document.createElement("a");
+        a.setAttribute("href", "../profile page/user profile/elon musk.html");
+        div_profile.append(a);
+
+        //  <img src="../../assets/img/user/elon musk.jpg" alt=""/>
+        img_a = document.createElement("img");
+        img_a.setAttribute("src",notification_list[i]["profile"] );
+        img_a.setAttribute("alt", "profile_image");
+        img_a.setAttribute("width", "50px");
+        img_a.setAttribute("height", "50px");
+        a.append(img_a);
+
+         //  <div class="list"> </div>
+         div_content = document.createElement("div");
+        div_content.setAttribute("class", "content");
+        div_list.append(div_content);
+
+         //  <p> </p>
+         p = document.createElement("p");
+         div_content.append(p);
+
+         //<a href="./details.html"></a>
+        a_1= document.createElement("a");
+        a_1.setAttribute("href", "../profile page/user profile/elon musk.html");
+        p.append(a_1);
+
+        //  <b> </b>
+        b = document.createElement("b");
+        b.innerText =notification_list[i]["name"];
+        a_1.append(b);
+
+        //  <span>1 </span>
+        span_0 = document.createElement("span");
+        span_0.innerText =notification_list[i]["content"];
+        p.append(span_0);
+
+      //  <span> </span>
+        span_1 = document.createElement("span");
+        span_1.innerText =notification_list[i]["time"];
+        span_1.setAttribute("class", "time");
+        p.append(span_1);
+
+       //  <div class="follow"> </div>
+         div_follow = document.createElement("div");
+        div_follow.setAttribute("class", "follow");
+        div_list.append(div_follow);
+
+        //  <button> </button>
+        button = document.createElement("button");
+        button.innerText ="follow back";
+        div_follow.append(button);
+
+        document.querySelector(".notification_list").append(div_list);
+
+            }
+        
+        </script>
     </body>
 </html>

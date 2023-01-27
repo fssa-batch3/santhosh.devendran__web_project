@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>DS Log in</title>
         <link rel="stylesheet" href="./assets/css/font style.css"/>
         <link rel="stylesheet" href="./assets/css/login &rigister/log in.css">
@@ -15,7 +15,7 @@
        <div class="main">
                
             <div class="logo">
-                <img src="./assets/img/logo/logo.jpg" alt="Door step logo" height="250px" width="250px"/>
+                <img src="./assets/img/logo/logo.jpg" alt="Door step logo" />
                 <h1 class="cm">connecting minds</h1>
                 <h3>This helps people interested in reading and posting information on topics similar and common interested</h3>
                 <h1 class="li">Click Login to know more</h1>
@@ -26,22 +26,47 @@
                     <form>
                         <div class="formlist">
                             <label class="form"><b>Mobile Number:</b></label>
-                            <input type="tel" class="list" placeholder="+91 89250 *****" required/>
+                            <input id="mobile_number" type="tel" class="list" placeholder="+91 89250 *****" required/>
                         </div>
                         <div class="formlist">
                             <lable class="form"><b>Password:</b></lable>
-                            <input type="text" class="list" placeholder="Enter your Password" required/>
+                            <input id="password" type="text" class="list" placeholder="Enter your Password" required/>
                         </div>
-                        <div class="bn">
-                            <a href="./pages/home.html"><p class="loginbn">Log in</p></a>
-                        </div>
+                        
                     </form>
+                    <div class="bn">
+                        <button type="button" class="loginbn" onclick="submit()">Log in</button>
+                    </div>
                 </div>
                 <div class="create">
                     <a href="./pages/login &register/create new.html">create new Account</a>
                 </div>
             </div>
        </div> 
+    
+
+    <script>
+
+    function submit(){
+    
+    const mobile_number =  document.getElementById("mobile_number").value 
+
+    const password =  document.getElementById("password").value   
+
+    console.log(mobile_number)
+    console.log(password)
+
+    window.location.href = "./pages/home.html"
+
+    localStorage.setItem("mobile_number", mobile_number)
+    localStorage.setItem("user_password", password)
+}
+
+       
+
+    </script>
+
+
     </body>
 
 </html>

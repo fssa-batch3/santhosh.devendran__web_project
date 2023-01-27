@@ -6,26 +6,36 @@
 body header{
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-content: center;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: center;
     height: 70px;
     background-color: #00acee;
     position: sticky;
     top: 0px;
     width: auto;
 }
+body header .logo{
+    display: flex;
+    align-items: center;
+}
 body header .logo img{
+    height: 50px;
+    width: 50px;
     border-radius: 25px;
     margin-left: 30px;
+}
+body header .logo .name{
+    font-size: 50px;
+    color: white;
+    margin-left: 10px;
 }
 body header .options{
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: space-between;
-    align-content: center;
-    margin-right: 100px;
+    align-items: center;
 }
 body header .options a{
     margin-left: 50px;
@@ -33,7 +43,6 @@ body header .options a{
     text-decoration: none;
     font-size: 20px;
 }
-
 /*--notification--*/
 main .notification_list{
     margin: auto;
@@ -73,4 +82,7 @@ main .notification_list .list .follow button{
     border-radius: 10px;
     padding: 10px 10px;
     background-color: #ffffff;
+}
+main .notification_list .time{
+    color: gray;
 }

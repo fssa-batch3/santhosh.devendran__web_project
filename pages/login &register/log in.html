@@ -11,7 +11,7 @@
             <div class="logo">
                 <img src="../../assets/img/logo/logo.jpg" alt="Door step logo" height="250px" width="250px"/>
                 <h1 class="cm">connecting minds</h1>
-                <h3>This helps people intrested in reading and posting information on topics similar and common interested</h3>
+                <h3>This helps people interested in reading and posting information on topics similar and common interested</h3>
                 <h1 class="li">Click Login to know more</h1>
             </div>
             <div class="form">
@@ -20,11 +20,11 @@
                     <form>
                         <div class="formlist">
                             <label class="form"><b>Mobile Number:</b></label>
-                            <input type="tel" class="list" placeholder="+91 89250 *****" required/>
+                            <input id="mobilenumber" type="tel" class="list" placeholder="+91 89250 *****" value="8925054118" required/>
                         </div>
                         <div class="formlist">
                             <lable class="form"><b>Password:</b></lable>
-                            <input type="text" class="list" placeholder="Enter your Password" required/>
+                            <input id="email" type="text" class="list" placeholder="Enter your Password" value="sandy" required/>
                         </div>
                         <div class="bn">
                             <a href="../home.html"><p class="loginbn">Log in</p></a>
@@ -36,6 +36,12 @@
                 </div>
             </div>
        </div> 
+
+       <script>
+
+            console.log(document.getElementById("mobilenumber").value)
+
+       </script>
     </body>
 
 </html>

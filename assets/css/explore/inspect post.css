@@ -8,23 +8,32 @@ main{
     height: 100%;
 }
 /*--header--*/
-body .header{
+body .header {
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-content: center;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: center;
     height: 70px;
     background-color: #00acee;
     position: sticky;
     top: 0px;
     width: auto;
 }
-body .header .logo img{
+
+body .header .logo img {
+    height: 50px;
+    width: 50px;
     border-radius: 25px;
     margin-left: 30px;
 }
-body .header .options{
+body header .logo .name{
+    font-size: 50px;
+    color: white;
+    margin-left: 10px;
+}
+
+body .header .options {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -32,12 +41,14 @@ body .header .options{
     align-content: center;
     margin-right: 100px;
 }
-body .header .options a{
+
+body .header .options a {
     margin-left: 50px;
     margin-right: 20px;
     text-decoration: none;
     font-size: 20px;
 }
+
 /*--header 2*/
 body header{
     position: sticky;

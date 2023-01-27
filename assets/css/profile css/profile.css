@@ -6,25 +6,32 @@
 body header{
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-content: center;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: center;
     height: 70px;
-    background-color:#00acee;
+    background-color: #00acee;
     position: sticky;
     top: 0px;
+    width: auto;
 }
 body header .logo img{
+    height: 50px;
+    width: 50px;
     border-radius: 25px;
     margin-left: 30px;
+}
+body header .logo .name{
+    font-size: 50px;
+    color: white;
+    margin-left: 10px;
 }
 body header .options{
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: space-between;
-    align-content: center;
-    margin-right: 100px;
+    align-items: center;
 }
 body header .options a{
     margin-left: 50px;
@@ -33,9 +40,8 @@ body header .options a{
     font-size: 20px;
 }
 /*--profile--*/
-main{
-    max-width: 38rem;
-    margin: auto;
+main .left_side{
+    max-width: 34rem;
     height: 100%;
     padding: 0px 5px 0px 5px;
 }
@@ -68,7 +74,7 @@ main{
 
 
 .center .profile_photo .cover_img img{
-    width: 38rem;
+    width: 100%;
     height: 200px;
 }
 .center .profile_photo .dp img{
@@ -268,4 +274,108 @@ main .postandlikes .hilight{
 a{
     color: black;
     text-decoration: none;
+}
+
+
+/*--right side--*/
+
+body .right_side .right_top{
+    height: 28;
+    position: sticky;
+    top: 90px;
+}
+body .right_side .right_bottom{
+    position: sticky;
+    top: 33.6rem;
+}
+/*list*/
+.hex_code{
+    font-size: 50px;
+    margin-left: -20px;
+}
+body .top{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-radius: 10px;
+    background-color: #f2f3f4;
+    max-width: 28rem;
+    padding: 20px 0px 10px 100px;
+    margin: auto;
+    margin-top: 10px;
+}
+body .top .hash{
+    display: flex;
+    flex-direction: row;
+}
+body .top .interest{
+    float: right;
+    margin: 10px 30px 0px 0px;
+}
+
+.top .topic_list .topic{
+    font-weight: 500;
+    font-size: 20px;
+    color: #00acee;
+    margin-top: 15px;
+}
+
+
+/*--user list--*/
+.top_user .user_list p {
+    padding: 4px 0px 0px 20px;
+    width: 20rem;
+}
+
+.top_user .user_list .user_name {
+    font-weight: 500;
+    font-size: 20px;
+    color: #00acee;
+}
+
+
+.top_user .img .profile_img {
+    border-radius: 30px;
+}
+.gray{
+    color: gray;
+    margin-left: 20px;
+}
+/*user*/
+body .top_user {
+    display: flex;
+    flex-direction: row;
+    border-radius: 10px;
+    background-color: #f2f3f4;
+    max-width: 28rem;
+    padding: 20px 0px 10px 50px;
+    margin: auto;
+    margin-top: 10px;
+}
+
+.top_user .follow_button button {
+    padding: 10px 25px;
+    border: 1px solid white;
+    border-radius: 10px;
+    background-color: #00acee;
+    color: white;
+    margin: 8px 10px 0px -40px;
+}
+a{
+    text-decoration: none;
+}
+/*--align---*/
+body main .right_side{
+    position: sticky;
+}
+body main{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+body main .right_side .heading{
+    font-size: large;
+    margin-left: 30px;
+    margin-top: 20px;
+    margin-bottom: 10px;
 }
