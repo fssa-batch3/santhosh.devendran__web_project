@@ -15,44 +15,44 @@
                 <div class="name">
                     <div class="firstname">
                         <lable class="lable">First Name:</lable>
-                        <input id="firstname" type="text" class="input" placeholder="First Name" value="santhosh" required>
+                        <input id="firstname" type="text" class="input" placeholder="First Name" required>
                     </div>
                     <div class="lastname">
                         <label class="lable">Last Name:</label>
-                        <input id="lastname" type="text" class="input" placeholder="Last Name" value="D" required>
+                        <input id="lastname" type="text" class="input" placeholder="Last Name"  required>
                     </div>
                 </div>
                 <div class="flex">
                     <lable class="lable">user name:</lable>
-                    <input id="username" type="text" class="input" value="sandy02" required>
+                    <input id="username" type="text" class="input"  required>
                 </div>
                 <div class="flex">
                     <lable class="lable">D.O.B:</lable>
-                    <input id="dob" type="date" class="input" value="2002-08-28" required>
+                    <input id="dob" type="date" class="input"  required>
                 </div>
                 <div class="flex">
                     <lable class="lable">Mail ID:</lable>
-                    <input id="email" type="email" class="input" placeholder="firstname@domain.com" value="santhosh2002@fw.com" required>
+                    <input id="email" type="email" class="input" placeholder="firstname@domain.com"  required>
                 </div>
                 <div class="flex">
                     <lable class="lable">Mobile Number:</lable>
-                    <input id="mobilenumber" type="tel" class="input" placeholder="+91 89250 *****" value="8925054118" required>
+                    <input id="mobilenumber" type="tel" class="input" placeholder="+91 89250 *****"  required>
                 </div>
                 <div class="flex">
                     <lable class="lable">Password:</lable>
-                    <input id="password" type="password"  class="input" placeholder="Enter Your password" value="sandy" required>
+                    <input id="password" type="password"  class="input" placeholder="Enter Your password"  required>
                 </div>
                 <div class="flex">
                     <lable class="lable">Confirm Password:</lable>
-                    <input id="confirmpassword" type="password" class="input" placeholder="Reenter Your Password" value="santhosh" required>
+                    <input id="confirmpassword" type="password" class="input" placeholder="Reenter Your Password"  required>
                 </div>
 
                 <div class="submit">
-                    <a href="./topics.html">
-                        <p>submit</p>
+                    <a href="">
+                        <button onclick="rigister()">submit</button>
                     </a>
                 </div>
-                <a href="./log in.html"><P>Already have account</P></a>
+                <a href="../../index.html"><P>Already have account</P></a>
          </form>
 
     </section>
@@ -61,14 +61,60 @@
 
 <script>
 
-    const mobilenumber =  document.getElementById("mobilenumber").value 
-    const password =  document.getElementById("password").value
-    
+function rigister(){
 
-      
 
-    console.log(mobilenumber)
-    console.log(password)
+// let first_name,last_name,user_name,dob,email,mobile_number,password,confirm_password;
+
+let first_name =  document.getElementById("firstname").value
+     last_name =  document.getElementById("lastname").value
+     user_name =  document.getElementById("username").value
+     dob =  document.getElementById("dob").value
+     email =  document.getElementById("email").value
+     mobile_number =  document.getElementById("mobilenumber").value
+     password =  document.getElementById("password").value
+     confirm_password =  document.getElementById("confirmpassword").value;
+
+let user_records=new Array();
+user_records=JSON.parse(localStorage.getItem("users"))?JSON.parse(localStorage.getItem("users")):[]
+if(user_records.some((v)=>{return v.email==email}))
+{
+  alert("Email alredy exciseted use another Email");
+  window.location.href = "./create new.html";
+}
+
+else if( user_records.some((v)=>{return v.mobile_number==mobile_number})){
+    alert("mobile number alredy exciseted use another mobile number");
+    window.location.href = "./create new.html";
+}
+
+else if (user_records.some((v)=>{return v.user_name==user_name})){
+    alert("user name alredy exciseted use another user name")
+    window.location.href = "./create new.html";
+}
+
+else
+{
+  user_records.push({
+  "first_name":first_name,
+  "last_name":last_name,
+  "user_name":user_name,
+  "dob":dob,
+  "email":email,
+  "mobile_number":mobile_number,
+  "password":password,
+  "confirm_password":confirm_password,
+  
+
+})
+    alert("your account has been created")
+    localStorage.setItem("users",JSON.stringify(user_records));
+    window.location.href ="../../index.html"
+}
+
+}
+
+
 
 </script>
     

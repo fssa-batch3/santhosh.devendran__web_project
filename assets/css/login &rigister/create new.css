@@ -33,7 +33,6 @@ body h2{
 .details a{
     text-decoration: none;
     padding: 2px;
-    margin-top: -10px;
 }
 .details .name{
     display: flex;
@@ -73,15 +72,16 @@ body main .form{
     border-radius: 10px;
     border:1px solid gray;
 }
-.submit p{
-    padding: 5px 180px;
+.submit button{
+    padding: 5px 20px;
     border-radius: 10px;
     border: 2px solid #00acee;
     background-color: #ffffff;
     font-size: 20px;
     color: #00acee;
+    margin-top: 10px;
 }
-.submit p:hover{
+.submit button:hover{
     border: 2px solid blac;
     color: white;
     background-color: #00acee;

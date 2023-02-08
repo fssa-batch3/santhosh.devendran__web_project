@@ -63,56 +63,83 @@
             const notification_list = [
          {
            "name": "Elon Musk",
-           "profile": "../../assets/img/user/elon musk.jpg",
+           "image": {
+               "src": "../../assets/img/user/elon musk.jpg",
+               "alt":"profile_image"
+           },
            "content":"started following you.",
           "time":"2h",
          },
          {
            "name": "Elon Musk",
-           "profile": "../../assets/img/user/elon musk.jpg",
-           "content":"started following you.",
-          "time":"3h",
+           "image": {
+               "src": "../../assets/img/user/elon musk.jpg",
+               "alt":"profile_image"
+           },
+           "content":"Liked your post.",
+           "time":"3h",
          },
          {
            "name": "Freshworks Inc",
-           "profile": "../../assets/img/user/freshworks.jpg",
+           "image": {
+               "src": "../../assets/img/user/freshworks.jpg",
+               "alt":"profile_image"
+           },
            "content":"started following you.",
           "time":"2h",
          },
          {
            "name": "Girish Mathrubootham",
-           "profile": "../../assets/img/user/girish sir.jpg",
+           "image": {
+               "src": "../../assets/img/user/girish sir.jpg",
+               "alt":"profile_image"
+           },
            "content":"started following you.",
           "time":"2h",
          },
          {
            "name": "Girish Mathrubootham",
-           "profile": "../../assets/img/user/girish sir.jpg",
-           "content":"started following you.",
+           "image": {
+               "src": "../../assets/img/user/girish sir.jpg",
+               "alt":"profile_image"
+           },
+           "content":"Liked your post.",
           "time":"2h",
          },
          {
            "name": "HVinoth",
-           "profile": "../../assets/img/user/hvinoth.jpg",
+           "image": {
+               "src": "../../assets/img/user/hvinoth.jpg",
+               "alt":"profile_image"
+           },
            "content":"started following you.",
           "time":"2h",
          },
          {
            "name": "Silambarasan TR",
-           "profile": "../../assets/img/user/str.jpg",
+           "image": {
+               "src": "../../assets/img/user/str.jpg",
+               "alt":"profile_image"
+           },
            "content":"started following you.",
           "time":"2h",
          },
          {
            "name": "HVinoth",
-           "profile": "../../assets/img/user/hvinoth.jpg",
-           "content":"started following you.",
+           "image": {
+               "src": "../../assets/img/user/hvinoth.jpg",
+               "alt":"profile_image"
+           },
+           "content":"Liked your post.",
           "time":"2h",
          },
          {
            "name": "Silambarasan TR",
-           "profile": "../../assets/img/user/str.jpg",
-           "content":"started following you.",
+           "image": {
+               "src": "../../assets/img/user/str.jpg",
+               "alt":"profile_image"
+           },
+           "content":"Liked your post.",
           "time":"2h",
          }
        
@@ -131,14 +158,14 @@
         div_list.append(div_profile);
 
          //<a href="./details.html"></a>
-        a= document.createElement("a");
+        a= document.createElement("a");5
         a.setAttribute("href", "../profile page/user profile/elon musk.html");
         div_profile.append(a);
 
         //  <img src="../../assets/img/user/elon musk.jpg" alt=""/>
         img_a = document.createElement("img");
-        img_a.setAttribute("src",notification_list[i]["profile"] );
-        img_a.setAttribute("alt", "profile_image");
+        img_a.setAttribute("src",notification_list[i]["image"]["src"] );
+        img_a.setAttribute("alt", notification_list[i]["image"]["alt"]);
         img_a.setAttribute("width", "50px");
         img_a.setAttribute("height", "50px");
         a.append(img_a);

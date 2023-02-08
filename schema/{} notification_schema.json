@@ -1,7 +1,10 @@
 
 {
     "name": "string",
-    "profile": "string",
+    "image": {
+        "src": "string",
+        "alt":"string"
+    },
     "content":"string",
     "time":"string"
 
