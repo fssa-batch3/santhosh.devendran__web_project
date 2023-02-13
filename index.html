@@ -1,55 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>DS Log in</title>
-        <link rel="stylesheet" href="./assets/css/font style.css"/>
-        <link rel="stylesheet" href="./assets/css/login &rigister/log in.css">
-        
 
-    </head>
-    <body>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DS Log in</title>
+    <link rel="stylesheet" href="./assets/css/font style.css" />
+    <link rel="stylesheet" href="./assets/css/login &rigister/log in.css">
 
-        <div class="td">
-            <h2 class="title">Door Step</h2> 
+
+</head>
+
+<body>
+
+    <div class="td">
+        <h2 class="title">Door Step</h2>
+    </div>
+
+    <div class="main">
+
+        <div class="logo">
+            <img src="./assets/img/logo/logo.jpg" alt="Door step logo" />
+            <h1 class="cm">connecting minds</h1>
+            <h3>This helps people interested in reading and posting information on topics similar and common interested
+            </h3>
+            <h1 class="li">Click Login to know more</h1>
         </div>
-        
-       <div class="main">
-               
-            <div class="logo">
-                <img src="./assets/img/logo/logo.jpg" alt="Door step logo" />
-                <h1 class="cm">connecting minds</h1>
-                <h3>This helps people interested in reading and posting information on topics similar and common interested</h3>
-                <h1 class="li">Click Login to know more</h1>
-            </div>
-            <div class="form">
-                <div class="with_mobile">
-                    <h2>Log in</h2>
-                    <form>
-                        <div class="formlist">
-                            <label class="form"><b>Mobile Number:</b></label>
-                            <input id="mobile_number" type="tel" class="list" placeholder="+91 89250 *****" required/>
-                        </div>
-                        <div class="formlist">
-                            <lable class="form"><b>Password:</b></lable>
-                            <input id="password" type="text" class="list" placeholder="Enter your Password" required/>
-                        </div>
-                        
-                    </form>
-                    <div class="bn">
-                        <button type="button" class="loginbn" onclick="submit()">Log in</button>
+        <div class="form">
+            <div class="with_mobile">
+                <h2>Log in</h2>
+                <form onsubmit="login()" id="form">
+                    <div class="formlist">
+                        <label class="form"><b>Mobile Number:</b></label>
+                        <input id="mobile_number" type="tel" class="list" placeholder="+91 89250 *****" required />
                     </div>
-                </div>
-                <div class="create">
-                    <a href="./pages/login &register/create new.html">create new Account</a>
-                </div>
+                    <div class="formlist">
+                        <lable class="form"><b>Password:</b></lable>
+                        <input id="password" type="text" class="list" placeholder="Enter your Password" required />
+                    </div>
+                    <div class="bn">
+                        <button type="submit" class="loginbn">Log in</button>
+                    </div>
+                </form>
+
             </div>
-       </div> 
-    
+            <div class="create">
+                <a href="./pages/login &register/create new.html">create new Account</a>
+            </div>
+        </div>
+    </div>
 
-       <script src="./assets/js/rigister_login.js" ></script>
+
+    <script>
+
+        function login() {
 
 
-    </body>
+            let mobile_number = document.getElementById("mobile_number").value;
+            let password = document.getElementById("password").value;
+
+
+            let user_details = new Array();
+
+            user_details = JSON.parse(localStorage.getItem("users")) ? JSON.parse(localStorage.getItem("users")) : []
+
+            if (user_details.some((v) => { return v.mobile_number == mobile_number && v.password == password })) {
+                alert("Successfully Logined ");
+                let current_user = user_details.filter((v) => { return v.mobile_number == mobile_number && v.password == password })[0]
+                localStorage.setItem('mobile_number', current_user.mobile_number);
+                localStorage.setItem('password', current_user.password);
+                location.href = "./pages/home.html";
+            }
+            else {
+                alert('Please Check your details');
+            }
+        }
+    </script>
+
+
+</body>
 
 </html>

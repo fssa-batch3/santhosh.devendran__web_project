@@ -1,66 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <link rel="stylesheet" href="../../assets/css/font style.css"/>
-        <title>Create New</title>
 
-        <link rel="stylesheet" href="../../assets/css/login &rigister/create new.css">
-        
-    </head>
-    <body>
-        <h2>Rigister Now</h2>
-<main>
-    
-    <section class="form">
-        <form class="details">
+<head>
+    <link rel="stylesheet" href="../../assets/css/font style.css" />
+    <title>Create New</title>
+
+    <link rel="stylesheet" href="../../assets/css/login &rigister/create new.css">
+
+</head>
+
+<body>
+    <h2>Rigister Now</h2>
+    <main>
+
+        <section class="form">
+            <form class="details" onsubmit="register()" id="form">
                 <div class="name">
                     <div class="firstname">
                         <lable class="lable">First Name:</lable>
-                        <input id="firstname" type="text" class="input" placeholder="First Name" required>
+                        <input id="firstname" name="firstname" type="text" class="input" pattern="[a-zA-Z()]+" placeholder="First Name"
+                            >
                     </div>
                     <div class="lastname">
                         <label class="lable">Last Name:</label>
-                        <input id="lastname" type="text" class="input" placeholder="Last Name"  required>
+                        <input id="lastname" name="lastname" type="text" class="input" pattern="[a-zA-Z()]+" placeholder="Last Name"
+                            >
                     </div>
                 </div>
                 <div class="flex">
                     <lable class="lable">user name:</lable>
-                    <input id="username" type="text" class="input"  required>
+                    <input id="username" name="username" type="text" pattern="[a-zA-Z0-9()]+" class="input" required>
                 </div>
                 <div class="flex">
                     <lable class="lable">D.O.B:</lable>
-                    <input id="dob" type="date" class="input"  required>
+                    <input id="dob" name="dob" type="date" class="input" required>
                 </div>
                 <div class="flex">
                     <lable class="lable">Mail ID:</lable>
-                    <input id="email" type="email" class="input" placeholder="firstname@domain.com"  required>
+                    <input id="email" name="email" type="email" class="input" placeholder="firstname@domain.com" required>
                 </div>
                 <div class="flex">
                     <lable class="lable">Mobile Number:</lable>
-                    <input id="mobilenumber" type="tel" class="input" placeholder="+91 89250 *****"  required>
+                    <input id="mobilenumber" name="mobilenumber" type="tel" class="input" placeholder="+91 89250 *****" required>
                 </div>
                 <div class="flex">
                     <lable class="lable">Password:</lable>
-                    <input id="password" type="password"  class="input" placeholder="Enter Your password"  required>
+                    <input id="password" name="password" type="password" class="input" placeholder="Enter Your password" required>
                 </div>
                 <div class="flex">
                     <lable class="lable">Confirm Password:</lable>
-                    <input id="confirmpassword" type="password" class="input" placeholder="Reenter Your Password"  required>
+                    <input id="confirmpassword" name="confirmpassword" type="password" class="input" placeholder="Reenter Your Password"
+                        required>
                 </div>
 
                 <div class="submit">
-                    <a href="">
-                        <button onclick="rigister()">submit</button>
+                    <a>
+                        <button type="submit">submit</button>
                     </a>
                 </div>
-                <a href="../../index.html"><P>Already have account</P></a>
-         </form>
+                <a href="../../index.html">
+                    <P>Already have account</P>
+                </a>
+            </form>
 
-    </section>
-</main>
+        </section>
+    </main>
 
-<script src="../../assets/js/rigister_login.js" ></script>
+    <script>
+
+function register(){
+
+
+let first_name =  document.getElementById("firstname").value
+     last_name =  document.getElementById("lastname").value
+     user_name =  document.getElementById("username").value
+     dob =  document.getElementById("dob").value
+     email =  document.getElementById("email").value
+     mobile_number =  document.getElementById("mobilenumber").value
+     password =  document.getElementById("password").value
+     confirm_password =  document.getElementById("confirmpassword").value;
+ 
+let users=new Array();
+let user_records=JSON.parse(localStorage.getItem("users"))
+user_records=JSON.parse(localStorage.getItem("users"))?JSON.parse(localStorage.getItem("users")):[]
+if(user_records.some((v)=>{return v.user_name ==user_name}))
+{
+    alert("user name alredy exciseted use another user name")
+    
+}
+else if(user_records.some((v)=>{return v.email==email})){
+    alert("Email alredy exciseted use another Email");
+   
+}
+else if( user_records.some((v)=>{return v.mobile_number==mobile_number})){
+    alert("mobile number alredy exciseted use another mobile number");
+    
+}
+
+else  {
+    
+    
+    user_records.push({
+  "first_name":first_name,
+  "last_name":last_name,
+  "user_name":user_name,
+  "dob":dob,
+  "email":email,
+  "mobile_number":mobile_number,
+  "password":password,
+  "confirm_password":confirm_password,
+  
+
+})
+    
+    localStorage.setItem("users",JSON.stringify(user_records));
+    alert("your account has been created");
+    window.location.href ="../../index.html";
 
     
-    </body>
+}
+
+
+
+}
+
+    </script>
+
+
+
+    
+
+
+</body>
+
+
+
 </html>

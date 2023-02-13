@@ -1,4 +1,4 @@
-function rigister(){
+function register(){
 
 
     let first_name =  document.getElementById("firstname").value
@@ -49,19 +49,19 @@ function rigister(){
     }
 
 
-function submit()
+    function submit()
 {
 let mobile_number,password;
 
-mobile_number = document.getElementById("mobile_number").value,
-password = document.getElementById("password").value;
+mobile_number_1 = document.getElementById("mobile_number").value,
+password_1 = document.getElementById("password").value;
 
 
 let user_details=new Array();
 
 user_details =JSON.parse(localStorage.getItem("users"))?JSON.parse(localStorage.getItem("users")):[]
 
-if(user_details.some((v)=>{return v.mobile_number==mobile_number && v.password == password}))
+if(user_details.some((v)=>{return v.mobile_number_1==mobile_number && v.password_1 == password}))
 {
   alert("Successfully Logined ");
   let current_user=user_details.filter((v)=>{return v.mobile_number == mobile_number && v.password == password})[0]
