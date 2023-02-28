@@ -49,17 +49,62 @@
                     <i class="fa fa-camera" aria-hidden="true"></i>
                 </div>
             </div>
-            
+            <form onsubmit="ubdate(event)">
             <div class="data_change">
-                <input class="name" type="txt" placeholder="Name"/>
-                <input class="bio" type="txt" placeholder="Bio"/>
-                <input class="dob" type="date"/>                
+                
+                    <input class="name" type="email" id="email" placeholder="new mail id"/>
+                <input class="bio" type="txt" id="bio" placeholder="Bio"/>
+                <input class="mobile_number" id="mobile_number" type="tel" placeholder="mobile number"/> 
+               
+                               
             </div>
             <div class="submit">
                     <div class="sb">
-                        <a href="./profile.html"><button>Submit</button></a>
+                        <button type="submit">Submit</button>
                     </div>
             </div>
+        </form>
         </div>
+
+        <script>
+
+            let unic_id= JSON.parse(localStorage.getItem("user_id"));
+            let user_records=JSON.parse(localStorage.getItem("user_list"))
+
+            
+            function login_data(e){
+                return e.user_name == unic_id;
+            }
+            let user_data = user_records.find(login_data);
+
+            document.getElementById("email").innerHTML=user_data["email"];
+            document.getElementById("bio").innerHTML=user_data["user_bio"];
+            document.getElementById("mobile_number").innerHTML=user_data["mobile_number"];
+
+
+            function ubdate(e){
+                e.preventDefault();
+         
+            let email=document.getElementById("email").value;
+            let user_bio=document.getElementById("bio").value;
+            let mobile_number=document.getElementById("mobile_number").value;
+
+            user_data["email"]=email;
+            user_data["user_bio"]=user_bio;
+            user_data["mobile_number"]=mobile_number;
+
+            localStorage.setItem("user_list",JSON.stringify(user_records));
+            alert("updated successfully");
+            window.location.href = "./profile.html";
+
+        }
+
+
+
+
+        </script>
+
+
+
     </body>
 </html>

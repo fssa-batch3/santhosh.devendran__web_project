@@ -71,6 +71,16 @@ main .left_side{
     font-size: 12;
     color: gray;
 }
+.center .profile_top .d_bn{
+    margin-left: 20rem;
+}
+.center .profile_top .d_bn button{
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: red;
+    color: white;
+    border: 0px;
+}
 
 
 .center .profile_photo .cover_img img{
@@ -130,7 +140,7 @@ main .left_side{
     margin-top: 30px;
 }
 .center .bn .edit{
-    margin-left: 270px;
+    margin-left: 42%;
 }
 .edit{
     padding: 10px 30px;
@@ -378,4 +388,9 @@ body main .right_side .heading{
     margin-left: 30px;
     margin-top: 20px;
     margin-bottom: 10px;
+}
+.unicname{
+    color: black;
+    font-size: 15px;
+    margin: auto;
 }

@@ -1,0 +1,20 @@
+{
+    "user_profile": {
+        "img": "string",
+        "alt" : "string"
+    },
+    "user_name": "string",
+    "post_cuntent":"string",
+    "post_img": {
+        "src": "string",
+        "alt": "string"
+    },
+    "like": {
+        "value": "boolean",
+        "count": "string"
+    },
+    "comand": {
+        "value": "boolean",
+        "count": "string"
+    }
+}

@@ -186,6 +186,10 @@ font-size: 14px;
     color: gray;  
     text-decoration: none;
 }
+.unicname{
+    color: white;
+    font-size: 15px;
+}
 /*---post---*/
 .postandlikes{
     display: flex;

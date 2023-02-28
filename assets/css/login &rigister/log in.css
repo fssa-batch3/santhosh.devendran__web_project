@@ -92,7 +92,14 @@ body .main{
     color: white;
     font-weight: bold;
 }
+/* input validation */
 
+input:valid{
+    border: 1px solid green;
+}
+input:invalid{
+    border-bottom: 1px solid red;
+}
 
 
 
