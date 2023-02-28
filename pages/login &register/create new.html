@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../assets/css/font style.css" />
     <title>Create New</title>
 
@@ -82,7 +83,7 @@ function signUp(e) {
     let password =  document.getElementById("password").value;
     let confirm_password =  document.getElementById("confirmpassword").value;
     let user_bio = "";
-    let user_post=[];
+    let user_post=new Array() ;
     let uuid = uuidv4();
 
         function checkPassword(){
