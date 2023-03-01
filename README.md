@@ -13,8 +13,10 @@ User CRUD
  * Read user CRUD
  * Update user CRUD
  * Delete user CRUD
+
+
 post CRUD
+
  * Create post CRUD
  * Read post CRUD
- * Update post CRUD
  * Delete post CRUD
