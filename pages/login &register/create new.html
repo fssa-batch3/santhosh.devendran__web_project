@@ -83,7 +83,6 @@ function signUp(e) {
     let password =  document.getElementById("password").value;
     let confirm_password =  document.getElementById("confirmpassword").value;
     let user_bio = "";
-    let user_post=new Array() ;
     let uuid = uuidv4();
 
         function checkPassword(){
@@ -104,7 +103,7 @@ function signUp(e) {
 
     if(!exist){
         user_list.push({ first_name, last_name, 
-            user_name, dob,email,mobile_number,password,confirm_password,user_bio,uuid });
+            user_name, dob,email,mobile_number,password,confirm_password,user_bio,uuid});
 
         localStorage.setItem('user_list', JSON.stringify(user_list));
 

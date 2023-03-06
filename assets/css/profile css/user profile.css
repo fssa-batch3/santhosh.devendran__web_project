@@ -289,36 +289,3 @@ a{
     text-decoration: none;
     color: black;
 }
-/*--job aleart-*/
-
-main .job_aleart{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    flex-wrap: wrap;
-    align-content: center;
-    height: 4rem;
-    width: 38rem;
-    margin-top: 10px;
-    background-color: #f2f3f4;
-    border-radius: 10px;
-}
-main .job_aleart .profile img{
-    border-radius: 25px;
-}
-main .job_aleart .jobv{
-    width: 25rem;
-    padding-top: 15px;
-    padding-left: 5px;
-}
-main .job_aleart .jobv .gray{
-    color: gray;
-}
-main .job_aleart .bn button{
-  border: 0px;
-  border-radius: 10px;
-  background-color: #00acee;
-  color: white;
-  padding: 10px 25px;
-  margin-top: 10px;
-}
