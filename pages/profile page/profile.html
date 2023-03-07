@@ -101,7 +101,7 @@
                 </a>
             </div>
 
-
+            <!-- 
             <div class="post">
                 <div class="user_list">
                     <div class="img">
@@ -222,7 +222,7 @@
                         </div>
                     </a>
                 </div>
-            </div>
+            </div> -->
         </section>
 
 
@@ -347,8 +347,8 @@
 
 
     <script>
-        let unic_id = JSON.parse(localStorage.getItem("user_id"));
-        if (unic_id == "") {
+        let unic_user_id = JSON.parse(localStorage.getItem("user_id"));
+        if (unic_user_id == "") {
             window.location.href = "../../index.html";
         }
 
@@ -357,7 +357,7 @@
             let user_records = JSON.parse(localStorage.getItem("user_list"));
 
             function login_data(e) {
-                return e.user_name == unic_id;
+                return e.user_name == unic_user_id;
             }
             let user_data = user_records.find(login_data);
 
@@ -386,10 +386,10 @@
             }
 
             if (check = true) {
-                let unic_id = JSON.parse(localStorage.getItem("user_id"));
+                let unic_user_id = JSON.parse(localStorage.getItem("user_id"));
                 let user_records = JSON.parse(localStorage.getItem("user_list"));
                 function login_data(e) {
-                    return e.user_name == unic_id;
+                    return e.user_name == unic_user_id;
                 }
                 let user_data = user_records.find(login_data);
 
@@ -410,10 +410,20 @@
             }
         }
 
+
+        let post_feedd = JSON.parse(localStorage.getItem("post_feedd"));
         // creating user post list
+        // function user_find(e){
+        //     return e.unic_id == unic_user_id
+        // }
+
+        // let post_feed=post_feedd.find(user_find);
+        // console.log(post_feed);
 
 
-        for (let i = 0; i < post_feed.length; i++) {
+        let filterpost = post_feedd.filter(post => post.unic_id == unic_user_id);
+        console.log(filterpost);
+        for (let i = 0; i < filterpost.length; i++) {
 
 
 
@@ -441,10 +451,10 @@
 
             //  <img user profile/>
             img_a = document.createElement("img");
-            img_a.setAttribute("src", post_feed[i].user_profile.img);
+            img_a.setAttribute("src", filterpost[i].user_profile.img);
             img_a.setAttribute("alt", "profile");
             img_a.setAttribute("class", "profile_img");
-            a_img.append(img_a);
+            div_img.append(img_a);
 
 
             //  <div class="user"> </div>
@@ -452,15 +462,6 @@
             div_user.setAttribute("class", "user");
             div_user_list.append(div_user);
 
-
-            //  span for delete button
-            span_delete = document.createElement("span");
-            span_delete.setAttribute("class","delete");
-            div_user.append(span_delete);
-
-            // button for delete
-            delete_bn = document.createElement("button");
-            
 
             // //<a href="./details.html"></a>
             // a_user = document.createElement("a");
@@ -470,16 +471,52 @@
             //  <p> user name</p>
             p_user_name = document.createElement("p");
             p_user_name.setAttribute("class", "user_name")
-            p_user_name.innerText = post_feed[i].user_name;
+            p_user_name.innerText = filterpost[i].user_name;
             div_user.append(p_user_name);
+
+
+            //  span for delete button
+            span_delete = document.createElement("span");
+            span_delete.setAttribute("class", "delete");
+            div_user.append(span_delete);
+
+            // button for delete
+            const delete_bn = document.createElement("button");
+            delete_bn.setAttribute("class", "deletebn");
+            delete_bn.innerText = "delete";
+            delete_bn.setAttribute("id", filterpost[i].delete_bn)
+            span_delete.append(delete_bn);
+
+            delete_bn.addEventListener("click", function () {
+                if (confirm("Are you sure to Delete ?")) {
+                    let post_id = JSON.parse(localStorage.getItem("post_id"));
+                    let post_feedd = JSON.parse(localStorage.getItem("post_feedd"));
+                    function login_data(e) {
+                        return e.post_id == filterpost[i].delete_bn;;
+                    }
+                    user_data = post_feedd.find(login_data);
+                    const indexOfUser = post_feedd.indexOf(user_data);
+                    post_feedd.splice(indexOfUser, 1);
+                    localStorage.setItem('post_feedd', JSON.stringify(post_feedd));
+                };
+
+                let reloadPage = false;
+                if (!reloadPage) {
+                    // Reload the page
+                    location.reload();
+                    reloadPage = true;
+                }
+            });
+
+
 
             //  <p> post cuntent</p>
             p_post_cuntent = document.createElement("p");
             p_post_cuntent.setAttribute("class", "post_cuntent")
-            p_post_cuntent.innerText = post_feed[i]["post_content"];
+            p_post_cuntent.innerText = filterpost[i]["post_content"];
             div_user.append(p_post_cuntent);
 
-            if (post_feed[i].post_img.src) {
+            if (filterpost[i].post_img.src) {
 
                 //  <div class="post_img"> </div>
                 post_post_img = document.createElement("div");
@@ -488,7 +525,7 @@
 
                 //  <img user post/>
                 img_post = document.createElement("img");
-                img_post.setAttribute("src", post_feed[i].post_img.src);
+                img_post.setAttribute("src", filterpost[i].post_img.src);
                 img_post.setAttribute("alt", "post");
                 post_post_img.append(img_post);
 
@@ -516,7 +553,7 @@
             // span like count
             span_like_count = document.createElement("span");
             span_like_count.setAttribute("class", "like_count");
-            span_like_count.innerText = post_feed[i].like.count;
+            span_like_count.innerText = filterpost[i].like.count;
             div_like.append(span_like_count);
 
             //  <div class="comand"> </div>
@@ -533,12 +570,17 @@
             // span comand count
             span_comand_count = document.createElement("span");
             span_comand_count.setAttribute("class", "like_count");
-            span_comand_count.innerText = post_feed[i].like.count;
+            span_comand_count.innerText = filterpost[i].like.count;
             div_comand.append(span_comand_count);
 
-            document.querySelector(".post_list").append(div_post);
+            document.querySelector(".left_side").append(div_post);
 
         }
+
+
+
+
+
 
     </script>
 
