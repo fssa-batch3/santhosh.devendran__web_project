@@ -48,7 +48,7 @@
         <section class="post_list">
             <div class="create_new_post">
                 <div class="new_post">
-                    <div  class="post_content">
+                    <div class="post_content">
                         <div class="profile">
                             <img alt="profile" src="../assets/img/user/DS profile img.jpg" width="50px" height="50px" />
                             <input type="text" class="input" placeholder="Whats happening ?" id="post_content" />
@@ -202,9 +202,9 @@
         let unic_id = JSON.parse(localStorage.getItem("user_id"));
         let user_records = JSON.parse(localStorage.getItem("user_list"));
         let post_feedd = JSON.parse(localStorage.getItem('post_feedd')) || [];
-        
-        
 
+
+        // for ncreate post  ////////////////////////
         function login_data(e) {
             return e.user_name == unic_id;
         }
@@ -228,12 +228,13 @@
             let like_count = "10";
             let comand_value = "";
             let comand_count = "15";
-            let post_id= uuidv4();
-   
+            let post_id = uuidv4();
+
             post_feedd.push(
-                {   "post_id":post_id,
+                {
+                    "post_id": post_id,
                     "unic_id": unic_id,
-                    "user_profile":{
+                    "user_profile": {
                         "img": user_profile_img,
                         "alt": user_profile_alt,
                     },
@@ -245,28 +246,28 @@
                     },
                     "like": {
                         "value": true,
-                        "count":like_count,
+                        "count": like_count,
                     },
                     "comand": {
                         "value": true,
-                        "count":comand_count,
+                        "count": comand_count,
                     },
-                    "delete_bn":post_id
+                    "delete_bn": post_id
                 }
             )
-            localStorage.setItem('post_feedd',JSON.stringify(post_feedd))
-           
+            localStorage.setItem('post_feedd', JSON.stringify(post_feedd))
+
         }
-      
 
-      let post_feed=JSON.parse(localStorage.getItem("post_feedd"))
 
-       
+        let post_feed = JSON.parse(localStorage.getItem("post_feedd"))
 
-        
+
+
+
         // array for post
 
-        
+
         // let post_feed = [{
         //     "user_profile": {
         //         "img": "../assets/img/user/elon musk.jpg",
@@ -291,12 +292,10 @@
 
         // ]
 
-    
+        // for read post /////////////////////////////////////////////////////
 
         for (let i = 0; i < post_feed.length; i++) {
 
-
-            
 
             //  <div class="post"> </div>
             div_post = document.createElement("div");
@@ -389,10 +388,16 @@
             span_like_count.innerText = post_feed[i].like.count;
             div_like.append(span_like_count);
 
+
+            //  a tag for  comment///////
+            a_div_cmt=document.createElement("a");
+            a_div_cmt.setAttribute("href","./post details/elon musk/comment - post1.html?post_id="+post_feed[i].post_id);
+            div_like_comand.append(a_div_cmt);
+
             //  <div class="comand"> </div>
             div_comand = document.createElement("div");
             div_comand.setAttribute("class", "comand");
-            div_like_comand.append(div_comand);
+            a_div_cmt.append(div_comand);
 
             // <i for comand
             i_comand = document.createElement("i");
@@ -410,7 +415,7 @@
 
         }
 
-// ////////////////////////////////////////////////
+// comment page open URL function    ////////////////////////////////////////////////
 
 
     </script>

@@ -412,14 +412,8 @@
 
 
         let post_feedd = JSON.parse(localStorage.getItem("post_feedd"));
-        // creating user post list
-        // function user_find(e){
-        //     return e.unic_id == unic_user_id
-        // }
-
-        // let post_feed=post_feedd.find(user_find);
-        // console.log(post_feed);
-
+        
+//    filter data///////
 
         let filterpost = post_feedd.filter(post => post.unic_id == unic_user_id);
         console.log(filterpost);
@@ -430,8 +424,19 @@
 
             //  <div class="post"> </div>
             div_post = document.createElement("div");
+
             div_post.setAttribute("class", "post");
             console.log(div_post);
+
+            /// for coment page/////////////////////////////////
+            let  post_id = filterpost.find(find_post);
+            function find_post(e) {
+                        return e.post_id == filterpost[i].post_id;
+                    }
+                div_post.addEventListener("click", (event) => {
+                const product_description = post_id;
+                window.location.href = `./Product-uploaded .html?post_id=${product_description}`;
+            })
 
             //  <div class="user_list"> </div>
             div_user_list = document.createElement("div");

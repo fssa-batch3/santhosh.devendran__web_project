@@ -52,28 +52,28 @@
 
     <script>
 
-        function login() {
+        // function login() {
 
 
-            let user_name = document.getElementById("user_name").value;
-            let password = document.getElementById("password").value;
+        //     let user_name = document.getElementById("user_name").value;
+        //     let password = document.getElementById("password").value;
 
 
-            let user_details = new Array();
+        //     let user_details = new Array();
 
-            user_details = JSON.parse(localStorage.getItem("users"))? JSON.parse(localStorage.getItem("users")) : []
+        //     user_details = JSON.parse(localStorage.getItem("users"))? JSON.parse(localStorage.getItem("users")) : []
 
-            if (user_details.some((v) => { return v.user_name == user_name && v.password == password })) {
-                alert("Successfully Logined ");
-                let current_user = user_details.filter((v) => { return v.user_name == user_name && v.password == password })[0]
-                localStorage.setItem('user_name', current_user.user_name);
-                localStorage.setItem('password', current_user.password);
-                location.href = "./pages/home.html";
-            }
-            else {
-                alert('Please Check your details');
-            }
-        }
+        //     if (user_details.some((v) => { return v.user_name == user_name && v.password == password })) {
+        //         alert("Successfully Logined ");
+        //         let current_user = user_details.filter((v) => { return v.user_name == user_name && v.password == password })[0]
+        //         localStorage.setItem('user_name', current_user.user_name);
+        //         localStorage.setItem('password', current_user.password);
+        //         location.href = "./pages/home.html";
+        //     }
+        //     else {
+        //         alert('Please Check your details');
+        //     }
+        // }
 
 
 
