@@ -224,10 +224,10 @@
             let post_content = document.getElementById("post_content").value;
             let post_img_src = "../assets/img/user/DS profile img.jpg";
             let post_img_alt = "";
-            let like_value = "";
-            let like_count = "10";
-            let comand_value = "";
-            let comand_count = "15";
+            let like_value = 0;
+            let like_count = 0;
+            let comand_value = 0;
+            let comand_count = 0;
             let post_id = uuidv4();
 
             post_feedd.push(
@@ -255,7 +255,7 @@
                     "delete_bn": post_id
                 }
             )
-            localStorage.setItem('post_feedd', JSON.stringify(post_feedd))
+            localStorage.setItem('post_feedd', JSON.stringify(post_feedd));
 
         }
 
