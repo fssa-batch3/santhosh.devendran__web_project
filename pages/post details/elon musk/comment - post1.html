@@ -113,10 +113,14 @@
 
     <script>
 
+
+        // take data from URL    ///////
+
         let post_feed = JSON.parse(localStorage.getItem("post_feedd"))
 
         const params = new URLSearchParams(window.location.search);
         const postId = params.get('post_id');
+            // find post
         function findRecord(e) {
             return e.post_id == postId;
         }
@@ -126,7 +130,7 @@
         // post img ////////////////
         const img_post = post_details[0].post_img.src;
 
-        if (img_post !== "") {
+        if (img_post) {
 
             let img_a = document.createElement("img");
             img_a.setAttribute("src", post_details[0].post_img.src);
@@ -187,7 +191,7 @@ console.log(comment_content);
         console.log(filtercomment);
 
 
-
+        let unic_id = JSON.parse(localStorage.getItem("user_id"));
         // create card for coment ///////////////////
 
         for(let i=0;i<=filtercomment.length;i++){
@@ -232,7 +236,13 @@ console.log(comment_content);
         div_delete.append(p_user_name);
 
         // i delete for delete////
+     
 
+if( unic_id===filtercomment[i].user_name){
+
+    console.log(filtercomment);
+
+console.log(filtercomment[i].unic_id);
       let i_delete=document.createElement("i");
         i_delete.setAttribute("class","fa fa-trash-o");
         i_delete.setAttribute("style","font-size:15px;color:red");
@@ -246,8 +256,9 @@ console.log(comment_content);
                     function find_comment(e) {
                         return e.comment_id == filtercomment[i].unic_id;;
                     }
-                    user_comment= post_feedd.find(find_comment);
+                    user_comment= comment_list.find(find_comment);
                     const indexOfUser = comment_list.indexOf(user_comment);
+                    console.log(indexOfUser);
                     comment_list.splice(indexOfUser, 1);
                     localStorage.setItem('comment_list', JSON.stringify(comment_list));
                 };
@@ -260,6 +271,7 @@ console.log(comment_content);
                 }
             });
         
+        }
         
 
         //p tag post comment
