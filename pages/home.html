@@ -15,34 +15,7 @@
 </head>
 
 <body>
-    <header>
-        <div class="logo">
-            <img src="../assets/img/logo/logo.jpg" alt="logo" /><span class="name">Door Step</span>
-        </div>
-        <div class="options">
-            <a href="#">
-                <div class="home">
-                    <p class="nav">Home</p>
-                </div>
-            </a>
-            <a href="./profile page/profile.html">
-                <div class="profile">
-                    <p>Profile</p>
-                </div>
-            </a>
-            <a href="./explore/inspect people.html">
-                <div class="inspect">
-                    <p>Explore</p>
-                </div>
-            </a>
-            <a href="./notification page/notification.html">
-                <div class="inspect">
-                    <p>Notification</p>
-                </div>
-            </a>
-
-        </div>
-    </header>
+    <!-- header -->
 
     <main>
         <section class="post_list">
@@ -51,7 +24,7 @@
                     <div class="post_content">
                         <div class="profile">
                             <img alt="profile" src="../assets/img/user/DS profile img.jpg" width="50px" height="50px" />
-                            <input type="text" class="input" placeholder="Whats happening ?" id="post_content" />
+                            <input type="text"  class="input" placeholder="Whats happening ?" id="post_content" />
                         </div>
 
                         <div class="file_upload">
@@ -124,7 +97,7 @@
             </div>
             <div class="right_bottom">
                 <h2 class="heading">Who to follow</h2>
-                <div class="top_user">
+                <!-- <div class="top_user">
                     <div class="img">
                         <a href="../pages/ page/user profile/elon musk.html"><img alt="profile" class="profile_img"
                                 src="../assets/img/user/elon musk.jpg" width="50px" height="50px" /></a>
@@ -188,13 +161,14 @@
                     <div class="follow_button">
                         <button>follow</button>
                     </div>
-                </div>
+                </div> -->
 
             </div>
 
         </section>
 
     </main>
+    <script src="../assets/js/header.js"></script>
 
 
     <script>
@@ -222,7 +196,7 @@
             let user_profile_alt = "";
             let user_name = name;
             let post_content = document.getElementById("post_content").value;
-            let post_img_src = "../assets/img/user/DS profile img.jpg";
+            let post_img_src = "";
             let post_img_alt = "";
             let like_value = 0;
             let like_count = 0;
@@ -256,7 +230,8 @@
                 }
             )
             localStorage.setItem('post_feedd', JSON.stringify(post_feedd));
-
+           
+                location.reload();
         }
 
 
@@ -414,6 +389,76 @@
             document.querySelector(".post_list").append(div_post);
 
         }
+
+
+// top user list /////////////////////
+
+            let top_user= JSON.parse(localStorage.getItem("user_list"));
+            console.log(top_user);
+            user_profile = "../assets/img/user/DS profile img.jpg";
+
+            for(let j=0;j<top_user.length;j++){
+
+              let  user_name =top_user[j]["first_name"]+" "+top_user[j]["last_name"];
+
+            
+            //  <div class="top_user"> </div>
+            div_top_user = document.createElement("div");
+            div_top_user.setAttribute("class", "top_user");
+            console.log(div_top_user);
+            
+            //  <div class="img"> </div>
+            div_img = document.createElement("div");
+            div_img.setAttribute("class", "img");
+            div_top_user.append(div_img);
+
+            //  <img profile_img/>
+            img_profile_img = document.createElement("img");
+            img_profile_img.setAttribute("src", user_profile);
+            img_profile_img.setAttribute("alt", "profile");
+            img_profile_img.setAttribute("class","profile_img")
+            div_img.append(img_profile_img);
+
+            //  <div class="user_list"> </div>
+            div_user_list = document.createElement("div");
+            div_user_list.setAttribute("class", "user_list");
+            div_top_user.append(div_user_list);
+
+            // <p tag for user name
+            p_user_name = document.createElement("p");
+            p_user_name.setAttribute("class","user_name");
+            p_user_name.innerText=user_name ;
+            div_user_list.append(p_user_name);
+
+            //<span> tag for gray
+                span_gray = document.createElement("span");
+                span_gray.setAttribute("class","gray");
+                span_gray.innerText=top_user[j].user_name;
+                div_user_list.append(span_gray);
+
+            //div_follow_button /////
+
+            div_follow_button=document.createElement("div");
+            div_follow_button.setAttribute("class","follow_button");
+            div_top_user.append(div_follow_button);
+
+            // button_follow
+
+            button_follow=document.createElement("button");
+            button_follow.innerText="follow";
+            button_follow.setAttribute("id",top_user[j].uuid)
+            div_follow_button.append(button_follow);
+
+
+            document.querySelector(".right_bottom").append(div_top_user);
+
+        }
+
+
+
+
+
+
 
 // comment page open URL function    ////////////////////////////////////////////////
 

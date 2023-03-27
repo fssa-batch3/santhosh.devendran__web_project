@@ -266,6 +266,8 @@ body .top .interest{
 
 .top_user .img .profile_img {
     border-radius: 30px;
+    height: 50px;
+    width: 50px;
 }
 .gray{
     color: gray;
