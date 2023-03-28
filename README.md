@@ -63,13 +63,21 @@ post CRUD
    * Expected Result:
      * The user is redirected to the Edit profile page.
 #####Edit Profile
- * Scenario 1: Successfully Update Edit profile
+ * Scenario 1: Successfully Update Edit profile.
    * Steps:
         a. Navigate to the Edit profile page.
         b. See the input for user details name and email and Mobile number,bio.
         c. Click the "Save Profile" button.
    * Expected Result:
      * The user is redirected to the User profile page.
+######delete account
+* Scenario 1: Successfully delete profile.
+   * Steps:
+        a. Navigate to the profile page.
+        b. click the delete button.
+        c. enter the password.
+   * Expected Result:
+     * The user is redirected to the login page.
 #####Create Post
  * Scenario 1: Successfully Create a post
    * Steps:
