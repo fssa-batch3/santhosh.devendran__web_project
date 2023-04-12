@@ -24,7 +24,10 @@
                     <div class="post_content">
                         <div class="profile">
                             <img alt="profile" src="../assets/img/user/DS profile img.jpg" width="50px" height="50px" />
-                            <input type="text"  class="input" placeholder="Whats happening ?" id="post_content" />
+                            <textarea type="text" cols="25" rows="2" class="input" maxlength="200"
+                                placeholder="Whats happening ?" id="post_content"></textarea>
+
+                            <span class="gray limit_count" id="content_count_limit"></span>
                         </div>
 
                         <div class="file_upload">
@@ -173,9 +176,70 @@
 
     <script>
 
+
         let unic_id = JSON.parse(localStorage.getItem("user_id"));
         let user_records = JSON.parse(localStorage.getItem("user_list"));
         let post_feedd = JSON.parse(localStorage.getItem('post_feedd')) || [];
+        let new_post = false;
+        const existingDiv = document.querySelector('.create_new_post');
+        let post_textarea = document.getElementById('post_content');
+        let content_count_limit = document.getElementById('content_count_limit');
+        let for_row = 1;
+        let length_for_row = 0
+        let for_row_dec;
+
+        // for enter butten input
+        let push_content = "";
+        post_textarea.addEventListener("keydown", function (e) {
+
+
+            if (e.keyCode === 13) {
+                e.preventDefault();
+                push_content = post_textarea.value += "\n";
+            }
+            else {
+                push_content = post_textarea.value
+            }
+            console.log(push_content);
+        });
+
+
+        post_textarea.addEventListener('input', function () {
+            let post_textareaa = document.getElementById('post_content').value;
+            let content_count = post_textareaa.length;
+            let for_style = 46;
+            length_for_row = 38;
+
+            // for limit value show
+
+            content_count_limit.innerHTML = content_count + '/200';
+
+            switch (true) {
+                case length_for_row * for_row === content_count:
+                    for_row++;
+                    post_textarea.setAttribute('rows', for_row);
+                    for_style = for_style + 16 * (for_row - 1);
+
+                    content_count_limit.setAttribute('style', ' top:' + for_style + 'px; position: relative; font-size: 13px;');
+
+
+                    break;
+                case for_row > 2 && content_count === length_for_row * (for_row - 1):
+                    for_row--;
+                    post_textarea.setAttribute('rows', for_row);
+                    for_style = for_style + 15 * (for_row - 1);
+                    content_count_limit.setAttribute('style', ' top:' + for_style + 'px; position: relative; font-size: 13px;');
+                    break;
+            }
+        }
+        );
+
+
+
+
+
+
+
 
 
         // for ncreate post  ////////////////////////
@@ -188,6 +252,8 @@
 
         let name = user_data["first_name"] + " " + user_data["last_name"];
 
+        // creating new post
+        // document.getElementById("post_content").value
 
         function create_new_post() {
 
@@ -195,7 +261,7 @@
             let user_profile_img = "../assets/img/user/DS profile img.jpg";
             let user_profile_alt = "";
             let user_name = name;
-            let post_content = document.getElementById("post_content").value;
+            let post_content = push_content;
             let post_img_src = "";
             let post_img_alt = "";
             let like_value = 0;
@@ -230,12 +296,15 @@
                 }
             )
             localStorage.setItem('post_feedd', JSON.stringify(post_feedd));
-           
-                location.reload();
+            new_post = true
+            post_feedd.splice(0, post_feedd.length - 1);
+            post_feed_loop(post_feedd);
+            post_feedd = JSON.parse(localStorage.getItem('post_feedd'));
+
         }
 
 
-        let post_feed = JSON.parse(localStorage.getItem("post_feedd"))
+        // let post_feed = JSON.parse(localStorage.getItem("post_feedd"))
 
 
 
@@ -261,7 +330,8 @@
         //     "comand": {
         //         "value": true,
         //         "count": "10",
-        //     }
+        //     },
+        //unic id 
 
         // },
 
@@ -269,144 +339,160 @@
 
         // for read post /////////////////////////////////////////////////////
 
-        for (let i = 0; i < post_feed.length; i++) {
+        post_feed_loop(post_feedd);
 
 
-            //  <div class="post"> </div>
-            div_post = document.createElement("div");
-            div_post.setAttribute("class", "post");
-            console.log(div_post);
-
-            //  <div class="user_list"> </div>
-            div_user_list = document.createElement("div");
-            div_user_list.setAttribute("class", "user_list");
-            div_post.append(div_user_list);
-
-            //  <div class="img"> </div>
-            div_img = document.createElement("div");
-            div_img.setAttribute("class", "img");
-            div_user_list.append(div_img);
-
-            //<a href="./details.html"></a>
-            a_img = document.createElement("a");
-            a_img.setAttribute("href", "./profile page/user profile/elon musk.html");
-            div_img.append(a_img);
+        function post_feed_loop(post_feedd) {
 
 
-            //  <img user profile/>
-            img_a = document.createElement("img");
-            img_a.setAttribute("src", post_feed[i].user_profile.img);
-            img_a.setAttribute("alt", "profile");
-            img_a.setAttribute("class", "profile_img");
-            a_img.append(img_a);
+            console.log(post_feedd);
+            for (let i = 0; i < post_feedd.length; i++) {
 
 
-            //  <div class="user"> </div>
-            div_user = document.createElement("div");
-            div_user.setAttribute("class", "user");
-            div_user_list.append(div_user);
+                //  <div class="post"> </div>
+                div_post = document.createElement("div");
+                div_post.setAttribute("class", "post");
+                console.log(div_post);
 
-            // //<a href="./details.html"></a>
-            // a_user = document.createElement("a");
-            // a_user.setAttribute("href", "./profile page/user profile/elon musk.html");
-            // div_user.append(a_user);
+                //  <div class="user_list"> </div>
+                div_user_list = document.createElement("div");
+                div_user_list.setAttribute("class", "user_list");
+                div_post.append(div_user_list);
 
-            //  <p> user name</p>
-            p_user_name = document.createElement("p");
-            p_user_name.setAttribute("class", "user_name")
-            p_user_name.innerText = post_feed[i].user_name;
-            div_user.append(p_user_name);
+                //  <div class="img"> </div>
+                div_img = document.createElement("div");
+                div_img.setAttribute("class", "img");
+                div_user_list.append(div_img);
 
-            //  <p> post cuntent</p>
-            p_post_cuntent = document.createElement("p");
-            p_post_cuntent.setAttribute("class", "post_cuntent")
-            p_post_cuntent.innerText = post_feed[i]["post_content"];
-            div_user.append(p_post_cuntent);
+                //<a href="./details.html"></a>
+                a_img = document.createElement("a");
+                a_img.setAttribute("href", "./profile page/user profile/elon musk.html");
+                div_img.append(a_img);
 
-            if (post_feed[i].post_img.src) {
 
-                //  <div class="post_img"> </div>
-                post_post_img = document.createElement("div");
-                post_post_img.setAttribute("class", "post_img");
-                div_post.append(post_post_img);
+                //  <img user profile/>
+                img_a = document.createElement("img");
+                img_a.setAttribute("src", post_feedd[i].user_profile.img);
+                img_a.setAttribute("alt", "profile");
+                img_a.setAttribute("class", "profile_img");
+                a_img.append(img_a);
 
-                //  <img user post/>
-                img_post = document.createElement("img");
-                img_post.setAttribute("src", post_feed[i].post_img.src);
-                img_post.setAttribute("alt", "post");
-                post_post_img.append(img_post);
+
+                //  <div class="user"> </div>
+                div_user = document.createElement("div");
+                div_user.setAttribute("class", "user");
+                div_user_list.append(div_user);
+
+                //<a href="./details.html"></a>
+                a_user = document.createElement("a");
+                a_user.setAttribute("href", "../pages/profile page/profile.html?user_id=" + post_feedd[i].unic_id);
+                div_user.append(a_user);
+
+                //  <p> user name</p>
+                p_user_name = document.createElement("p");
+                p_user_name.setAttribute("class", "user_name")
+                p_user_name.innerText = post_feedd[i].user_name;
+                a_user.append(p_user_name);
+
+                //  <p> post cuntent</p>
+                p_post_cuntent = document.createElement("p");
+                p_post_cuntent.setAttribute("class", "post_cuntent")
+                p_post_cuntent.innerText = post_feedd[i]["post_content"];
+                div_user.append(p_post_cuntent);
+
+                if (post_feedd[i].post_img.src) {
+
+                    //  <div class="post_img"> </div>
+                    post_post_img = document.createElement("div");
+                    post_post_img.setAttribute("class", "post_img");
+                    div_post.append(post_post_img);
+
+                    //  <img user post/>
+                    img_post = document.createElement("img");
+                    img_post.setAttribute("src", post_feedd[i].post_img.src);
+                    img_post.setAttribute("alt", "post");
+                    post_post_img.append(img_post);
+
+                }
+
+
+
+                //  <div class="like_comand"> </div>
+                div_like_comand = document.createElement("div");
+                div_like_comand.setAttribute("class", "like_comand");
+                div_post.append(div_like_comand);
+
+                //  <div class="like"> </div>
+                div_like = document.createElement("div");
+                div_like.setAttribute("class", "like");
+                div_like_comand.append(div_like);
+
+
+                // <i for like
+                i_like = document.createElement("i");
+                i_like.setAttribute("class", "fa fa-heart-o");
+                i_like.setAttribute("style", "font-size:18px;color: black;");
+                div_like.append(i_like);
+
+                // span like count
+                span_like_count = document.createElement("span");
+                span_like_count.setAttribute("class", "like_count");
+                span_like_count.innerText = post_feedd[i].like.count;
+                div_like.append(span_like_count);
+
+
+                //  a tag for  comment///////
+                a_div_cmt = document.createElement("a");
+                a_div_cmt.setAttribute("href", "./post details/elon musk/comment - post1.html?post_id=" + post_feedd[i].post_id);
+                div_like_comand.append(a_div_cmt);
+
+                //  <div class="comand"> </div>
+                div_comand = document.createElement("div");
+                div_comand.setAttribute("class", "comand");
+                a_div_cmt.append(div_comand);
+
+                // <i for comand
+                i_comand = document.createElement("i");
+                i_comand.setAttribute("class", "fa fa-comment-o");
+                i_comand.setAttribute("style", "font-size:18px;color: black;");
+                div_comand.append(i_comand);
+
+                // span comand count
+                span_comand_count = document.createElement("span");
+                span_comand_count.setAttribute("class", "like_count");
+                span_comand_count.innerText = post_feedd[i].like.count;
+                div_comand.append(span_comand_count);
+
+                if (new_post) {
+                    existingDiv.insertAdjacentElement('afterend', div_post);
+                    new_post = false;
+                }
+                else {
+                    document.querySelector(".post_list").append(div_post);
+                }
+
 
             }
 
-
-
-            //  <div class="like_comand"> </div>
-            div_like_comand = document.createElement("div");
-            div_like_comand.setAttribute("class", "like_comand");
-            div_post.append(div_like_comand);
-
-            //  <div class="like"> </div>
-            div_like = document.createElement("div");
-            div_like.setAttribute("class", "like");
-            div_like_comand.append(div_like);
-
-
-            // <i for like
-            i_like = document.createElement("i");
-            i_like.setAttribute("class", "fa fa-heart-o");
-            i_like.setAttribute("style", "font-size:18px;color: black;");
-            div_like.append(i_like);
-
-            // span like count
-            span_like_count = document.createElement("span");
-            span_like_count.setAttribute("class", "like_count");
-            span_like_count.innerText = post_feed[i].like.count;
-            div_like.append(span_like_count);
-
-
-            //  a tag for  comment///////
-            a_div_cmt=document.createElement("a");
-            a_div_cmt.setAttribute("href","./post details/elon musk/comment - post1.html?post_id="+post_feed[i].post_id);
-            div_like_comand.append(a_div_cmt);
-
-            //  <div class="comand"> </div>
-            div_comand = document.createElement("div");
-            div_comand.setAttribute("class", "comand");
-            a_div_cmt.append(div_comand);
-
-            // <i for comand
-            i_comand = document.createElement("i");
-            i_comand.setAttribute("class", "fa fa-comment-o");
-            i_comand.setAttribute("style", "font-size:18px;color: black;");
-            div_comand.append(i_comand);
-
-            // span comand count
-            span_comand_count = document.createElement("span");
-            span_comand_count.setAttribute("class", "like_count");
-            span_comand_count.innerText = post_feed[i].like.count;
-            div_comand.append(span_comand_count);
-
-            document.querySelector(".post_list").append(div_post);
-
         }
 
+        // top user list /////////////////////
 
-// top user list /////////////////////
+        let top_user_2 = JSON.parse(localStorage.getItem("user_list"));
+        let top_user = top_user_2.filter((e) => e.user_name !== unic_id);
 
-            let top_user= JSON.parse(localStorage.getItem("user_list"));
-            console.log(top_user);
-            user_profile = "../assets/img/user/DS profile img.jpg";
+        user_profile = "../assets/img/user/DS profile img.jpg";
 
-            for(let j=0;j<top_user.length;j++){
+        for (let j = 0; j < top_user.length; j++) {
 
-              let  user_name =top_user[j]["first_name"]+" "+top_user[j]["last_name"];
+            let user_name = top_user[j]["first_name"] + " " + top_user[j]["last_name"];
 
-            
+
             //  <div class="top_user"> </div>
             div_top_user = document.createElement("div");
             div_top_user.setAttribute("class", "top_user");
             console.log(div_top_user);
-            
+
             //  <div class="img"> </div>
             div_img = document.createElement("div");
             div_img.setAttribute("class", "img");
@@ -416,7 +502,7 @@
             img_profile_img = document.createElement("img");
             img_profile_img.setAttribute("src", user_profile);
             img_profile_img.setAttribute("alt", "profile");
-            img_profile_img.setAttribute("class","profile_img")
+            img_profile_img.setAttribute("class", "profile_img")
             div_img.append(img_profile_img);
 
             //  <div class="user_list"> </div>
@@ -426,33 +512,35 @@
 
             // <p tag for user name
             p_user_name = document.createElement("p");
-            p_user_name.setAttribute("class","user_name");
-            p_user_name.innerText=user_name ;
+            p_user_name.setAttribute("class", "user_name");
+            p_user_name.innerText = user_name;
             div_user_list.append(p_user_name);
 
             //<span> tag for gray
-                span_gray = document.createElement("span");
-                span_gray.setAttribute("class","gray");
-                span_gray.innerText=top_user[j].user_name;
-                div_user_list.append(span_gray);
+            span_gray = document.createElement("span");
+            span_gray.setAttribute("class", "gray");
+            span_gray.innerText = top_user[j].user_name;
+            div_user_list.append(span_gray);
 
             //div_follow_button /////
 
-            div_follow_button=document.createElement("div");
-            div_follow_button.setAttribute("class","follow_button");
+            div_follow_button = document.createElement("div");
+            div_follow_button.setAttribute("class", "follow_button");
             div_top_user.append(div_follow_button);
 
             // button_follow
 
-            button_follow=document.createElement("button");
-            button_follow.innerText="follow";
-            button_follow.setAttribute("id",top_user[j].uuid)
+            button_follow = document.createElement("button");
+            button_follow.innerText = "follow";
+            button_follow.setAttribute("id", top_user[j].uuid)
             div_follow_button.append(button_follow);
 
 
             document.querySelector(".right_bottom").append(div_top_user);
 
         }
+
+
 
 
 

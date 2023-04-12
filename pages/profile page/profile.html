@@ -31,15 +31,13 @@
 
                 <div class="profile_photo">
                     <div class="cover_img">
-                        <img alt="cover photo" src="" width="100%"
-                            height="250px" />
+                        <img alt="cover photo" src="" width="100%" height="250px" />
                     </div>
 
                     <!-- ../../assets/img/user/cover img/profile back cover.jpg
                     ../../assets/img/user/DS profile img.jpg -->
                     <div class="dp">
-                        <img alt="profile image" src="" width="130px"
-                            height="130px" />
+                        <img alt="profile image" src="" width="130px" height="130px" />
                     </div>
                 </div>
                 <div class="user_details">
@@ -64,7 +62,8 @@
                     </span>
                 </div>
                 <div class="bn">
-                    <a href="./edit profile.html"><button class="edit">edit</button></a>
+                    <a id="edit_bn" href="./edit profile.html"><button class="edit edit_bn">edit</button></a><button id="follow_bn" class="edit follow_bn">follow</button>
+
                 </div>
 
             </div>
@@ -316,7 +315,7 @@
         </section>
 
 
-    </main>
+    </main><a href="../profile page/edit profile.html"></a>
 
     <script src="../../assets/js/header.js"></script>
 
@@ -324,13 +323,57 @@
 
 
     <script>
+
         let unic_user_id = JSON.parse(localStorage.getItem("user_id"));
-        if (unic_user_id == "") {
-            window.location.href = "../../index.html";
+
+        const params = new URLSearchParams(window.location.search);
+        const user_Id = params.get('user_id');
+
+        const edit_bn=document.getElementsByClassName("edit_bn");
+        const follow_bn=document.getElementsByClassName("follow_bn");
+
+
+        if (user_Id !== unic_user_id) {
+            let user_records = JSON.parse(localStorage.getItem("user_list"));
+
+            function login_data(e) {
+                return e.user_name == user_Id;
+            }
+            let user_data = user_records.find(login_data);
+
+
+
+            let name = user_data["first_name"] + " " + user_data["last_name"]
+
+
+            document.getElementById("tname").innerHTML = name;
+            document.getElementById("name").innerHTML = name;
+            document.getElementById("user_name").innerHTML = user_data["user_name"];
+            document.getElementById("bio").innerHTML = user_data["user_bio"];
+            document.getElementById("dob").innerHTML = "Born in " + user_data["dob"];
+
+            const logout = document.getElementsByClassName("logout_bn");
+            if (logout.length > 0) {
+                logout[0].style.display = "none";
+            }
+            const delete_bn = document.getElementsByClassName("delete_bn");
+            if (delete_bn.length > 0) {
+                delete_bn[0].style.display = "none";
+            }
+
+            if (edit_bn.length > 0) {
+                edit_bn[0].style.display = "none";
+            }
+            if (follow_bn.length > 0) {
+                follow_bn[0].style.display = "block";
+            }
+            
+
         }
 
-        else {
 
+        if (user_Id == unic_user_id) {
+        
             let user_records = JSON.parse(localStorage.getItem("user_list"));
 
             function login_data(e) {
@@ -349,7 +392,23 @@
             document.getElementById("bio").innerHTML = user_data["user_bio"];
             document.getElementById("dob").innerHTML = "Born in " + user_data["dob"];
 
+            if (follow_bn.length > 0) {
+                follow_bn[0].style.display = "none";
+              
+            }
+            if (edit_bn.length > 0) {
+                edit_bn[0].style.display = "block";
+            }
+
         }
+
+
+        //  user edit page
+        const edit_button = document.getElementById("edit_bn");
+        console.log(edit_button);
+        edit_button.setAttribute("href", "../profile page/edit profile.html?user_id=" + unic_user_id);
+
+
         // function for delete
 
         function deletData(e) {
@@ -389,8 +448,8 @@
 
 
         let post_feedd = JSON.parse(localStorage.getItem("post_feedd"));
-        
-//    filter data///////
+
+        //    filter data///////
 
         let filterpost = post_feedd.filter(post => post.unic_id == unic_user_id);
         console.log(filterpost);

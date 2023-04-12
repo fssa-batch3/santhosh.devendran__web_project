@@ -39,19 +39,19 @@
                 </div>
                 <div class="flex">
                     <lable class="lable">Mail ID:</lable>
-                    <input id="email" name="email" type="email" class="input" placeholder="firstname@domain.com" required>
+                    <input id="email" name="email" type="email" class="input" placeholder="name@domain.com" required>
                 </div>
                 <div class="flex">
                     <lable class="lable">Mobile Number:</lable>
-                    <input id="mobilenumber" name="mobilenumber" type="tel"   class="input" placeholder="+91 89250 *****" required>
+                    <input id="mobilenumber" name="mobilenumber" type="tel" pattern="[0-9]{10}"  class="input" placeholder="+91 89250 *****" required>
                 </div>
                 <div class="flex">
                     <lable class="lable">Password:</lable>
-                    <input id="password" name="password" type="password" class="input" pattern = "[a-zA-Z0-9!-@]+" placeholder="Enter Your password" required>
+                    <input id="password" name="password" type="password" class="input" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="Enter Your password" required>
                 </div>
                 <div class="flex">
                     <lable class="lable">Confirm Password:</lable>
-                    <input id="confirmpassword" name="confirmpassword" type="password"  class="input" pattern = "[a-zA-Z0-9!-@]+" placeholder="Reenter Your Password"
+                    <input id="confirmpassword" name="confirmpassword" type="password"  class="input" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="Reenter Your Password"
                         required>
                 </div>
 

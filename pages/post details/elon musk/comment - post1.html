@@ -254,7 +254,6 @@
                         user_comment = comment_list.find(find_comment);
                         console.log(user_comment);
                         const indexOfUser = comment_list.indexOf(user_comment);
-                        console.log(indexOfUser);
                         comment_list.splice(indexOfUser, 1);
                         localStorage.setItem('comment_list', JSON.stringify(comment_list));
                     };

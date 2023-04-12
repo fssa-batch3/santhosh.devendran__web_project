@@ -51,6 +51,7 @@ main .left_side{
     margin-top: 10px;
     background-color: #f2f3f4;
     padding: 10px 0px 15px 0px;
+    width: 32rem;
 }
 
 .center .profile_top{

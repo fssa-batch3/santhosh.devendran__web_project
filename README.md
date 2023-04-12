@@ -26,7 +26,7 @@ post CRUD
  * CREATE COMMENT
  * READ COMMENT
  * DELETE COMMENT
-<!--  yet to start -->
+
  FOLLOW
 
  * FOLLOW USER
@@ -35,8 +35,8 @@ post CRUD
 
  * CREATE NOTIFICATION
  * READ NOTIFICATION
-<!--  -->
-#####Create an account
+
+#####Create an account (completed)
  * Scenario 1: Successfully create an account.
    * Steps:
         a. Navigate to the Log in page.
@@ -45,7 +45,7 @@ post CRUD
         d. Click the "submit" button.
    * Expected Result:
      * The user is redirected to the login page.
-#####Login account
+#####Login account (completed)
  * Scenario 1: Successfully log in to account
    * Steps:
         a. Navigate to the login page.
@@ -53,7 +53,7 @@ post CRUD
         c. Click the "Login" button.
    * Expected Result:
      * The user is redirected to the home page.
-#####User Profile
+#####User Profile (completed)
  * Scenario 1: Successfully view User profile
    * Steps:
         a. Navigate to the user profile page.
@@ -62,7 +62,7 @@ post CRUD
         d. Click the "Edit" button.
    * Expected Result:
      * The user is redirected to the Edit profile page.
-#####Edit Profile
+#####Edit Profile (completed)
  * Scenario 1: Successfully Update Edit profile.
    * Steps:
         a. Navigate to the Edit profile page.
@@ -70,7 +70,7 @@ post CRUD
         c. Click the "Save Profile" button.
    * Expected Result:
      * The user is redirected to the User profile page.
-######delete account
+######delete account (completed)
 * Scenario 1: Successfully delete profile.
    * Steps:
         a. Navigate to the profile page.
@@ -78,7 +78,8 @@ post CRUD
         c. enter the password.
    * Expected Result:
      * The user is redirected to the login page.
-#####Create Post
+
+#####Create Post (completed)
  * Scenario 1: Successfully Create a post
    * Steps:
         a. Navigate to the Home page.
@@ -87,7 +88,7 @@ post CRUD
    * Expected Result:
      * The user is redirected to the Home page.
 
-#####Delete Post
+#####Delete Post (completed)
  * Scenario 1: Successfully Delete your blog post
    * Steps:
         a. Navigate to the User profile page.
@@ -96,7 +97,7 @@ post CRUD
    * Expected Result:
      * The post will Delete user is redirected to the profile page.
 
-#####create comment
+#####create comment (completed)
 
 * Scenario 1: Successfully create your comment.
    * Steps:
@@ -106,7 +107,7 @@ post CRUD
     * Expected Result:
      * The user is redirected to the same post details page.
 
-######Delete comment
+######Delete comment (completed)
 
 * Scenario 1: Successfully Delete your comment.
    * Steps:

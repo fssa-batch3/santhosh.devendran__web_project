@@ -57,16 +57,24 @@ main .post_list .create_new_post .new_post .post_content img{
 }
 main .post_list .create_new_post .new_post .post_content .input{
     border: 0px;
-    width: 25rem;
-    height: 3rem;
+    width: 20rem;
     margin-top: 30px;
     margin-left: 10px;
-    border-radius: 10px;
+    /* border-radius: 10px; */
     padding-left: 10px;
+    font-size: 15px;
 }
-main .post_list .create_new_post .new_post .post_content .input:focus{
-    outline: 0px;
+main .post_list .create_new_post .new_post .post_content .input::-webkit-scrollbar {
+    display: none;
+   }
+
+main .post_list .create_new_post .profile .limit_count{
+    position: relative;
+    top: 65px;
+    right: 17px;
+    font-size: 13px;
 }
+
 .post .user_list .img img{
     width: 50px;
     height: 50px;
@@ -130,14 +138,14 @@ main .post_list .create_new_post .new_post .post_content .input:focus{
 .post .like_comand .like{
     width: 8rem;
     height: 2rem;
-    background-color: #d4d4d4;
+   
     border-radius: 15px;
     margin: 6px 0px 6px 0px;
 }
 .post .like_comand .comand{
     width: 8rem;
     height: 2rem;
-    background-color: #d4d4d4;
+    
     border-radius: 15px;
     margin: 6px 0px 6px 30px;
 }
@@ -170,6 +178,7 @@ body header .home_button button{
     display: flex;
     flex-direction: column;
 }
+
 main .profile{
     display: flex;
     flex-direction: row;
