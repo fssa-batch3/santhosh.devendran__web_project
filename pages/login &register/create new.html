@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <h2>Rigister Now</h2>
+    <h2>Register Now</h2>
     <main>
 
         <section class="form">
@@ -30,15 +30,16 @@
                     </div>
                 </div>
                 <div class="flex">
-                    <lable class="lable">user name:</lable>
-                    <input id="username" name="username" type="text" pattern="[a-zA-Z0-9]+" class="input" required>
+                    <lable class="lable">User name:</lable>
+                    <input id="username" name="username" type="text" pattern="[a-zA-Z0-9]{6,12}" class="input" required>
+                    <span id="user_name_l" class="password_required">user name should contain minimum 6~12 characters</span>
                 </div>
                 <div class="flex">
-                    <lable class="lable">D.O.B:</lable>
+                    <lable class="lable">Date Of Birth:</lable>
                     <input id="dob" name="dob" type="date"  class="input" required>
                 </div>
                 <div class="flex">
-                    <lable class="lable">Mail ID:</lable>
+                    <lable class="lable">Email ID:</lable>
                     <input id="email" name="email" type="email" class="input" placeholder="name@domain.com" required>
                 </div>
                 <div class="flex">
@@ -48,6 +49,7 @@
                 <div class="flex">
                     <lable class="lable">Password:</lable>
                     <input id="password" name="password" type="password" class="input" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="Enter Your password" required>
+                    <span class="password_required">Must contain at least one number, one uppercase, lowercase and at least 8 characters.</span>
                 </div>
                 <div class="flex">
                     <lable class="lable">Confirm Password:</lable>
@@ -57,11 +59,11 @@
 
                 <div class="submit">
                     <a>
-                        <button type="submit">submit</button>
+                        <button type="submit">Submit</button>
                     </a>
                 </div>
                 <a href="../../index.html">
-                    <P>Already have account</P>
+                    <P>Already have an account</P>
                 </a>
             </form>
 
@@ -69,6 +71,8 @@
     </main>
 
     <script>
+
+
 
 
 function signUp(e) {
@@ -124,7 +128,7 @@ function signUp(e) {
 }
 
 
-//  user name checking    /////
+
 
 
 

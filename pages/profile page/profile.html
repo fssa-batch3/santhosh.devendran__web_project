@@ -243,8 +243,8 @@
 
             </div>
             <div class="right_bottom">
-                <h2 class="heading">Who to follow</h2>
-                <div class="top_user">
+                <h2 class="heading right_bottom">Who to follow</h2>
+                <!-- <div class="top_user">
                     <div class="img">
                         <a href="../profile page/user profile/elon musk.html"><img alt="profile" class="profile_img"
                                 src="../../assets/img/user/elon musk.jpg" width="50px" height="50px" /></a>
@@ -308,7 +308,7 @@
                     <div class="follow_button">
                         <button>follow</button>
                     </div>
-                </div>
+                </div> -->
 
             </div>
 
@@ -324,15 +324,33 @@
 
     <script>
 
+        
+
         let unic_user_id = JSON.parse(localStorage.getItem("user_id"));
 
+        if(unic_user_id==""){
+            window.location.href = "../../index.html";
+        }
+
+
+        
         const params = new URLSearchParams(window.location.search);
         const user_Id = params.get('user_id');
+
 
         const edit_bn=document.getElementsByClassName("edit_bn");
         const follow_bn=document.getElementsByClassName("follow_bn");
 
-
+        
+        if(unic_user_id!==user_Id){
+            
+                edit_bn[0].style.display = "none";
+           
+           
+                follow_bn[0].style.display = "block";
+            
+    }
+    //  for other user profile/////////////
         if (user_Id !== unic_user_id) {
             let user_records = JSON.parse(localStorage.getItem("user_list"));
 
@@ -361,16 +379,11 @@
                 delete_bn[0].style.display = "none";
             }
 
-            if (edit_bn.length > 0) {
-                edit_bn[0].style.display = "none";
-            }
-            if (follow_bn.length > 0) {
-                follow_bn[0].style.display = "block";
-            }
+           
             
 
         }
-
+        //  for login user///////////
 
         if (user_Id == unic_user_id) {
         
@@ -402,6 +415,59 @@
 
         }
 
+        // for follow unfollow button show  //
+
+        const follow_bn_function=document.getElementById("follow_bn");
+        let follow_data = JSON.parse(localStorage.getItem('follow_data'));
+        let user_f_data=follow_data.find(e=>e.followee==unic_user_id && e.following==user_Id);
+
+            if(user_f_data==undefined){
+                follow_bn_function.innerText = "follow";
+            }
+            else{
+                follow_bn_function.innerText = "Unfollow";
+            }
+
+
+            // for follow and Unfollow button feature  ////
+
+            follow_bn_function.addEventListener("click",function(){
+                let following=user_Id;
+                let followee=unic_user_id;
+
+                let follow_bn=document.getElementById(following);
+                let follow_data = JSON.parse(localStorage.getItem('follow_data'))||[];
+                if(follow_data.length===0){
+                    follow_data.push({
+                        "following":following,
+                        "followee":followee,
+                        "notification":false
+                    })
+                    console.log(follow_data);
+                    follow_bn_function.innerHTML = 'Unfollow';
+                    localStorage.setItem("follow_data",JSON.stringify(follow_data));
+                }
+                else{
+                    let user_f_data=follow_data.find(e=>e.followee==unic_user_id && e.following==following);
+                let indexOfuser_f=follow_data.indexOf(user_f_data);
+                if(user_f_data == undefined){
+                    follow_data.push({
+                        "following":following,
+                        "followee":followee,
+                        "notification":false
+                    })
+                    follow_bn_function.innerText="Unfollow";
+                    localStorage.setItem("follow_data",JSON.stringify(follow_data));
+                }
+                else{
+                    follow_data.splice(indexOfuser_f,1);
+                    localStorage.setItem("follow_data",JSON.stringify(follow_data));
+                    follow_bn_function.innerText="follow";
+                }
+                }
+            });
+
+
 
         //  user edit page
         const edit_button = document.getElementById("edit_bn");
@@ -414,6 +480,11 @@
         function deletData(e) {
             let password_for_delete = prompt("Please enter your password:");
             let check = false;
+            let user_records = JSON.parse(localStorage.getItem("user_list"));
+            function login_data(e) {
+                return e.user_name == unic_user_id;
+            }
+            let user_data = user_records.find(login_data);
             if (password_for_delete == user_data["password"]) {
                 check = true;
             }
@@ -421,7 +492,7 @@
                 alert("password is incorect")
             }
 
-            if (check = true) {
+            if (check === true) {
                 let unic_user_id = JSON.parse(localStorage.getItem("user_id"));
                 let user_records = JSON.parse(localStorage.getItem("user_list"));
                 function login_data(e) {
@@ -432,7 +503,10 @@
                 const indexOfUser = user_records.indexOf(user_data);
                 user_records.splice(indexOfUser, 1);
                 localStorage.setItem('user_list', JSON.stringify(user_records));
+                let user_id="";
+                localStorage.setItem('user_id', JSON.stringify(user_id));
                 window.location.href = "../../index.html";
+
             };
         }
 
@@ -451,7 +525,7 @@
 
         //    filter data///////
 
-        let filterpost = post_feedd.filter(post => post.unic_id == unic_user_id);
+        let filterpost = post_feedd.filter(post => post.unic_id == user_Id);
         console.log(filterpost);
         for (let i = 0; i < filterpost.length; i++) {
 
@@ -618,6 +692,113 @@
             document.querySelector(".left_side").append(div_post);
 
         }
+
+
+        //  top user showing ///////
+        let top_user_2 = JSON.parse(localStorage.getItem("user_list"));
+        let top_user = top_user_2.filter((e) => e.user_name !== unic_user_id);
+
+        user_profile = "../assets/img/user/DS profile img.jpg";
+
+        for (let j = 0; j < top_user.length; j++) {
+
+            let user_name = top_user[j]["first_name"] + " " + top_user[j]["last_name"];
+
+
+            //  <div class="top_user"> </div>
+            div_top_user = document.createElement("div");
+            div_top_user.setAttribute("class", "top_user");
+
+            //  <div class="img"> </div>
+            div_img = document.createElement("div");
+            div_img.setAttribute("class", "img");
+            div_top_user.append(div_img);
+
+            //  <img profile_img/>
+            img_profile_img = document.createElement("img");
+            img_profile_img.setAttribute("src", user_profile);
+            img_profile_img.setAttribute("alt", "profile");
+            img_profile_img.setAttribute("class", "profile_img")
+            div_img.append(img_profile_img);
+
+            //  <div class="user_list"> </div>
+            div_user_list = document.createElement("div");
+            div_user_list.setAttribute("class", "user_list");
+            div_top_user.append(div_user_list);
+
+            // <p tag for user name
+            p_user_name = document.createElement("p");
+            p_user_name.setAttribute("class", "user_name");
+            p_user_name.innerText = user_name;
+            div_user_list.append(p_user_name);
+
+            //<span> tag for gray
+            span_gray = document.createElement("span");
+            span_gray.setAttribute("class", "gray");
+            span_gray.innerText = top_user[j].user_name;
+            div_user_list.append(span_gray);
+
+            //div_follow_button /////
+
+            div_follow_button = document.createElement("div");
+            div_follow_button.setAttribute("class", "follow_button");
+            div_top_user.append(div_follow_button);
+
+            // button_follow
+
+            button_follow = document.createElement("button");
+            let user_f_data=follow_data.find(e=>e.followee==unic_user_id && e.following==top_user[j].user_name);
+
+            if(user_f_data==undefined){
+                button_follow.innerText = "follow";
+            }
+            else{
+                button_follow.innerText = "Unfollow";
+            }
+            button_follow.setAttribute("id", top_user[j].user_name)
+            div_follow_button.append(button_follow);
+
+            button_follow.addEventListener("click",function(){
+                let following=this.id;
+                let followee=unic_id;
+
+                let follow_bn=document.getElementById(following);
+                let follow_data = JSON.parse(localStorage.getItem('follow_data'))||[];
+                if(follow_data.length===0){
+                    follow_data.push({
+                        "following":following,
+                        "followee":followee,
+                        "notification":false
+                    })
+                    console.log(follow_data);
+                    follow_bn.innerHTML = 'Unfollow';
+                    localStorage.setItem("follow_data",JSON.stringify(follow_data));
+                }
+                else{
+                    let user_f_data=follow_data.find(e=>e.followee==unic_id && e.following==following);
+                let indexOfuser_f=follow_data.indexOf(user_f_data);
+                if(user_f_data == undefined){
+                    follow_data.push({
+                        "following":following,
+                        "followee":followee,
+                        "notification":false
+                    })
+                    follow_bn.innerText="Unfollow";
+                    localStorage.setItem("follow_data",JSON.stringify(follow_data));
+                }
+                else{
+                    follow_data.splice(indexOfuser_f,1);
+                    localStorage.setItem("follow_data",JSON.stringify(follow_data));
+                    follow_bn.innerText="follow";
+                }
+                }
+            });
+
+
+            document.querySelector(".right_bottom").append(div_top_user);
+
+        }
+
 
 
 

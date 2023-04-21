@@ -1,4 +1,5 @@
  let rootPath = window.location.origin;
+ 
 
  let unic_user_id2 = JSON.parse(localStorage.getItem("user_id"));
 

@@ -155,28 +155,27 @@
                     "comment_content": comment_content,
                     "date_time": formattedDate,
                     "comment_post_id": postId,
-                    "like_count": 0,
                     "img": "../../../assets/img/user/girish sir.jpg"
 
                 }
             )
             localStorage.setItem('comment_list', JSON.stringify(comment_list));
+
+
             location.reload();
         }
 
+        //  add comand count in post details
+
         let filtercomment = comment_list.filter(comment => comment.comment_post_id == postId);
 
-        
+
         let post_feedd = JSON.parse(localStorage.getItem('post_feedd'));
 
-        const count = filtercomment.length;
+        let find_post = post_feedd.find(e => e.post_id === postId);
+        find_post.comand = filtercomment.length;
 
-        let post_detail = post_feed.filter(findRecord);
-        
-        post_detail[0].comand.count = count;
 
-        console.log(filtercomment.length);
-        
         localStorage.setItem('post_feedd', JSON.stringify(post_feedd));
 
 
@@ -191,7 +190,6 @@
             // div coment list//
             div_comment_list = document.createElement("div");
             div_comment_list.setAttribute("class", "comment_list");
-            console.log(div_comment_list);
 
 
             // div_user list///
@@ -232,7 +230,6 @@
 
             if (unic_id === filtercomment[i].user_name) {
 
-                console.log(filtercomment[i].unic_id);
                 const i_delete = document.createElement("i");
                 i_delete.setAttribute("class", "fa fa-trash-o");
                 i_delete.setAttribute("style", "font-size:15px;color:red");
@@ -244,15 +241,12 @@
                 i_delete.addEventListener("click", function () {
                     console.log("delete");
                     if (confirm("Are you sure to Delete ?")) {
-                        let comment_id = filtercomment[i].unic_id;
-                        console.log(comment_id);
+                        let comment_id = this.id;
                         let comment_list = JSON.parse(localStorage.getItem("comment_list"));
-                        console.log(filtercomment[i].unic_id);
                         function find_comment(e) {
-                            return e.comment_list == filtercomment[i].unic_id;;
+                            return e.unic_id == comment_id;;
                         }
-                        user_comment = comment_list.find(find_comment);
-                        console.log(user_comment);
+                       let user_comment = comment_list.find(find_comment);
                         const indexOfUser = comment_list.indexOf(user_comment);
                         comment_list.splice(indexOfUser, 1);
                         localStorage.setItem('comment_list', JSON.stringify(comment_list));
@@ -278,21 +272,21 @@
             div_user.append(p_post_cuntent);
 
             // div like//
-            div_like = document.createElement("div");
-            div_like.setAttribute("class", "like");
-            div_comment_list.append(div_like);
+            // div_like = document.createElement("div");
+            // div_like.setAttribute("class", "like");
+            // div_comment_list.append(div_like);
 
-            // i tag cration//
-            i_heart = document.createElement("i");
-            i_heart.setAttribute("class", "fa fa-heart-o");
-            i_heart.setAttribute("style", "font-size:18px;color: black;")
-            div_like.append(i_heart);
+            // // i tag cration//
+            // i_heart = document.createElement("i");
+            // i_heart.setAttribute("class", "fa fa-heart-o");
+            // i_heart.setAttribute("style", "font-size:18px;color: black;")
+            // div_like.append(i_heart);
 
             //span like_count//
-            span_count = document.createElement("span");
-            span_count.setAttribute("class", "like_count");
-            span_count.innerText = filtercomment[i].like_count;
-            div_like.append(span_count);
+            // span_count = document.createElement("span");
+            // span_count.setAttribute("class", "like_count");
+            // span_count.innerText = filtercomment[i].like_count;
+            // div_like.append(span_count);
 
             document.querySelector(".post_details").append(div_comment_list);
 

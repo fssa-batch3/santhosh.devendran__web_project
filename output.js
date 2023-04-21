@@ -87,3 +87,61 @@ let pushdata="";
     let ans= output.replaceAll("'",'"');
     console.log(ans)
 // return output
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+let products = document.querySelectorAll(".fa-sign-out-alt")
+        products.forEach(function (check) {
+            check.addEventListener("click", function () {
+                let doctor_id = this.dataset.remove;
+                localStorage.setItem("products_id", JSON.stringify(product_id));
+                console.log(product_id);
+                if (confirm("Are you sure to remove this product?")) {
+                    let id = JSON.parse(localStorage.getItem("products_id"));
+                    let all_products = JSON.parse(localStorage.getItem("cart_list"));
+                    console.log(all_products);
+                    let pdts = all_products.find(e => e.product_uuid == product_id && e.userId == user)
+                    console.log(pdts); let indexOfProduct = all_products.indexOf(pdts);
+                    all_products.splice(indexOfProduct, 1);
+                    console.log(indexOfProduct);
+                    localStorage.setItem("cart_list", JSON.stringify(all_products));
+                }
+                window.location.reload();
+            });
+        });
+
+
+
+
+        delete_button.addEventListener("click", function () {
+          if (confirm("Are you sure to Delete ?")) {
+            let id = this.target.id;
+            let doctors = JSON.parse(localStorage.getItem("doctors"));
+            // Find the index of the post to delete
+            const indexOfUser = doctors.find(e => e.id == id);
+            // Remove the post from the array
+            if (indexOfUser !== -1) {
+              doctors.splice(indexOfUser, 1);
+            }
+            localStorage.setItem('doctors', JSON.stringify(doctors));
+            location.reload();
+          }
+        });

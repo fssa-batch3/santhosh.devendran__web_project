@@ -41,6 +41,15 @@
         </div>
 
         <script>
+            let unic_user_id = JSON.parse(localStorage.getItem("user_id"));
+
+if(unic_user_id==""){
+    window.location.href = "../../index.html";
+}
+
+
+const params = new URLSearchParams(window.location.search);
+        const user_Id = params.get('user_id');
 
             let unic_id= JSON.parse(localStorage.getItem("user_id"));
             let user_records=JSON.parse(localStorage.getItem("user_list"))
@@ -69,7 +78,8 @@
 
             localStorage.setItem("user_list",JSON.stringify(user_records));
             alert("updated successfully");
-            window.location.href = "./profile.html";
+
+            window.location.href = "./profile.html?user_id=" + user_Id;
 
         }
 

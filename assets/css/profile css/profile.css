@@ -51,14 +51,16 @@ main .left_side{
     margin-top: 10px;
     background-color: #f2f3f4;
     padding: 10px 0px 15px 0px;
-    width: 32rem;
+    width: 33rem;
 }
 
 .center .profile_top{
     display: flex;
     flex-direction: row;
     padding: 5px;
+    width: 32rem;
 }
+
 .center .profile_top .back_button{
     padding-top: 8px;
 }
@@ -384,7 +386,7 @@ body .top_user {
     border-radius: 10px;
     background-color: #00acee;
     color: white;
-    margin: 8px 10px 0px -40px;
+    margin: 8px 10px 0px -70px;
 }
 a{
     text-decoration: none;
