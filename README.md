@@ -70,6 +70,14 @@ post CRUD
         c. Click the "Save Profile" button.
    * Expected Result:
      * The user is redirected to the User profile page.
+
+#####Logout account (completed)
+ * Scenario 1: Successfully log out profile.
+   * Steps:
+        a. Navigate to the profile page.
+        b. click the logout button.
+   * Expected Result:
+     * The user is redirected to the login page.
 ######delete account (completed)
 * Scenario 1: Successfully delete profile.
    * Steps:
@@ -116,3 +124,34 @@ post CRUD
         e. Click the alert confirmation button.
     * Expected Result:
      * the comment will delete and redirected to the same post details page.
+
+######follow user (completed)
+
+* Scenario 1: Successfully follow user.
+     * steps:
+          a. Navigate to the user profile page using post or home page.
+          b. click the click the follow button .
+     * Expected Result:
+ * the follow button change to unfollow.
+
+ ######read follow (completed)
+
+* Scenario 1: Successfully read follow.
+     * steps:
+          a. Navigate to the user profile page using post or home page.
+          b. check the follow button .
+     * Expected Result:
+ * if you follow the user the button changed to unfollow.
+ * if you not follow the user the button show follow.
+
+######unfollow user (completed)
+
+* Scenario 1: Successfully unfollow user.
+     * steps:
+          a. Navigate to the user profile page using post or home page.
+          b. click the click the unfollow button .
+     * Expected Result:
+ * the unfollow button change to follow.
+
+
+ 

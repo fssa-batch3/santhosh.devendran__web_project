@@ -136,13 +136,12 @@ if(unic_user_id==""){
         let push_content = "";
         post_textarea.addEventListener("keydown", function (e) {
 
-
             if (e.keyCode === 13) {
                 e.preventDefault();
                 push_content = post_textarea.value += "\n";
             }
             else {
-                push_content = post_textarea.value +" "
+                push_content = post_textarea.value;
             }
             console.log(push_content);
         });
@@ -200,7 +199,18 @@ if(unic_user_id==""){
 
         function create_new_post() {
 
-            // e.preventDefault();
+            push_content = post_textarea.value;
+
+            if(push_content.length===0){
+                alert("fill anything in the post field");
+            }
+            else if(push_content.length===1){
+                alert("fill anything in the post field");
+            }
+
+            else{
+   
+
             let user_profile_img = "../assets/img/user/DS profile img.jpg";
             let user_profile_alt = "";
             let user_name = name;
@@ -237,6 +247,8 @@ if(unic_user_id==""){
             post_feedd.splice(0, post_feedd.length - 1);
             post_feed_loop(post_feedd);
             post_feedd = JSON.parse(localStorage.getItem('post_feedd'));
+
+         }
 
         }
 

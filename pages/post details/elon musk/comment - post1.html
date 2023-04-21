@@ -128,6 +128,15 @@
 
         function comment() {
 
+            
+
+            if(document.getElementById("comment_content").value.length==0){
+                alert("write a comment")
+            }
+            else{
+
+
+
             let unic_id = JSON.parse(localStorage.getItem("user_id"));
             let user_records = JSON.parse(localStorage.getItem("user_list"));
 
@@ -137,7 +146,7 @@
             let user_data = user_records.find(login_data);
 
             console.log(user_data);
-
+            
             let name = user_data["first_name"] + " " + user_data["last_name"];
             let comment_id = uuidv4();
             let user_name = unic_id;
@@ -163,6 +172,8 @@
 
 
             location.reload();
+
+          }
         }
 
         //  add comand count in post details

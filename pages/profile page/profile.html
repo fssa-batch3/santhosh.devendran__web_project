@@ -62,7 +62,7 @@
                     </span>
                 </div>
                 <div class="bn">
-                    <a id="edit_bn" href="./edit profile.html"><button class="edit edit_bn">edit</button></a><button id="follow_bn" class="edit follow_bn">follow</button>
+                    <a id="edit_bn_page" ><button class="edit edit_bn">edit</button></a><button id="follow_bn" class="edit follow_bn">follow</button>
 
                 </div>
 
@@ -470,7 +470,7 @@
 
 
         //  user edit page
-        const edit_button = document.getElementById("edit_bn");
+        const edit_button = document.getElementById("edit_bn_page");
         console.log(edit_button);
         edit_button.setAttribute("href", "../profile page/edit profile.html?user_id=" + unic_user_id);
 
