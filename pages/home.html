@@ -100,7 +100,7 @@
             </div>
             <div class="right_bottom">
                 <h2 class="heading">Who to follow</h2>
-              
+
 
             </div>
 
@@ -112,11 +112,11 @@
 
     <script>
 
-let unic_user_id = JSON.parse(localStorage.getItem("user_id"));
+        let unic_user_id = JSON.parse(localStorage.getItem("user_id"));
 
-if(unic_user_id==""){
-    window.location.href = "../../index.html";
-}
+        if (unic_user_id == "") {
+            window.location.href = "../../index.html";
+        }
 
 
 
@@ -201,54 +201,54 @@ if(unic_user_id==""){
 
             push_content = post_textarea.value;
 
-            if(push_content.length===0){
+            if (push_content.length === 0) {
                 alert("fill anything in the post field");
             }
-            else if(push_content.length===1){
+            else if (push_content.length === 1) {
                 alert("fill anything in the post field");
             }
 
-            else{
-   
+            else {
 
-            let user_profile_img = "../assets/img/user/DS profile img.jpg";
-            let user_profile_alt = "";
-            let user_name = name;
-            let post_content = push_content;
-            let post_img_src = "";
-            let post_img_alt = "";
-            let like_value = 0;
-            let like_count = 0;
-            let comand_value = 0;
-            let comand_count = 0;
-            let post_id = uuidv4();
 
-            post_feedd.push(
-                {
-                    "post_id": post_id,
-                    "unic_id": unic_id,
-                    "user_profile": {
-                        "img": user_profile_img,
-                        "alt": user_profile_alt,
-                    },
-                    "user_name": user_name,
-                    "post_content": post_content,
-                    "post_img": {
-                        "src": post_img_src,
-                        "alt": post_img_alt,
-                    },
-                    "like": like_count,
-                    "comand": comand_count,
-                    "delete_bn": post_id
-                }
-            )
-            localStorage.setItem('post_feedd', JSON.stringify(post_feedd));
-            new_post = true
-            post_feedd.splice(0, post_feedd.length - 1);
-            post_feed_loop(post_feedd);
-            post_feedd = JSON.parse(localStorage.getItem('post_feedd'));
+                let user_profile_img = "../assets/img/user/DS profile img.jpg";
+                let user_profile_alt = "";
+                let user_name = name;
+                let post_content = push_content;
+                let post_img_src = "";
+                let post_img_alt = "";
+                let like_value = 0;
+                let like_count = 0;
+                let comand_value = 0;
+                let comand_count = 0;
+                let post_id = uuidv4();
 
-         }
+                post_feedd.push(
+                    {
+                        "post_id": post_id,
+                        "unic_id": unic_id,
+                        "user_profile": {
+                            "img": user_profile_img,
+                            "alt": user_profile_alt,
+                        },
+                        "user_name": user_name,
+                        "post_content": post_content,
+                        "post_img": {
+                            "src": post_img_src,
+                            "alt": post_img_alt,
+                        },
+                        "like": like_count,
+                        "comand": comand_count,
+                        "delete_bn": post_id
+                    }
+                )
+                localStorage.setItem('post_feedd', JSON.stringify(post_feedd));
+                new_post = true
+                post_feedd.splice(0, post_feedd.length - 1);
+                post_feed_loop(post_feedd);
+                // post_feedd = JSON.parse(localStorage.getItem('post_feedd'));
+
+            }
 
         }
 
@@ -262,14 +262,14 @@ if(unic_user_id==""){
         function post_feed_loop(post_feedd) {
 
 
-           
+
             for (let i = 0; i < post_feedd.length; i++) {
 
 
                 //  <div class="post"> </div>
                 div_post = document.createElement("div");
                 div_post.setAttribute("class", "post");
-                
+
 
                 //  <div class="user_list"> </div>
                 div_user_list = document.createElement("div");
@@ -302,7 +302,7 @@ if(unic_user_id==""){
 
                 //<a href="./details.html"></a>
                 a_user = document.createElement("a");
-                a_user.setAttribute("href", "../pages/profile page/profile.html?user_id=" + post_feedd[i].unic_id)+"user_unic_id="+post_feedd[i].unic_id;
+                a_user.setAttribute("href", "../pages/profile page/profile.html?user_id=" + post_feedd[i].unic_id) + "user_unic_id=" + post_feedd[i].unic_id;
                 div_user.append(a_user);
 
                 //  <p> user name</p>
@@ -347,69 +347,89 @@ if(unic_user_id==""){
 
                 // <i for like
                 i_like = document.createElement("i");
+                i_like.setAttribute("id", post_feedd[i].post_id);
+                i_like.innerText=post_feedd[i].like;
+                let like_data = JSON.parse(localStorage.getItem('like_data'))||[];
+                let like_icon = like_data.find(e => e.liked == post_feedd[i].post_id && e.who_liked == unic_id);
+                if (like_icon == undefined) {
+                    i_like.setAttribute("class", "fa fa-heart-o");
+                    i_like.setAttribute("style", "font-size:16px;color: black;");
+                }
+                else {
+                    i_like.setAttribute("class", "fa fa-heart");
+                    i_like.setAttribute("style", "font-size:16px;color: red;");
+                }
 
-                i_like.setAttribute("class", "fa fa-heart-o");
-
-                i_like.setAttribute("class", "fa fa-heart");
-
-                i_like.setAttribute("id",post_feedd[i].user_name);
-                i_like.setAttribute("style", "font-size:16px;color: black;");
                 div_like.append(i_like);
 
 
-                i_like.addEventListener("click",function(){
-                let liked=this.id;
-                let who_liked=unic_id;
+                i_like.addEventListener("click", function () {
+                    let liked = this.id;
+                    let who_liked = unic_id;
 
-                let like_bn=document.getElementById(liked);
-                let like_data = JSON.parse(localStorage.getItem('like_data'))||[];
-                if(like_data.length===0){
-                    like_data.push({
-                        "liked":liked,
-                        "who_liked":who_liked,
-                        "notification":false
-                    })
-                    console.log(like_data);
-                    like_bn.setAttribute("class",);
-                    localStorage.setItem("follow_data",JSON.stringify(follow_data));
-                }
-                else{
-                    let user_f_data=follow_data.find(e=>e.followee==unic_id && e.following==following);
-                let indexOfuser_f=follow_data.indexOf(user_f_data);
-                if(user_f_data == undefined){
-                    follow_data.push({
-                        "following":following,
-                        "followee":followee,
-                        "notification":false
-                    })
-                    follow_bn.innerText="Unfollow";
-                    localStorage.setItem("follow_data",JSON.stringify(follow_data));
-                }
-                else{
-                    follow_data.splice(indexOfuser_f,1);
-                    localStorage.setItem("follow_data",JSON.stringify(follow_data));
-                    follow_bn.innerText="follow";
-                }
-                }
-            });
+                    let like_bn = document.getElementById(liked);
+                    let like_data = JSON.parse(localStorage.getItem('like_data')) || [];
+                    if (like_data.length === 0) {
+                        like_data.push({
+                            "liked": liked,
+                            "who_liked": who_liked,
+                            "notification": false
+                        })
+                        console.log(like_data);
+                        like_bn.setAttribute("class", "fa fa-heart");
+                        like_bn.setAttribute("style", "font-size:16px;color: red;");
+                        localStorage.setItem("like_data", JSON.stringify(like_data));
+                        // instend add like count
+                        let find_post = post_feedd.find(e => e.post_id === liked);
+                        let new_count=find_post.like+1;
+                        like_bn.innerText = new_count;
+
+                    }
+                    else {
+                        let user_l_data = like_data.find(e => e.liked == liked && e.who_liked == unic_id);
+                        let indexOfuser_f = like_data.indexOf(user_l_data);
+                        if (user_l_data == undefined) {
+                            like_data.push({
+                                "liked": liked,
+                                "who_liked": who_liked,
+                                "notification": false
+                            })
+                            like_bn.setAttribute("class", "fa fa-heart");
+                            like_bn.setAttribute("style", "font-size:16px;color: red;");
+                            localStorage.setItem("like_data", JSON.stringify(like_data));
+                            // instend add like count
+                        let find_post = post_feedd.find(e => e.post_id === liked);
+                        let new_count=find_post.like+1;
+                        like_bn.innerText = new_count;
+
+                        }
+                        else {
+                            like_data.splice(indexOfuser_f, 1);
+                            localStorage.setItem("like_data", JSON.stringify(like_data));
+                            like_bn.setAttribute("class", "fa fa-heart-o");
+                            like_bn.setAttribute("style", "font-size:16px;color: Black;");
+                            // instend add like count
+                        let find_post = post_feedd.find(e => e.post_id === liked);
+                        if(find_post.like>=1){
+                            let new_count=find_post.like - 1;
+                            like_bn.innerText = new_count;
+                        }
+                        
+                        }
+                    }
+
+                    //  for like count set
+                    //  add comand count in post details
+
+                    let filterlike = like_data.filter(like => like.liked == liked);
+
+                    let find_post = post_feedd.find(e => e.post_id === liked);
+                    find_post.like = filterlike.length;
 
 
+                    localStorage.setItem('post_feedd', JSON.stringify(post_feedd));
 
-
-
-                // // <i for like
-                // i_like_t = document.createElement("i");
-                // i_like_t.setAttribute("class", "fa fa-heart");
-                // i_like.setAttribute("id",post_feedd[i].user_name);
-                // i_like_t.setAttribute("style", "font-size:16px;color:#fc0303");
-                // div_like.append(i_like_t);
-
-                // span like count
-                span_like_count = document.createElement("span");
-                span_like_count.setAttribute("class", "like_count");
-                span_like_count.innerText = post_feedd[i].like.count;
-                div_like.append(span_like_count);
-
+                });
 
                 //  a tag for  comment///////
                 a_div_cmt = document.createElement("a");
@@ -424,14 +444,9 @@ if(unic_user_id==""){
                 // <i for comand
                 i_comand = document.createElement("i");
                 i_comand.setAttribute("class", "fa fa-comment-o");
-                i_comand.setAttribute("style", "font-size:18px;color: black;");
+                i_comand.innerText = post_feedd[i].comand;
+                i_comand.setAttribute("style", "font-size:16px;color: black;");
                 div_comand.append(i_comand);
-
-                // span comand count
-                span_comand_count = document.createElement("span");
-                span_comand_count.setAttribute("class", "like_count");
-                span_comand_count.innerText = post_feedd[i].comand;
-                div_comand.append(span_comand_count);
 
                 if (new_post) {
                     existingDiv.insertAdjacentElement('afterend', div_post);
@@ -500,50 +515,50 @@ if(unic_user_id==""){
             // button_follow
 
             button_follow = document.createElement("button");
-            let user_f_data=follow_data.find(e=>e.followee==unic_id && e.following==top_user[j].user_name);
+            let user_f_data = follow_data.find(e => e.followee == unic_id && e.following == top_user[j].user_name);
 
-            if(user_f_data==undefined){
+            if (user_f_data == undefined) {
                 button_follow.innerText = "follow";
             }
-            else{
+            else {
                 button_follow.innerText = "Unfollow";
             }
             button_follow.setAttribute("id", top_user[j].user_name)
             div_follow_button.append(button_follow);
 
-            button_follow.addEventListener("click",function(){
-                let following=this.id;
-                let followee=unic_id;
+            button_follow.addEventListener("click", function () {
+                let following = this.id;
+                let followee = unic_id;
 
-                let follow_bn=document.getElementById(following);
-                let follow_data = JSON.parse(localStorage.getItem('follow_data'))||[];
-                if(follow_data.length===0){
+                let follow_bn = document.getElementById(following);
+                let follow_data = JSON.parse(localStorage.getItem('follow_data')) || [];
+                if (follow_data.length === 0) {
                     follow_data.push({
-                        "following":following,
-                        "followee":followee,
-                        "notification":false
+                        "following": following,
+                        "followee": followee,
+                        "notification": false
                     })
                     console.log(follow_data);
                     follow_bn.innerHTML = 'Unfollow';
-                    localStorage.setItem("follow_data",JSON.stringify(follow_data));
+                    localStorage.setItem("follow_data", JSON.stringify(follow_data));
                 }
-                else{
-                    let user_f_data=follow_data.find(e=>e.followee==unic_id && e.following==following);
-                let indexOfuser_f=follow_data.indexOf(user_f_data);
-                if(user_f_data == undefined){
-                    follow_data.push({
-                        "following":following,
-                        "followee":followee,
-                        "notification":false
-                    })
-                    follow_bn.innerText="Unfollow";
-                    localStorage.setItem("follow_data",JSON.stringify(follow_data));
-                }
-                else{
-                    follow_data.splice(indexOfuser_f,1);
-                    localStorage.setItem("follow_data",JSON.stringify(follow_data));
-                    follow_bn.innerText="follow";
-                }
+                else {
+                    let user_f_data = follow_data.find(e => e.followee == unic_id && e.following == following);
+                    let indexOfuser_f = follow_data.indexOf(user_f_data);
+                    if (user_f_data == undefined) {
+                        follow_data.push({
+                            "following": following,
+                            "followee": followee,
+                            "notification": false
+                        })
+                        follow_bn.innerText = "Unfollow";
+                        localStorage.setItem("follow_data", JSON.stringify(follow_data));
+                    }
+                    else {
+                        follow_data.splice(indexOfuser_f, 1);
+                        localStorage.setItem("follow_data", JSON.stringify(follow_data));
+                        follow_bn.innerText = "follow";
+                    }
                 }
             });
 

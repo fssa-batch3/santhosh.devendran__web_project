@@ -179,14 +179,12 @@
         //  add comand count in post details
 
         let filtercomment = comment_list.filter(comment => comment.comment_post_id == postId);
-
-
         let post_feedd = JSON.parse(localStorage.getItem('post_feedd'));
 
         let find_post = post_feedd.find(e => e.post_id === postId);
         find_post.comand = filtercomment.length;
 
-
+        
         localStorage.setItem('post_feedd', JSON.stringify(post_feedd));
 
 

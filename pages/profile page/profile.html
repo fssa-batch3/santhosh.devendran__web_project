@@ -747,6 +747,7 @@
             // button_follow
 
             button_follow = document.createElement("button");
+            button_follow.setAttribute("id", top_user[j].user_name);
             let user_f_data=follow_data.find(e=>e.followee==unic_user_id && e.following==top_user[j].user_name);
 
             if(user_f_data==undefined){
@@ -755,12 +756,15 @@
             else{
                 button_follow.innerText = "Unfollow";
             }
-            button_follow.setAttribute("id", top_user[j].user_name)
+            
             div_follow_button.append(button_follow);
+
+
+            // follow function
 
             button_follow.addEventListener("click",function(){
                 let following=this.id;
-                let followee=unic_id;
+                let followee=unic_user_id;
 
                 let follow_bn=document.getElementById(following);
                 let follow_data = JSON.parse(localStorage.getItem('follow_data'))||[];
@@ -775,7 +779,7 @@
                     localStorage.setItem("follow_data",JSON.stringify(follow_data));
                 }
                 else{
-                    let user_f_data=follow_data.find(e=>e.followee==unic_id && e.following==following);
+                    let user_f_data=follow_data.find(e=>e.followee==unic_user_id && e.following==following);
                 let indexOfuser_f=follow_data.indexOf(user_f_data);
                 if(user_f_data == undefined){
                     follow_data.push({
@@ -808,7 +812,7 @@
     </script>
 
 
-    <!-- confirm("Are you sure?") -->
+  
 </body>
 
 </html>
