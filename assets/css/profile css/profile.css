@@ -267,15 +267,11 @@ main .postandlikes .hilight{
 .post .like_comand .like{
     width: 8rem;
     height: 2rem;
-    background-color: #d4d4d4;
-    border-radius: 15px;
     margin: 6px 0px 6px 0px;
 }
 .post .like_comand .comand{
     width: 8rem;
     height: 2rem;
-    background-color: #d4d4d4;
-    border-radius: 15px;
     margin: 6px 0px 6px 30px;
 }
 .like i,.comand i{

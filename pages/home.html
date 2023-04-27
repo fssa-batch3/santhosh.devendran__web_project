@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <script src="https://cdn.jsdelivr.net/npm/uuid@8.3.2/dist/umd/uuidv4.min.js"></script>
@@ -35,13 +36,13 @@
                                 <span class="icon"><i class="material-icons"
                                         style="font-size:30px;color:#00acee">image</i><ion-icon
                                         name="image-outline"></ion-icon></span>
-                                <div class="file"><input type="file" /></div>
+                                <div class="file"><input  id="post_img_upload" type="file" /></div>
                             </div>
-                            <div class="file_icon">
+                            <!-- <div class="file_icon">
                                 <span class="icon"><i class="material-icons"
                                         style="font-size:35px;color:#00acee">gif</i></span>
                                 <div class="file"><input type="file" /></div>
-                            </div>
+                            </div> -->
                             <div class="submit">
                                 <button onclick="create_new_post()" class="post">post</button>
                             </div>
@@ -75,10 +76,6 @@
 
                         </div>
                     </div>
-                    <div class="interest">
-                        <a href=""><img alt="img" src="../assets/img/thumps up.png" class="intrest img" width="30px"
-                                height="30px" /></a>
-                    </div>
                 </div>
 
                 <div class="top">
@@ -91,10 +88,10 @@
 
                         </div>
                     </div>
-                    <div class="interest">
+                    <!-- <div class="interest">
                         <a href=""><img alt="img" src="../assets/img/thumps up.png" class="intrest img" width="30px"
                                 height="30px" /></a>
-                    </div>
+                    </div> -->
                 </div>
 
             </div>
@@ -178,6 +175,40 @@
         );
 
 
+        //  API for store image in cloud
+        // post image Upload API
+    let CLOUDINARY_URL = 'https://api.cloudinary.com/v1_1/dvb2bkrx9/upload'
+    let CLOUDINARY_UPLOAD_PRESET = 'n57ks85f';
+
+    // let imgPreview = document.getElementById("imgBox2");
+    let fileUpload = document.getElementById("post_img_upload");
+
+    fileUpload.addEventListener("change", function (event) {
+      let file = event.target.files[0];
+      let formData = new FormData();
+      formData.append('file', file);
+      formData.append('upload_preset', CLOUDINARY_UPLOAD_PRESET);
+
+      axios({
+        url: CLOUDINARY_URL,
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        data: formData
+      }).then(function (res) {
+        console.log(res);
+        // imgPreview.src = res.data.secure_url;
+        // Store the URL in localStorage
+        let userRecords = res.data.secure_url;
+        console.log(userRecords);
+        localStorage.setItem('profile_image', userRecords);
+      }).catch(function (err) {
+        console.error(err);
+      });
+    });
+
+
 
 
 
@@ -198,6 +229,11 @@
         // document.getElementById("post_content").value
 
         function create_new_post() {
+
+        
+            if(userRecords !==""){
+                let post_img=userRecords
+            }
 
             push_content = post_textarea.value;
 
@@ -246,7 +282,7 @@
                 new_post = true
                 post_feedd.splice(0, post_feedd.length - 1);
                 post_feed_loop(post_feedd);
-                // post_feedd = JSON.parse(localStorage.getItem('post_feedd'));
+                post_feedd = JSON.parse(localStorage.getItem('post_feedd'));
 
             }
 

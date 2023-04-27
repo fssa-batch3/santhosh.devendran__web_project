@@ -31,13 +31,13 @@
 
                 <div class="profile_photo">
                     <div class="cover_img">
-                        <img alt="cover photo" src="" width="100%" height="250px" />
+                        <img alt="cover photo" id="cover_img" src="" width="100%" height="250px" />
                     </div>
 
                     <!-- ../../assets/img/user/cover img/profile back cover.jpg
                     ../../assets/img/user/DS profile img.jpg -->
                     <div class="dp">
-                        <img alt="profile image" src="" width="130px" height="130px" />
+                        <img alt="profile image" id="profile_image" src="" width="130px" height="130px" />
                     </div>
                 </div>
                 <div class="user_details">
@@ -324,7 +324,7 @@
 
     <script>
 
-        
+  
 
         let unic_user_id = JSON.parse(localStorage.getItem("user_id"));
 
@@ -359,6 +359,25 @@
             }
             let user_data = user_records.find(login_data);
 
+              // for profile image
+
+            const  imgPreview = document.getElementById("profile_image");
+            const  cover_imgPreview=document.getElementById("cover_img");
+
+        if( user_data["user_dp"]==""){
+                imgPreview.src="../../assets/img/user/cover img/profile back cover.jpg";
+            }
+            else{
+                imgPreview.src=user_data["user_dp"];
+            }
+
+            if(user_data["user_cover_img"]==""){
+                cover_imgPreview.src="../../assets/img/user/DS profile img.jpg"
+            }
+            else{
+                cover_imgPreview.src=user_data["user_cover_img"];
+            }
+
 
 
             let name = user_data["first_name"] + " " + user_data["last_name"]
@@ -386,7 +405,9 @@
         //  for login user///////////
 
         if (user_Id == unic_user_id) {
-        
+
+
+      
             let user_records = JSON.parse(localStorage.getItem("user_list"));
 
             function login_data(e) {
@@ -395,6 +416,25 @@
             let user_data = user_records.find(login_data);
 
 
+                         // for profile image
+
+                         const  imgPreview = document.getElementById("profile_image");
+            const  cover_imgPreview=document.getElementById("cover_img");
+
+        if( user_data["user_dp"]==""){
+                imgPreview.src="../../assets/img/user/cover img/profile back cover.jpg";
+            }
+            else{
+                imgPreview.src=user_data["user_dp"];
+            }
+
+            if(user_data["user_cover_img"]==""){
+                cover_imgPreview.src="../../assets/img/user/DS profile img.jpg"
+            }
+            else{
+                cover_imgPreview.src=user_data["user_cover_img"];
+            }
+        
 
             let name = user_data["first_name"] + " " + user_data["last_name"]
 
@@ -599,7 +639,7 @@
             const delete_bn = document.createElement("button");
             delete_bn.setAttribute("class", "deletebn");
             delete_bn.innerText = "delete";
-            delete_bn.setAttribute("id", filterpost[i].delete_bn)
+            delete_bn.setAttribute("id", filterpost[i].delete_bn+filterpost[i].unic_id)
             span_delete.append(delete_bn);
 
             delete_bn.addEventListener("click", function () {
@@ -608,7 +648,7 @@
                     let post_feedd = JSON.parse(localStorage.getItem("post_feedd"));
                     function find_post(e) {
                         console.log(post_id);
-                        return e.post_id == filterpost[i].delete_bn;;
+                        return e.post_id+e.unic_id == filterpost[i].delete_bn+filterpost[i].unic_id;;
                     }
                     user_data = post_feedd.find(find_post);
                     const indexOfUser = post_feedd.indexOf(user_data);
@@ -663,31 +703,121 @@
             // <i for like
             i_like = document.createElement("i");
             i_like.setAttribute("class", "fa fa-heart-o");
-            i_like.setAttribute("style", "font-size:18px;color: black;");
-            div_like.append(i_like);
+            i_like.setAttribute("id", filterpost[i].post_id);
+            i_like.innerText = filterpost[i].like;
+            let like_data = JSON.parse(localStorage.getItem('like_data'))||[];
+                let like_icon = like_data.find(e => e.liked == filterpost[i].post_id && e.who_liked == unic_user_id);
+                if (like_icon == undefined) {
+                    i_like.setAttribute("class", "fa fa-heart-o");
+                    i_like.setAttribute("style", "font-size:16px;color: black;");
+                }
+                else {
+                    i_like.setAttribute("class", "fa fa-heart");
+                    i_like.setAttribute("style", "font-size:16px;color: red;");
+                }
 
-            // span like count
-            span_like_count = document.createElement("span");
-            span_like_count.setAttribute("class", "like_count");
-            span_like_count.innerText = filterpost[i].like.count;
-            div_like.append(span_like_count);
+                div_like.append(i_like);
+
+                
+                i_like.addEventListener("click", function () {
+                    let liked = this.id;
+                    let who_liked = unic_user_id;
+
+                    let like_bn = document.getElementById(liked);
+                    let like_data = JSON.parse(localStorage.getItem('like_data')) || [];
+                    if (like_data.length === 0) {
+                        like_data.push({
+                            "liked": liked,
+                            "who_liked": who_liked,
+                            "notification": false
+                        })
+                        console.log(like_data);
+                        like_bn.setAttribute("class", "fa fa-heart");
+                        like_bn.setAttribute("style", "font-size:16px;color: red;");
+                        localStorage.setItem("like_data", JSON.stringify(like_data));
+                        // instend add like count
+                        let find_post = post_feedd.find(e => e.post_id === liked);
+                        let new_count=find_post.like+1;
+                        like_bn.innerText = new_count;
+
+                    }
+                    else {
+                        let user_l_data = like_data.find(e => e.liked == liked && e.who_liked == unic_user_id);
+                        let indexOfuser_f = like_data.indexOf(user_l_data);
+                        if (user_l_data == undefined) {
+                            like_data.push({
+                                "liked": liked,
+                                "who_liked": who_liked,
+                                "notification": false
+                            })
+                            like_bn.setAttribute("class", "fa fa-heart");
+                            like_bn.setAttribute("style", "font-size:16px;color: red;");
+                            localStorage.setItem("like_data", JSON.stringify(like_data));
+                            // instend add like count
+                        let find_post = post_feedd.find(e => e.post_id === liked);
+                        let new_count=find_post.like+1;
+                        like_bn.innerText = new_count;
+
+                        }
+                        else {
+                            like_data.splice(indexOfuser_f, 1);
+                            localStorage.setItem("like_data", JSON.stringify(like_data));
+                            like_bn.setAttribute("class", "fa fa-heart-o");
+                            like_bn.setAttribute("style", "font-size:16px;color: Black;");
+                            // instend add like count
+                        let find_post = post_feedd.find(e => e.post_id === liked);
+                        if(find_post.like>=1){
+                            let new_count=find_post.like - 1;
+                            like_bn.innerText = new_count;
+                        }
+                        
+                        }
+                    }
+
+                    //  for like count set
+                    //  add comand count in post details
+
+                    let filterlike = like_data.filter(like => like.liked == liked);
+
+                    let find_post = post_feedd.find(e => e.post_id === liked);
+                    find_post.like = filterlike.length;
+
+
+                    localStorage.setItem('post_feedd', JSON.stringify(post_feedd));
+
+                });
+
+
+
+
+            // // span like count
+            // span_like_count = document.createElement("span");
+            // span_like_count.setAttribute("class", "like_count");
+            // span_like_count.innerText = filterpost[i].like.count;
+            // div_like.append(span_like_count);
+
+             //  a tag for  comment///////
+                a_div_cmt = document.createElement("a");
+                a_div_cmt.setAttribute("href", "../post details/elon musk/comment - post1.html?post_id=" + filterpost[i].post_id);
+                div_like_comand.append(a_div_cmt);
 
             //  <div class="comand"> </div>
             div_comand = document.createElement("div");
             div_comand.setAttribute("class", "comand");
-            div_like_comand.append(div_comand);
+            a_div_cmt.append(div_comand);
 
             // <i for comand
             i_comand = document.createElement("i");
             i_comand.setAttribute("class", "fa fa-comment-o");
+            i_comand.innerText = filterpost[i].comand;
             i_comand.setAttribute("style", "font-size:18px;color: black;");
             div_comand.append(i_comand);
 
-            // span comand count
-            span_comand_count = document.createElement("span");
-            span_comand_count.setAttribute("class", "like_count");
-            span_comand_count.innerText = filterpost[i].like.count;
-            div_comand.append(span_comand_count);
+            // // span comand count
+            // span_comand_count = document.createElement("span");
+            // span_comand_count.setAttribute("class", "like_count");
+            // span_comand_count.innerText = filterpost[i].like;
+            // div_comand.append(span_comand_count);
 
             document.querySelector(".left_side").append(div_post);
 
