@@ -87,22 +87,26 @@ body main .form{
     background-color: #00acee;
 }
 
+.details input:valid {
+    border: 2px solid green;
+}
 
-  .details.name.first_name input:focus{
-    outline: none;
-    border: 2.5px solid rgb(255, 23, 23);
-  }
-  .details.name.first_name input:valid{
-      border:2px solid green;
-  }
-  
-  .details input:focus{
-    outline: none;
-    border: 2.5px solid rgb(255, 23, 23);
-  }
-  .details input:valid{
-      border:2px solid green;
-  }
+.details input:focus {
+    border: 2px solid red;
+}
+
+.details input:focus:invalid {
+    box-shadow: none;
+}
+
+.details .password_required {
+    display: none;
+}
+
+.details input:invalid + .password_required {
+    display: block;
+}
+
 
 
 

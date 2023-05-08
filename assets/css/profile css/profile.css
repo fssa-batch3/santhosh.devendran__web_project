@@ -75,7 +75,7 @@ main .left_side{
     color: gray;
 }
 .center .profile_top .d_bn{
-    margin-left: 15rem;
+    margin-left: 10rem;
 }
 .center .profile_top .d_bn .delete_bn{
     padding: 5px 10px;
@@ -92,9 +92,6 @@ main .left_side{
     border: 1px solid #00acee;
     margin-left: 10px;
 }
-
-
-
 
 
 
@@ -170,6 +167,7 @@ main .left_side{
     background-color: #00acee;
 }
 .center .follower_count{
+    cursor: pointer;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -179,7 +177,6 @@ main .left_side{
     flex-direction: column;
     justify-content: space-evenly;
     padding: 10px 30px 10px 30px;
-    background-color: #d4d4d4;
     border-radius: 15px;
 }
 .center .follower_count span b{
@@ -377,12 +374,13 @@ body .top_user {
 }
 
 .top_user .follow_button button {
-    padding: 10px 25px;
     border: 1px solid white;
     border-radius: 10px;
     background-color: #00acee;
     color: white;
     margin: 8px 10px 0px -70px;
+    width: 100px;
+    height: 40px;
 }
 a{
     text-decoration: none;

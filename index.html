@@ -1,63 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DS Log in</title>
-    <link rel="stylesheet" href="./assets/css/font style.css" />
-    <link rel="stylesheet" href="./assets/css/login &rigister/log in.css">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>DS Log in</title>
+        <link rel="stylesheet" href="./assets/css/font style.css">
+        <link rel="stylesheet" href="./assets/css/login &rigister/log in.css">
 
+    </head>
 
-</head>
+    <body>
 
-<body>
-
-    <div class="td">
-        <h2 class="title">Door Step</h2>
-    </div>
-
-    <div class="main">
-
-        <div class="logo">
-            <img src="./assets/img/logo/logo.jpg" alt="Door step logo" />
-            <h1 class="cm">connecting minds</h1>
-            <h3>This helps people interested in reading and posting information on topics similar and common interested
-            </h3>
-            <h1 class="li">Click Login to know more</h1>
+        <div class="td">
+            <h2 class="title">Door Step</h2>
         </div>
-        <div class="form">
-            <div class="with_mobile">
-                <h2>Log in</h2>
-                <form onsubmit="signIn(event)" role="form" id="form">
-                    <div class="formlist">
-                        <label class="form"><b>user name</b></label>
-                        <input id="user_name" type="text" class="list" placeholder="user name" required />
-                    </div>
-                    <div class="formlist">
-                        <lable class="form"><b>Password:</b></lable>
-                        <input id="password" type="password" class="list" placeholder=" Password" required />
-                    </div>
-                    <div class="bn">
-                        <button type="submit" class="loginbn">Log in</button>
-                    </div>
-                </form>
 
+        <div class="main">
+
+            <div class="logo">
+                <img src="./assets/img/logo/logo.jpg" alt="Door step logo">
+                <h1 class="cm">connecting minds</h1>
+                <h3>This helps people interested in reading and posting information on topics similar and common interested
+                </h3>
+                <h1 class="li">Click Login to know more</h1>
             </div>
-            <div class="create">
-                <a href="./pages/login &register/create new.html">create new Account</a>
+            <div class="form">
+                <div class="with_mobile">
+                    <h2>Log in</h2>
+                    <form onsubmit="signIn(event)" role="form" id="form">
+                        <div class="formlist">
+                            <label class="form">
+                                <b>user name</b>
+                            </label>
+                            <input id="user_name" type="text" class="list" placeholder="user name" required>
+                        </div>
+                        <div class="formlist">
+                            <lable class="form">
+                                <b>Password:</b>
+                            </lable>
+                            <input id="password" type="password" class="list" placeholder=" Password" required>
+                        </div>
+                        <div class="bn">
+                            <button type="submit" class="loginbn">Log in</button>
+                        </div>
+                    </form>
+
+                </div>
+                <div class="create">
+                    <a href="./pages/login &register/create new.html">create new Account</a>
+                </div>
             </div>
         </div>
-    </div>
 
-
-    <script>
-
-        // function login() {
-
+        <script>// function login() {
 
         //     let user_name = document.getElementById("user_name").value;
         //     let password = document.getElementById("password").value;
-
 
         //     let user_details = new Array();
 
@@ -75,38 +73,34 @@
         //     }
         // }
 
-
-
-
         // //////////////////////////////
 
         function signIn(e) {
-    e.preventDefault();
-    let user_name = document.getElementById("user_name").value;
-    let password = document.getElementById("password").value;
-    let user_list = JSON.parse(localStorage.getItem('user_list')) || [];
+  e.preventDefault();
+  const user_name = document.getElementById("user_name").value;
+  const password = document.getElementById("password").value;
+  const user_list = JSON.parse(localStorage.getItem("user_list")) || [];
 
-    let exist = user_list.length &&
-    JSON.parse(localStorage.getItem('user_list')).some(data => 
-        data.user_name == user_name && data.password ==password
-        );
+  const exist =
+    user_list.length &&
+    JSON.parse(localStorage.getItem("user_list")).some(
+      (data) => data.user_name == user_name && data.password == password
+    );
 
-        console.log(user_name,password)
-        console.log(exist)
+          console.log(user_name, password);
+          console.log(exist);
 
-    if(!exist){
-        alert("Incorrect login credentials");
-        document.querySelector('form').reset();        
-    }
-    else{
-        localStorage.setItem("user_id",JSON.stringify(user_name));
-        alert("Your login in successful");
-        location.href = "./pages/home.html";  
-    }
+  if (!exist) {
+            alert("Incorrect login credentials");
+            document.querySelector("form").reset();
+  } else {
+            localStorage.setItem("user_id", JSON.stringify(user_name));
+            alert("Your login in successful");
+            location.href = "./pages/home.html";
+  }
 }
     </script>
 
-
-</body>
+    </body>
 
 </html>

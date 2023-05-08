@@ -1,309 +1,283 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <link rel="stylesheet" href="../../../assets/css/font style.css" />
-    <title id="title"></title>
-    <link rel="stylesheet" href="../../../assets/css/post details/comment.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <head>
+        <link rel="stylesheet" href="../../../assets/css/font style.css">
+        <title id="title"></title>
+        <link rel="stylesheet" href="../../../assets/css/post details/comment.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <script src="https://cdn.jsdelivr.net/npm/uuid@8.3.2/dist/umd/uuidv4.min.js"></script>
-</head>
+        <script src="https://cdn.jsdelivr.net/npm/uuid@8.3.2/dist/umd/uuidv4.min.js"></script>
+    </head>
 
-<body>
+    <body>
 
-    <!-- header -->
+        <!-- header -->
 
-    <main class="main">
-        <div class="post_details">
-            <div class="post">
-                <div class="user_list">
+        <main class="main">
+            <div class="post_details">
+                <div class="post">
+                    <div class="user_list">
+                        <div class="img">
+                            <a href="../../profile page/user profile/elon musk.html">
+                                <img alt="profile" class="profile_img"
+                                    src="../../../assets/img/user/elon musk.jpg" width="50px" height="50px"></a>
+                        </div>
+                        <div class="user">
+                            <a href="../../profile page/user profile/elon musk.html">
+                                <p class="user_name" id="user_name"></p>
+                            </a>
+                            <p class="post_cuntent" id="post_content"></p>
+                        </div>
+                    </div>
+
+                    <div class="post_img">
+                        <!-- <img alt="post" src="../../../assets/img/post/elonmusk/post 1.jpg"/> -->
+                    </div>
+
+                    <div class="comment">
+                        <input type="text" id="comment_content" placeholder="post your reply">
+                        <button
+                            onclick="comment()">Post</button>
+                    </div>
+                </div>
+
+                <!-- <div class="comment_list">
+                    <div class="user_list">
                     <div class="img">
-                        <a href="../../profile page/user profile/elon musk.html"><img alt="profile" class="profile_img"
-                                src="../../../assets/img/user/elon musk.jpg" width="50px" height="50px" /></a>
+                    <a href="../../profile page/user profile/Girish Mathrubootham.html"><img alt="profile"
+                    class="profile_img" src="../../../assets/img/user/girish sir.jpg" width="50px"
+                    height="50px" /></a>
                     </div>
                     <div class="user">
-                        <a href="../../profile page/user profile/elon musk.html">
-                            <p class="user_name" id="user_name"></p>
-                        </a>
-                        <p class="post_cuntent" id="post_content"></p>
+                    <a href="../../profile page/user profile/Girish Mathrubootham.html">
+                    <p class="user_name">Girish Mathrubootham</p>
+                    </a>
+                    <p class="post_cuntent"> O my good....</p>
                     </div>
-                </div>
+                    </div>
+                    <div class="like">
+                    <a><i class="fa fa-heart-o" style="font-size:18px;color: black;"></i></a>
+                    <span class="like_count">2</span>
+                    </div>
+                    </div> -->
 
-                <div class="post_img">
-                    <!-- <img alt="post" src="../../../assets/img/post/elonmusk/post 1.jpg"/> -->
-                </div>
+                <!-- <div class="comment_list">
+                    <div class="user_list">
+                    <div class="img">
+                    <a href="../../profile page/user profile/HVinoth.html"><img alt="profile" class="profile_img"
+                    src="../../../assets/img/user/hvinoth.jpg" width="50px" height="50px" /></a>
+                    </div>
+                    <div class="user">
+                    <a href="../../profile page/user profile/HVinoth.html">
+                    <p class="user_name">HVinoth</p>
+                    </a>
+                    <p class="post_cuntent"> Race vittukalaama</p>
+                    </div>
+                    </div>
+                    <div class="like">
+                    <a><i class="fa fa-heart-o" style="font-size:18px;color: black;"></i></a>
+                    <span class="like_count">2</span>
+                    </div>
+                    </div> -->
 
-                <div class="comment">
-                    <input type="text" id="comment_content" placeholder="post your reply" /><button
-                        onclick="comment()">Post</button>
-                </div>
             </div>
-
-            <!-- <div class="comment_list">
-                <div class="user_list">
-                    <div class="img">
-                        <a href="../../profile page/user profile/Girish Mathrubootham.html"><img alt="profile"
-                                class="profile_img" src="../../../assets/img/user/girish sir.jpg" width="50px"
-                                height="50px" /></a>
-                    </div>
-                    <div class="user">
-                        <a href="../../profile page/user profile/Girish Mathrubootham.html">
-                            <p class="user_name">Girish Mathrubootham</p>
-                        </a>
-                        <p class="post_cuntent"> O my good....</p>
-                    </div>
-                </div>
-                <div class="like">
-                    <a><i class="fa fa-heart-o" style="font-size:18px;color: black;"></i></a>
-                    <span class="like_count">2</span>
-                </div>
-            </div> -->
-
-            <!-- <div class="comment_list">
-                <div class="user_list">
-                    <div class="img">
-                        <a href="../../profile page/user profile/HVinoth.html"><img alt="profile" class="profile_img"
-                                src="../../../assets/img/user/hvinoth.jpg" width="50px" height="50px" /></a>
-                    </div>
-                    <div class="user">
-                        <a href="../../profile page/user profile/HVinoth.html">
-                            <p class="user_name">HVinoth</p>
-                        </a>
-                        <p class="post_cuntent"> Race vittukalaama</p>
-                    </div>
-                </div>
-                <div class="like">
-                    <a><i class="fa fa-heart-o" style="font-size:18px;color: black;"></i></a>
-                    <span class="like_count">2</span>
-                </div>
-            </div> -->
-
         </div>
-        </div>
-    </main>
+        </main>
 
-    <script src="../../../assets/js/header.js"></script>
+        <script src="../../../assets/js/header.js"></script>
 
+        <script>// take data from URL    ///////
 
-    <script>
-
-
-        // take data from URL    ///////
-
-        let post_feed = JSON.parse(localStorage.getItem("post_feedd"))
+        const post_feed = JSON.parse(localStorage.getItem("post_feedd"));
 
         const params = new URLSearchParams(window.location.search);
-        const postId = params.get('post_id');
+        const postId = params.get("post_id");
         // find post
         function findRecord(e) {
-            return e.post_id == postId;
+          return e.post_id == postId;
         }
-        let post_details = post_feed.filter(findRecord);
+        const post_details = post_feed.filter(findRecord);
         console.log(post_details);
 
-        let comment_count = post_details[0].comand.count;
-
+        const comment_count = post_details[0].comand.count;
 
         // post img ////////////////
         const img_post = post_details[0].post_img.src;
 
         if (img_post) {
+  const img_a = document.createElement("img");
+          img_a.setAttribute("src", post_details[0].post_img.src);
+          img_a.setAttribute("alt", "post");
 
-            let img_a = document.createElement("img");
-            img_a.setAttribute("src", post_details[0].post_img.src);
-            img_a.setAttribute("alt", "post");
-
-            document.querySelector(".post_img").append(img_a);
+          document.querySelector(".post_img").append(img_a);
         }
-
 
         document.getElementById("title").innerText = post_details[0].user_name;
         document.getElementById("user_name").innerText = post_details[0].user_name;
-        document.getElementById("post_content").innerText = post_details[0].post_content;
+        document.getElementById("post_content").innerText =
+  post_details[0].post_content;
 
         // store comment data in local storage///
 
-        let comment_list = JSON.parse(localStorage.getItem('comment_list')) || [];
+        const comment_list = JSON.parse(localStorage.getItem("comment_list")) || [];
 
         function comment() {
-
-            
-
-            if(document.getElementById("comment_content").value.length==0){
-                alert("write a comment")
-            }
-            else{
-
-
-
-            let unic_id = JSON.parse(localStorage.getItem("user_id"));
-            let user_records = JSON.parse(localStorage.getItem("user_list"));
+          if (document.getElementById("comment_content").value.length == 0) {
+            alert("write a comment");
+          } else {
+            const unic_id = JSON.parse(localStorage.getItem("user_id"));
+            const user_records = JSON.parse(localStorage.getItem("user_list"));
 
             function login_data(e) {
-                return e.user_name == unic_id;
+              return e.user_name == unic_id;
             }
-            let user_data = user_records.find(login_data);
+            const user_data = user_records.find(login_data);
 
             console.log(user_data);
-            
-            let name = user_data["first_name"] + " " + user_data["last_name"];
-            let comment_id = uuidv4();
-            let user_name = unic_id;
-            let comment_content = document.getElementById("comment_content").value;
+        
+            const name = `${user_data.first_name} ${user_data.last_name}`;
+            const comment_id = uuidv4();
+            const user_name = unic_id;
+            const comment_content = document.getElementById("comment_content").value;
             const date = new Date();
-            const formattedDate = `${date.getDate().toString().padStart(2, '0')} ${date.toLocaleString('default', { month: 'short' })} ${date.getFullYear()}`;
+            const formattedDate = `${date
+      .getDate()
+      .toString()
+      .padStart(2, "0")} ${date.toLocaleString("default", {
+      month: "short",
+    })} ${date.getFullYear()}`;
 
             console.log(comment_content);
 
-            comment_list.push(
-                {
-                    "name": name,
-                    "unic_id": comment_id,
-                    "user_name": user_name,
-                    "comment_content": comment_content,
-                    "date_time": formattedDate,
-                    "comment_post_id": postId,
-                    "img": "../../../assets/img/user/girish sir.jpg"
-
-                }
-            )
-            localStorage.setItem('comment_list', JSON.stringify(comment_list));
-
+            comment_list.push({
+              name,
+              unic_id: comment_id,
+              user_name,
+              comment_content,
+              date_time: formattedDate,
+              comment_post_id: postId,
+              img: "../../../assets/img/user/girish sir.jpg",
+            });
+            localStorage.setItem("comment_list", JSON.stringify(comment_list));
 
             location.reload();
-
           }
         }
 
         //  add comand count in post details
 
-        let filtercomment = comment_list.filter(comment => comment.comment_post_id == postId);
-        let post_feedd = JSON.parse(localStorage.getItem('post_feedd'));
+        const filtercomment = comment_list.filter(
+  (comment) => comment.comment_post_id == postId
+);
+        const post_feedd = JSON.parse(localStorage.getItem("post_feedd"));
 
-        let find_post = post_feedd.find(e => e.post_id === postId);
+        const find_post = post_feedd.find((e) => e.post_id === postId);
         find_post.comand = filtercomment.length;
-
         
-        localStorage.setItem('post_feedd', JSON.stringify(post_feedd));
+        localStorage.setItem("post_feedd", JSON.stringify(post_feedd));
 
-
-
-
-
-        let unic_id = JSON.parse(localStorage.getItem("user_id"));
+        const unic_id = JSON.parse(localStorage.getItem("user_id"));
         // create card for coment ///////////////////
 
         for (let i = 0; i <= filtercomment.length; i++) {
+  // div coment list//
+          div_comment_list = document.createElement("div");
+          div_comment_list.setAttribute("class", "comment_list");
 
-            // div coment list//
-            div_comment_list = document.createElement("div");
-            div_comment_list.setAttribute("class", "comment_list");
+  // div_user list///
+          div_user_list = document.createElement("div");
+          div_user_list.setAttribute("class", "user_list");
+          div_comment_list.append(div_user_list);
 
+          // div_img///
+          div_img = document.createElement("div");
+          div_img.setAttribute("class", "img");
+          div_user_list.append(div_img);
 
-            // div_user list///
-            div_user_list = document.createElement("div");
-            div_user_list.setAttribute("class", "user_list");
-            div_comment_list.append(div_user_list);
+          // img profile////
+          img_profile = document.createElement("img");
+          img_profile.setAttribute("alt", "profile_photo");
+          img_profile.setAttribute("class", "profile_img");
+          img_profile.setAttribute("src", filtercomment[i].img);
+          div_img.append(img_profile);
 
-            // div_img///
-            div_img = document.createElement("div");
-            div_img.setAttribute("class", "img");
-            div_user_list.append(div_img);
+          // div_user///
+          div_user = document.createElement("div");
+          div_user.setAttribute("class", "user");
+          div_user_list.append(div_user);
 
-            // img profile////
-            img_profile = document.createElement("img");
-            img_profile.setAttribute("alt", "profile_photo");
-            img_profile.setAttribute("class", "profile_img");
-            img_profile.setAttribute("src", filtercomment[i].img)
-            div_img.append(img_profile);
+          ///div for user and delete
+          div_delete = document.createElement("div");
+          div_delete.setAttribute("class", "name_delete");
+          div_user.append(div_delete);
 
-            // div_user///
-            div_user = document.createElement("div");
-            div_user.setAttribute("class", "user");
-            div_user_list.append(div_user);
+          // p tag user_name
+          p_user_name = document.createElement("p");
+          p_user_name.setAttribute("class", "user_name");
+          p_user_name.innerText = filtercomment[i].name;
+          div_delete.append(p_user_name);
 
-            ///div for user and delete
-            div_delete = document.createElement("div");
-            div_delete.setAttribute("class", "name_delete");
-            div_user.append(div_delete);
+          // i delete for delete////
 
-            // p tag user_name
-            p_user_name = document.createElement("p");
-            p_user_name.setAttribute("class", "user_name");
-            p_user_name.innerText = filtercomment[i].name;
-            div_delete.append(p_user_name);
+  if (unic_id === filtercomment[i].user_name) {
+    const i_delete = document.createElement("i");
+            i_delete.setAttribute("class", "fa fa-trash-o");
+            i_delete.setAttribute("style", "font-size:15px;color:red");
+            i_delete.setAttribute("id", filtercomment[i].unic_id);
+            div_delete.append(i_delete);
 
-            // i delete for delete////
+    i_delete.addEventListener("click", function () {
+              console.log("delete");
+              if (confirm("Are you sure to Delete ?")) {
+                const comment_id = this.id;
+                const comment_list = JSON.parse(localStorage.getItem("comment_list"));
+                function find_comment(e) {
+                  return e.unic_id == comment_id;
+                }
+                const user_comment = comment_list.find(find_comment);
+                const indexOfUser = comment_list.indexOf(user_comment);
+                comment_list.splice(indexOfUser, 1);
+                localStorage.setItem("comment_list", JSON.stringify(comment_list));
+              }
 
+      let reloadPage = false;
+              if (!reloadPage) {
+                // Reload the page
+                location.reload();
+                reloadPage = true;
+              }
+            });
+  }
 
-            if (unic_id === filtercomment[i].user_name) {
+  //p tag post comment
 
-                const i_delete = document.createElement("i");
-                i_delete.setAttribute("class", "fa fa-trash-o");
-                i_delete.setAttribute("style", "font-size:15px;color:red");
-                i_delete.setAttribute("id", filtercomment[i].unic_id);
-                div_delete.append(i_delete);
+          p_post_cuntent = document.createElement("p");
+          p_post_cuntent.setAttribute("class", "post_cuntent");
+          p_post_cuntent.innerText = filtercomment[i].comment_content;
+          div_user.append(p_post_cuntent);
 
+          // div like//
+          // div_like = document.createElement("div");
+          // div_like.setAttribute("class", "like");
+          // div_comment_list.append(div_like);
 
+          // // i tag cration//
+          // i_heart = document.createElement("i");
+          // i_heart.setAttribute("class", "fa fa-heart-o");
+          // i_heart.setAttribute("style", "font-size:18px;color: black;")
+          // div_like.append(i_heart);
 
-                i_delete.addEventListener("click", function () {
-                    console.log("delete");
-                    if (confirm("Are you sure to Delete ?")) {
-                        let comment_id = this.id;
-                        let comment_list = JSON.parse(localStorage.getItem("comment_list"));
-                        function find_comment(e) {
-                            return e.unic_id == comment_id;;
-                        }
-                       let user_comment = comment_list.find(find_comment);
-                        const indexOfUser = comment_list.indexOf(user_comment);
-                        comment_list.splice(indexOfUser, 1);
-                        localStorage.setItem('comment_list', JSON.stringify(comment_list));
-                    };
+          //span like_count//
+          // span_count = document.createElement("span");
+          // span_count.setAttribute("class", "like_count");
+          // span_count.innerText = filtercomment[i].like_count;
+          // div_like.append(span_count);
 
-
-                    let reloadPage = false;
-                    if (!reloadPage) {
-                        // Reload the page
-                        location.reload();
-                        reloadPage = true;
-                    }
-                });
-
-            }
-
-
-            //p tag post comment
-
-            p_post_cuntent = document.createElement("p");
-            p_post_cuntent.setAttribute("class", "post_cuntent");
-            p_post_cuntent.innerText = filtercomment[i].comment_content;
-            div_user.append(p_post_cuntent);
-
-            // div like//
-            // div_like = document.createElement("div");
-            // div_like.setAttribute("class", "like");
-            // div_comment_list.append(div_like);
-
-            // // i tag cration//
-            // i_heart = document.createElement("i");
-            // i_heart.setAttribute("class", "fa fa-heart-o");
-            // i_heart.setAttribute("style", "font-size:18px;color: black;")
-            // div_like.append(i_heart);
-
-            //span like_count//
-            // span_count = document.createElement("span");
-            // span_count.setAttribute("class", "like_count");
-            // span_count.innerText = filtercomment[i].like_count;
-            // div_like.append(span_count);
-
-            document.querySelector(".post_details").append(div_comment_list);
-
+          document.querySelector(".post_details").append(div_comment_list);
         }
-
     </script>
 
-
-</body>
+    </body>
 
 </html>

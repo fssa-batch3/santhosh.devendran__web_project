@@ -2,9 +2,9 @@
 <html lang="en">
     <head>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="../../assets/css/font style.css"/>
+        <link rel="stylesheet" href="../../assets/css/font style.css">
         <title>edit profile</title>
-        <link rel="stylesheet" href="../../assets/css/profile css/edit profile.css"/>
+        <link rel="stylesheet" href="../../assets/css/profile css/edit profile.css">
 
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     </head>
@@ -15,201 +15,167 @@
 
             <div class="profile_photo">
                 <div class="cover_img">
-                    <img alt="cover photo" id="imgBox1" width="100%" height="200px"/>
-                    <input class="profile" id="profile_upload_cover" type="file"/>
+                    <img alt="cover photo" id="imgBox1" width="100%" height="200px">
+                    <input class="profile" id="profile_upload_cover" type="file">
                     <i class="fa fa-camera" aria-hidden="true"></i>
                 </div>
                 <div class="dp">
-                    <img alt="profile image" id="imgBox2" width="130px" height="130px"/>
-                    <input class="profile" accept="image/*" id="profile_upload" type="file"/>
+                    <img alt="profile image" id="imgBox2" width="130px" height="130px">
+                    <input class="profile" accept="image/*" id="profile_upload" type="file">
                     <i class="fa fa-camera" aria-hidden="true"></i>
                 </div>
             </div>
             <form onsubmit="ubdate(event)">
-            <div class="data_change">
+                <div class="data_change">
                 
-                    <input class="name" type="email" id="email" placeholder="new mail id"/>
-                <input class="bio" type="txt" id="bio" placeholder="Bio"/>
-                <input class="mobile_number" id="mobile_number" type="tel" pattern="[0-9]{10}" placeholder="mobile number"/> 
-               
+                    <input class="name" type="email" id="email" placeholder="new mail id">
+                    <input class="bio" type="txt" id="bio" placeholder="Bio">
+                    <input class="mobile_number" id="mobile_number" type="tel" pattern="[0-9]{10}" placeholder="mobile number"> 
                                
-            </div>
-            <div class="submit">
+                </div>
+                <div class="submit">
                     <div class="sb">
                         <button type="submit">Submit</button>
                     </div>
-            </div>
-        </form>
+                </div>
+            </form>
         </div>
 
-        <script>
+        <script>// Profile image Upload API
+  const CLOUDINARY_URL = "https://api.cloudinary.com/v1_1/dvb2bkrx9/upload";
+  const CLOUDINARY_UPLOAD_PRESET = "sk3iuzma";
 
-  // Profile image Upload API
-  let CLOUDINARY_URL = 'https://api.cloudinary.com/v1_1/dvb2bkrx9/upload'
-    let CLOUDINARY_UPLOAD_PRESET = 'sk3iuzma';
+  let user_dp;
+  let dp_change = false;
+  const imgPreview = document.getElementById("imgBox2");
+  const fileUpload = document.getElementById("profile_upload");
 
-    let user_dp
-    let dp_change=false;
-    let imgPreview = document.getElementById("imgBox2");
-    let fileUpload = document.getElementById("profile_upload");
+  fileUpload.addEventListener("change", function (event) {
+    const file = event.target.files[0];
+    const formData = new FormData();
+    formData.append("file", file);
+    formData.append("upload_preset", CLOUDINARY_UPLOAD_PRESET);
 
-    fileUpload.addEventListener("change", function (event) {
-      let file = event.target.files[0];
-      let formData = new FormData();
-      formData.append('file', file);
-      formData.append('upload_preset', CLOUDINARY_UPLOAD_PRESET);
-
-      axios({
-        url: CLOUDINARY_URL,
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded'
-        },
-        data: formData
-      }).then(function (res) {
+    axios({
+      url: CLOUDINARY_URL,
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      data: formData,
+    })
+      .then(function (res) {
         console.log(res);
         imgPreview.src = res.data.secure_url;
-        dp_change=true;
+        dp_change = true;
         // Store the URL in localStorage
-         userRecords = res.data.secure_url;
-        user_dp=userRecords
+        userRecords = res.data.secure_url;
+        user_dp = userRecords;
         // localStorage.setItem('profile_image', userRecords);
-      }).catch(function (err) {
+      })
+      .catch(function (err) {
         console.error(err);
       });
-    });
+  });
 
+// cover image Upload API
+  const CLOUDINARY_ = "https://api.cloudinary.com/v1_1/dvb2bkrx9/upload";
+  const CLOUDINARY_UPLOAD_PRESE = "sk3iuzma";
 
-      // cover image Upload API
-     let CLOUDINARY_ = 'https://api.cloudinary.com/v1_1/dvb2bkrx9/upload'
-    let CLOUDINARY_UPLOAD_PRESE = 'sk3iuzma';
+  let user_cover_img;
+  let cover_img_change = false;
+  const cover_imgPreview = document.getElementById("imgBox1");
+  const coverfileUpload = document.getElementById("profile_upload_cover");
 
-   
+  coverfileUpload.addEventListener("change", function (event) {
+    const file = event.target.files[0];
+    const formData = new FormData();
+    formData.append("file", file);
+    formData.append("upload_preset", CLOUDINARY_UPLOAD_PRESE);
 
-    let user_cover_img
-    let cover_img_change=false;
-    let cover_imgPreview = document.getElementById("imgBox1");
-    let coverfileUpload = document.getElementById("profile_upload_cover");
-
-    coverfileUpload.addEventListener("change", function (event) {
-      let file = event.target.files[0];
-      let formData = new FormData();
-      formData.append('file', file);
-      formData.append('upload_preset', CLOUDINARY_UPLOAD_PRESE);
-
-      axios({
-        url: CLOUDINARY_,
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded'
-        },
-        data: formData
-      }).then(function (res) {
+    axios({
+      url: CLOUDINARY_,
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      data: formData,
+  })
+      .then(function (res) {
         console.log(res);
         cover_imgPreview.src = res.data.secure_url;
-        cover_img_change=true;
+        cover_img_change = true;
         // Store the URL in localStorage
-         userRecords = res.data.secure_url;
-         user_cover_img=userRecords
+        userRecords = res.data.secure_url;
+        user_cover_img = userRecords;
         // localStorage.setItem('profile_image', userRecords);
-      }).catch(function (err) {
+      })
+      .catch(function (err) {
         console.error(err);
       });
-    });
+  });
 
-   
+  const unic_user_id = JSON.parse(localStorage.getItem("user_id"));
 
-
-
-
-
-            let unic_user_id = JSON.parse(localStorage.getItem("user_id"));
-
-if(unic_user_id==""){
+if (unic_user_id == "") {
     window.location.href = "../../index.html";
 }
 
-
 const params = new URLSearchParams(window.location.search);
-        const user_Id = params.get('user_id');
+  const user_Id = params.get("user_id");
 
-            let unic_id= JSON.parse(localStorage.getItem("user_id"));
-            let user_records=JSON.parse(localStorage.getItem("user_list"))
+  const unic_id = JSON.parse(localStorage.getItem("user_id"));
+  const user_records = JSON.parse(localStorage.getItem("user_list"));
 
-            
-            function login_data(e){
-                return e.user_name == unic_id;
-            }
-            let user_data = user_records.find(login_data);
+  function login_data(e) {
+    return e.user_name == unic_id;
+  }
+  const user_data = user_records.find(login_data);
 
-            
+  document.getElementById("email").innerHTML = user_data.email;
+  document.getElementById("bio").innerHTML = user_data.user_bio;
+  document.getElementById("mobile_number").innerHTML = user_data.mobile_number;
 
-            document.getElementById("email").innerHTML=user_data["email"];
-            document.getElementById("bio").innerHTML=user_data["user_bio"];
-            document.getElementById("mobile_number").innerHTML=user_data["mobile_number"];
+function ubdate(e) {
+  e.preventDefault();
 
-           
+    console.log(user_cover_img);
+  
+    const profile_img = user_dp;
+    const cover_img = user_cover_img;
+    const email = document.getElementById("email").value;
+    const user_bio = document.getElementById("bio").value;
+    const mobile_number = document.getElementById("mobile_number").value;
 
+    if (email.length !== 0) {
+      user_data.email = email;
+    } else if (user_bio.length !== 0) {
+      user_data.user_bio = user_bio;
+    } else if (cover_img_change === true) {
+      user_data.user_cover_img = cover_img;
+    } else if (dp_change === true) {
+      user_data.user_dp = profile_img;
+    }
+    user_data.mobile_number = mobile_number;
 
-            function ubdate(e){
+    localStorage.setItem("user_list", JSON.stringify(user_records));
+    alert("updated successfully");
 
+    window.location.href = `./profile.html?user_id=${user_Id}`;
+}
 
-                e.preventDefault();
+  if (user_data.user_dp == "") {
+    imgPreview.src = "../../assets/img/user/cover img/profile back cover.jpg";
+  } else {
+    imgPreview.src = user_data.user_dp;
+  }
 
-
-                console.log(user_cover_img)
-                
-            let profile_img=user_dp;
-            let cover_img=user_cover_img;
-            let email=document.getElementById("email").value;
-            let user_bio=document.getElementById("bio").value;
-            let mobile_number=document.getElementById("mobile_number").value;
-
-            if(email.length!==0){
-                user_data["email"]=email;
-            }
-            else if(user_bio.length!==0){
-                user_data["user_bio"]=user_bio;
-            }
-            else if(cover_img_change===true){
-                user_data["user_cover_img"]=cover_img;
-            }
-            else if(dp_change===true){
-                user_data["user_dp"]=profile_img;
-            }
-            user_data["mobile_number"]=mobile_number;
-            
-           
-            
-
-            localStorage.setItem("user_list",JSON.stringify(user_records));
-            alert("updated successfully");
-
-            window.location.href = "./profile.html?user_id="+user_Id;
-
-        }
-
-        if( user_data["user_dp"]==""){
-                imgPreview.src="../../assets/img/user/cover img/profile back cover.jpg";
-            }
-            else{
-                imgPreview.src=user_data["user_dp"];
-            }
-
-            if(user_data["user_cover_img"]==""){
-                cover_imgPreview.src="../../assets/img/user/DS profile img.jpg"
-            }
-            else{
-                cover_imgPreview.src=user_data["user_cover_img"];
-            }
-
-
-      
-
-
+  if (user_data.user_cover_img == "") {
+    cover_imgPreview.src = "../../assets/img/user/DS profile img.jpg";
+  } else {
+    cover_imgPreview.src = user_data.user_cover_img;
+  }
         </script>
-
-
 
     </body>
 

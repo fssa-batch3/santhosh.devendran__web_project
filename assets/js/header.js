@@ -1,9 +1,8 @@
- let rootPath = window.location.origin;
- 
+const rootPath = window.location.origin;
 
- let unic_user_id2 = JSON.parse(localStorage.getItem("user_id"));
+const unic_user_id2 = JSON.parse(localStorage.getItem("user_id"));
 
- const header =`<header>
+const header = `<header>
  <div class="logo">
      <img src="${rootPath}/assets/img/logo/logo.jpg" alt="logo" /><span class="name">Door Step</span>
  </div>
@@ -32,6 +31,4 @@
  </div>
 </header>`;
 
-
 document.body.insertAdjacentHTML("afterbegin", header);
-
