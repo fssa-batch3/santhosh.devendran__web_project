@@ -99,9 +99,6 @@ body main .form{
     box-shadow: none;
 }
 
-.details .password_required {
-    display: none;
-}
 
 .details input:invalid + .password_required {
     display: block;

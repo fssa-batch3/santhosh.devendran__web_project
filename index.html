@@ -52,54 +52,7 @@
             </div>
         </div>
 
-        <script>// function login() {
-
-        //     let user_name = document.getElementById("user_name").value;
-        //     let password = document.getElementById("password").value;
-
-        //     let user_details = new Array();
-
-        //     user_details = JSON.parse(localStorage.getItem("users"))? JSON.parse(localStorage.getItem("users")) : []
-
-        //     if (user_details.some((v) => { return v.user_name == user_name && v.password == password })) {
-        //         alert("Successfully Logined ");
-        //         let current_user = user_details.filter((v) => { return v.user_name == user_name && v.password == password })[0]
-        //         localStorage.setItem('user_name', current_user.user_name);
-        //         localStorage.setItem('password', current_user.password);
-        //         location.href = "./pages/home.html";
-        //     }
-        //     else {
-        //         alert('Please Check your details');
-        //     }
-        // }
-
-        // //////////////////////////////
-
-        function signIn(e) {
-  e.preventDefault();
-  const user_name = document.getElementById("user_name").value;
-  const password = document.getElementById("password").value;
-  const user_list = JSON.parse(localStorage.getItem("user_list")) || [];
-
-  const exist =
-    user_list.length &&
-    JSON.parse(localStorage.getItem("user_list")).some(
-      (data) => data.user_name == user_name && data.password == password
-    );
-
-          console.log(user_name, password);
-          console.log(exist);
-
-  if (!exist) {
-            alert("Incorrect login credentials");
-            document.querySelector("form").reset();
-  } else {
-            localStorage.setItem("user_id", JSON.stringify(user_name));
-            alert("Your login in successful");
-            location.href = "./pages/home.html";
-  }
-}
-    </script>
+        <script src="./assets/js/logInPage.js" ></script>
 
     </body>
 

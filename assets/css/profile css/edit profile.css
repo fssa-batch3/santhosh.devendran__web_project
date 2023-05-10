@@ -75,8 +75,9 @@ body header .options a{
     opacity: calc(0);
     z-index: 1;
 }
+
 .center .profile_photo .cover_img .fa{
-    margin-top: -21px;
+    margin-top: 155px;
     float: right;
     position: sticky;
     margin-right: 10px

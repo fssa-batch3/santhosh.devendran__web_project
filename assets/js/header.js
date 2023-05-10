@@ -9,22 +9,22 @@ const header = `<header>
  <div class="options">
      <a href="${rootPath}/pages/home.html">
          <div class="home">
-             <p class="nav">Home</p>
+             <p class="home_high">Home</p>
          </div>
      </a>
      <a href="${rootPath}/pages/profile page/profile.html?user_id=${unic_user_id2}">
          <div class="profile">
-             <p>Profile</p>
+             <p class="Profile_high">Profile</p>
          </div>
      </a>
      <a href="${rootPath}/pages/explore/inspect people.html">
          <div class="inspect">
-             <p>Explore</p>
+             <p class="Explore_high">Explore</p>
          </div>
      </a>
      <a href="${rootPath}/pages/notification page/notification.html">
          <div class="inspect">
-             <p>Notification</p>
+             <p class="Notification_high">Notification</p>
          </div>
      </a>
 
@@ -32,3 +32,5 @@ const header = `<header>
 </header>`;
 
 document.body.insertAdjacentHTML("afterbegin", header);
+
+
