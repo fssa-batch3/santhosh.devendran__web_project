@@ -19,6 +19,6 @@ function signIn(e) {
   } else {
             localStorage.setItem("user_id", JSON.stringify(user_name));
             alert("Your login in successful");
-            location.href = "./pages/home.html";
+            location.href = "./pages/home_page.html";
   }
 }

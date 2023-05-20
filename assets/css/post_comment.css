@@ -1,0 +1,134 @@
+/* post list*/
+
+.post_div{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    display: inline-block;
+}
+.post_user_dp_img{
+    width: 60px;
+    height: 60px;
+    border-radius: 30px;
+}
+.post_user_details{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.post_pro_flex{
+    display: flex;
+    flex-direction: row;
+    margin: 12px;
+}
+.menu_svg{
+    width: 16px;
+    height: 16px;
+    margin: 12px;
+    cursor: pointer;
+}
+
+.post_div{
+    background-color: #fff;
+    border-radius: 10px;
+    margin: 24px 24px;
+}
+.l_c_count{
+    position: relative;
+    top: -6px;
+    left: 6px;
+}
+.post_user_name_time{
+    margin:8px;
+}
+.time_ago{
+    color: gray;
+}
+.menu_svg_div{
+    margin: 12px;
+}
+.post_content{
+    width: auto;
+    padding:0px 24px 12px 12px ;
+}
+.post_content_p{
+    width: 600px;
+}
+.post_img{
+padding:0px 24px;
+
+}
+.post_img img{
+    max-height: 350px;
+    max-width: 620px;
+    border-radius: 10px;
+    
+}
+.like_comment{
+    display: flex;
+    flex-direction: row;
+    margin: 24px;
+}
+.comment_icon{
+    margin: auto;
+margin-left: 18px;
+cursor: pointer;
+}
+.like_icon{
+    margin: auto;
+    cursor: pointer;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+.l_c_count{
+    position: relative;
+    top: -4px;
+}
+
+/* post comment */
+.post_comment{
+    background-color: #fff;
+    border-radius: 10px;
+    margin: 12px 24px;
+}
+.comment_input{
+    display: flex;
+    flex-direction: row;
+    cursor: pointer;
+}
+
+.comment_create_input{
+    width: 360px;
+    border-radius: 30px;
+    font-size: 16px;
+    border: 0px;
+    margin: auto;
+    margin-top: 7px;
+    /* margin-left: 10px; */
+    padding: 10px 50px 10px 10px;
+    resize: none;
+    background-color: #f2f2f2;
+    overflow: hidden;
+}
+.comment_create_input:focus{
+outline: none;
+}
+.comment_send_icon{
+    width: 48px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    height: 44px;
+    background-color: #00acee;
+    margin-top: 7px;
+    margin-left: -38px;
+
+}
+.comment_post{
+    margin-top: 10px;
+    margin-left: 10px;
+    color: #fff;
+}
+
+  

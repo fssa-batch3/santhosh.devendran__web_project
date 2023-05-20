@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../../assets/css/font style.css">
+        <title>Create New</title>
+
+        <link rel="stylesheet" href="../assets/css/create new.css">
+        <script src="https://cdn.jsdelivr.net/npm/uuid@8.3.2/dist/umd/uuidv4.min.js"></script>
+
+    </head>
+
+    <body>
+        <h2>Register Now</h2>
+        <main>
+
+            <section class="form">
+                <form class="details" role="form" onsubmit="signUp(event);">
+                    <div class="name">
+                        <div class="firstname">
+                            <lable class="lable">First Name:</lable>
+                            <input id="firstname" name="firstname" type="text" class="input" pattern="[a-zA-Z]+" placeholder="First Name"
+                            >
+                        </div>
+                        <div class="lastname">
+                            <label class="lable">Last Name:</label>
+                            <input id="lastname" name="lastname" type="text" class="input" pattern="[a-zA-Z]+" placeholder="Last Name"
+                            >
+                        </div>
+                    </div>
+                    <div class="flex">
+                        <lable class="lable">User name:</lable>
+                        <input id="username" name="username" type="text" pattern="[a-zA-Z0-9]{6,12}" class="input" required>
+                        <span id="user_name_l" class="password_required">user name should contain minimum 6~12 characters</span>
+                    </div>
+                    <div class="flex">
+                        <lable class="lable">Date Of Birth:</lable>
+                        <input id="dob" name="dob" type="date" class="input" required>
+                    </div>
+                    <div class="flex">
+                        <lable class="lable">Email ID:</lable>
+                        <input id="email" name="email" type="email" class="input" placeholder="name@domain.com" required>
+                    </div>
+                    <div class="flex">
+                        <lable class="lable">Mobile Number:</lable>
+                        <input id="mobilenumber" name="mobilenumber" type="tel" pattern="[0-9]{10}" class="input" placeholder="+91 89250 *****" required>
+                    </div>
+                    <div class="flex">
+                        <lable class="lable">Password:</lable>
+                        <input id="password" name="password" type="password" class="input" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="Enter Your password" required>
+                        <span class="password_required">Must contain at least one number, one uppercase, lowercase and at least 8 characters.</span>
+                    </div>
+                    <div class="flex">
+                        <lable class="lable">Confirm Password:</lable>
+                        <input id="confirmpassword" name="confirmpassword" type="password" class="input" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="Reenter Your Password"
+                            required>
+                    </div>
+
+                    <div class="submit">
+                        <a>
+                            <button type="submit">Submit</button>
+                        </a>
+                    </div>
+                    <a href="../../index.html">
+                        <P>Already have an account</P>
+                    </a>
+                </form>
+
+            </section>
+        </main>
+
+        <script src="../assets/js/registerPage.js"></script>
+
+    </body>
+
+</html>

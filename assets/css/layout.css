@@ -1,0 +1,258 @@
+/* for font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+*{
+    font-family: 'Poppins', sans-serif;
+}
+
+*{
+    margin: 0px;
+    padding: 0px;
+}
+html{
+    height: 100%;
+    width: 100%;
+    position: fixed;
+}
+body{
+    height: 100%;
+    width: 100%;
+    position: fixed;
+}
+/* header */
+.header{
+    height: 60px;
+}
+.header_flex{
+    height: 70px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: center;
+}
+.profile_img{
+    width: 60px;
+    height: 60px;
+}
+.logo_img{
+    margin-right: 40px;
+    width: 100px;
+    height: 50px;
+
+}
+.home_icon,.notification_icon,.drop_down_i{
+    width: 15px;
+    height: 15px;
+}
+.align_row{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.navbar{
+ width: 15rem;
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+margin-left: 40px;
+}
+.pro_drop{
+    display: flex;
+flex-direction: row;
+}
+.explore_input{
+    height: 30px;
+    width: 250px;
+    border: 1px solid gray;
+    border-radius: 15px;
+    padding-left: 30px;
+    font-size: 16px;
+    
+}
+.search_icon{
+    margin-left: -275px;
+    color: gray;
+   }
+.explore_input:focus{
+    outline: 1px solid #00acee;
+}
+
+
+/* dropdown list header */
+.drop_down_i{
+    padding-top: 2px;
+}
+.dropdown {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+  }
+.dropdown-content {
+    position: absolute;
+    background-color: #FFFEFA;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+  }
+  
+  .dropdown-content li {
+    padding: 12px 16px;
+    display: block;
+  }
+  .dropdown_pro{
+cursor: pointer;
+  }
+  .selected:hover{
+    background-color: #00acee;
+    color: #fff;
+  }
+
+.delete_op{
+    color: red;
+
+  }
+.delete_op:hover{
+    background-color: red;
+    color: #fff;
+}
+
+  /* for container sections */
+  .container {
+    padding: 10px;
+    height: 90%;
+  }
+  .container_div{
+    display: flex;
+    flex-direction: row;
+    background-color: #f2f2f2;
+    height: 100%;
+    padding: 12px;
+    border-radius: 5px;
+  }
+.section_left,.section_right{
+    width: 25vw;
+}
+.section_center{
+    width: 50vw;
+    overflow-y: scroll;
+}
+.section_center::-webkit-scrollbar {
+    width: 0px;
+  }
+/* left side section */
+
+.pro_data_div{
+    width: 320px;
+    height: 200px;
+    margin: 12px;
+    border-radius: 10px;
+    background-color: #FFFEFA;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.suggesions_user{
+    width: 320px;
+    height: 360px;
+    margin: 12px;
+    border-radius: 10px;
+    background-color: #FFFEFA;
+}
+/*  profile div */
+
+.user_dp img{
+ width: 100px;
+ height: 100px;
+ border-radius: 50%;
+}
+.user_name_dev{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.user_name_p{
+    color: gray;
+}
+.view_profile_div{
+    text-decoration: none;
+    font-weight: 700;
+    color: #00acee;
+    cursor: pointer;
+}
+/* suggesions_user_list */
+.suggesions_div{
+ padding: 16px 0px 8px 16px;
+}
+
+.suggesions_user_img{
+    width: 60px;
+    height: 60px;
+}
+.suggesions_pro{
+    width: 300px;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.suggesions_user_name{
+ width: 160px;
+ padding-left: 8px;
+}
+.suggesions_follow_bn{
+    width: 80px;
+    height: 30px;
+    border: 0px;
+    border-radius: 3px;
+    background-color: #00acee;
+    color: #FFFEFA;
+    font-weight: 500;
+}
+/* followers following */
+.Followers_list,.Following_list{
+    height: 340px;
+    max-height: 335px;
+    overflow-y: scroll;
+}
+/* for scrollbar design */
+/* For WebKit browsers (Chrome, Safari) */
+::-webkit-scrollbar {
+    width: 6px;
+    
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background-color: #FFFEFA; 
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+   
+    border-radius: 5px;
+    background-color: grey;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #a9a9a9;
+    
+  }
+
+
+
+
+.follow_div{
+    width: 320px;
+    height: 380px;
+    margin: 12px;
+    border-radius: 10px;
+    background-color: #FFFEFA; 
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
