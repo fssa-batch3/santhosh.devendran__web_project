@@ -322,6 +322,7 @@ const like_data = JSON.parse(localStorage.getItem("like_data")) || [];
           who_liked,
         });
         notification_data.push({
+          unic_id:uuidv4(),
           liked,
           who_liked,
           notification,
@@ -347,6 +348,7 @@ const like_data = JSON.parse(localStorage.getItem("like_data")) || [];
             who_liked,
           });
           notification_data.push({
+            unic_id:uuidv4(),
             liked,
             who_liked,
             notification,
@@ -418,7 +420,6 @@ var commentCount = document.createElement("span");
 commentCount.setAttribute("class", "l_c_count");
 
 let comment_count=comment_list.filter(e=>e.comment_post_id===element.post_id).length;
-console.log(comment_count);
 commentCount.textContent = comment_count;
 
 // Append commentSvg and commentCount to commentIcon

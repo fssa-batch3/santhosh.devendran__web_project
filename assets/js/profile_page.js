@@ -7,7 +7,6 @@ const comment_list=JSON.parse(localStorage.getItem("comment_list"))||[];
 
 const user_data_params=user_list.find((e)=>e.user_name===unic_id)
 
-
 //  set cover photo
 
 const cover_photo=document.getElementById("cover_photo");
@@ -73,6 +72,74 @@ else{
     edit_button_pro.style.display="none";
     follow_button_pro.style.display="block"
 }
+
+
+// const follow_data = JSON.parse(localStorage.getItem("follow_data"));
+let user_f_data;
+if(follow_data!==null){
+     user_f_data = follow_data.find(
+        (e) => e.followee == logged_user && e.following == unic_id
+      );
+}
+
+
+if (user_f_data == undefined) {
+    follow_button_pro.innerText = "follow";
+} else {
+    follow_button_pro.innerText = "Unfollow";
+}
+
+// for follow and Unfollow button feature  ////
+
+follow_button_pro.addEventListener("click", function () {
+  const following = unic_id;
+  const followee = logged_user;
+
+  const follow_data =JSON.parse(localStorage.getItem("follow_data")) || [];
+  if (follow_data.length === 0) {
+    follow_data.push({
+      following,
+      followee,
+    });
+    notification_data.push({
+        unic_id:uuidv4(),
+      following,
+      followee,
+      notification,
+      type:"follow"
+    });
+    localStorage.setItem("notification_data", JSON.stringify(notification_data));
+    console.log(follow_data);
+    follow_bn_function.innerHTML = "Unfollow";
+    localStorage.setItem("follow_data", JSON.stringify(follow_data));
+  } else {
+    const user_f_data = follow_data.find(
+      (e) => e.followee == logged_user && e.following == following
+    );
+    const indexOfuser_f = follow_data.indexOf(user_f_data);
+    if (user_f_data == undefined) {
+      follow_data.push({
+        following,
+        followee,
+      });
+      notification_data.push({
+        unic_id:uuidv4(),
+        following,
+        followee,
+        notification,
+        type:"follow"
+      });
+      localStorage.setItem("notification_data", JSON.stringify(notification_data));
+      follow_button_pro.innerText = "Unfollow";
+      localStorage.setItem("follow_data", JSON.stringify(follow_data));
+    } else {
+      follow_data.splice(indexOfuser_f, 1);
+      localStorage.setItem("follow_data", JSON.stringify(follow_data));
+      follow_button_pro.innerText = "follow";
+    }
+  }
+});
+
 
 
 // follower folowing count
@@ -339,10 +406,14 @@ closePopup.addEventListener("click", function () {
     myPopup.classList.remove("show");
 });
 
+function popup_close() {
+    myPopup.classList.remove("show");
+    location.reload()
+}
 
-
-
-
+document.getElementById("email").value=user_data_params.email;
+document.getElementById("bio").value=user_data_params.user_bio===""?"write something about you...":user_data_params.user_bio;
+document.getElementById("mobile_number").value=user_data_params.mobile_number;
 
 
 
@@ -444,34 +515,26 @@ coverfileUpload.addEventListener("change", function (event) {
         });
 });
 
-const unic_user_id = JSON.parse(localStorage.getItem("user_id"));
-
-// if (unic_user_id == "") {
-//     window.location.href = "../../index.html";
-// }
-
-// const params = new URLSearchParams(window.location.search);
-// const user_Id = params.get("user_id");
-
-// const unic_id = JSON.parse(localStorage.getItem("user_id"));
+// edit data update
 
 
 
-// document.getElementById("email").innerHTML = user_data.email;
-// document.getElementById("bio").innerHTML = user_data.user_bio;
-// document.getElementById("mobile_number").innerHTML = user_data.mobile_number;
+const unic_id_login = JSON.parse(localStorage.getItem("user_id"));
 
-function proubdate(e) {
 
+const edit_submit=document.getElementById("edit_submit");
+
+edit_submit.addEventListener("click",function proubdate(e) {
+console.log("3456");
 
     const user_records = JSON.parse(localStorage.getItem("user_list"));
 
 function login_data(e) {
-    return e.user_name == logged_user;
+    return e.user_name == unic_id_login;
 }
 const user_data = user_records.find(login_data);
 
-    console.log(user_cover_img);
+    console.log(user_data);
 
     const profile_img = user_dp;
     const cover_img = user_cover_img;
@@ -483,7 +546,10 @@ const user_data = user_records.find(login_data);
         user_data.email = email;
     } if (user_bio.length !== 0) {
         user_data.user_bio = user_bio;
-    } if (cover_img_change === true) {
+    } if (user_bio == "write something about you...") {
+        user_data.user_bio = "";
+    } 
+    if (cover_img_change === true) {
         user_data.user_cover_img = cover_img;
     } if (dp_change === true) {
         user_data.user_dp = profile_img;
@@ -491,5 +557,7 @@ const user_data = user_records.find(login_data);
         user_data.mobile_number = mobile_number;
     }
     localStorage.setItem("user_list", JSON.stringify(user_records));
+    popup_close();
     alert("updated successfully");
-}
+    
+});

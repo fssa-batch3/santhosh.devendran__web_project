@@ -10,8 +10,7 @@ const comment_list=JSON.parse(localStorage.getItem("comment_list"))||[];
 const find_post=post_feedd.find(e=>e.post_id===post_id)
 
 // asign variables
-const notification_data=JSON.parse(localStorage.getItem("notification_data"))||[];
-const notification=false;
+
 
 const time_diff_post=document.getElementById("time_diff_post");
 
@@ -113,6 +112,7 @@ const like_data = JSON.parse(localStorage.getItem("like_data")) || [];
           who_liked,
         });
         notification_data.push({
+          unic_id:uuidv4(),
           liked,
           who_liked,
           notification,
@@ -138,6 +138,7 @@ const like_data = JSON.parse(localStorage.getItem("like_data")) || [];
             who_liked,
           });
           notification_data.push({
+            unic_id:uuidv4(),
             liked,
             who_liked,
             notification,
@@ -219,6 +220,7 @@ comment_post_bn.addEventListener("click",function () {
                 comment_post_id: post_id
             });
             notification_data.push({
+              unic_id:uuidv4(),
                 unic_id: comment_id,
                 user_name,
                 comment_post_id: post_id,
@@ -387,7 +389,7 @@ postComment.appendChild(postContent);
 
 // Append the postComment to the document body or another parent element
 let parentElement = document.getElementById("comment_list"); // Replace "parentElementId" with the actual ID of the parent element
-parentElement.appendChild(postComment);
+parentElement.prepend(postComment);
 
 }
 

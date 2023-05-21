@@ -32,8 +32,8 @@ body{
     align-items: center;
 }
 .profile_img{
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
 }
 .logo_img{
@@ -52,11 +52,11 @@ body{
     align-items: center;
 }
 .navbar{
- width: 15rem;
-display: flex;
-flex-direction: row;
-justify-content: space-between;
-margin-left: 40px;
+    width: 30rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-right: -268px;
 }
 .pro_drop{
     display: flex;
@@ -64,7 +64,7 @@ flex-direction: row;
 }
 .explore_input{
     height: 30px;
-    width: 250px;
+    width: 300px;
     border: 1px solid gray;
     border-radius: 15px;
     padding-left: 30px;
@@ -72,7 +72,7 @@ flex-direction: row;
     
 }
 .search_icon{
-    margin-left: -275px;
+    margin-left: -322px;
     color: gray;
    }
 .explore_input:focus{
@@ -106,7 +106,7 @@ cursor: pointer;
   }
   .selected:hover{
     background-color: #00acee;
-    color: #fff;
+    color: #FFFEFA;
   }
 
 .delete_op{
@@ -115,7 +115,7 @@ cursor: pointer;
   }
 .delete_op:hover{
     background-color: red;
-    color: #fff;
+    color: #FFFEFA;
 }
 
   /* for container sections */
@@ -190,6 +190,7 @@ cursor: pointer;
 .suggesions_user_img{
     width: 60px;
     height: 60px;
+    border-radius: 50%;
 }
 .suggesions_pro{
     width: 300px;

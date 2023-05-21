@@ -1,4 +1,6 @@
 // variables for getitem from localstorage
+const user_check=JSON.parse(localStorage.getItem("user_id"));
+
 const user_list=JSON.parse(localStorage.getItem("user_list"));
 const logged_user=JSON.parse(localStorage.getItem("user_id"));
 const follow_data = JSON.parse(localStorage.getItem("follow_data")) || [];
@@ -9,8 +11,60 @@ const notification=false;
             //find use data 
             const log_in_user_data=user_list.find(e=>e.user_name===logged_user);
 
+            // check for logineed or not
+            if(user_check===""){
+              location.href="../index.html"
+            }
             
 
+ // for notification feature
+
+ // get or create notification array
+const notificationData = JSON.parse(localStorage.getItem("notification_data")) || [];
+const user_id = JSON.parse(localStorage.getItem("user_id"));
+const post_feed=JSON.parse(localStorage.getItem("post_feedd"));
+
+const unshowed = notificationData.filter(e => e.notification == false);
+
+let for_notify =JSON.parse(localStorage.getItem("for_notify"))|| [];
+let old_for_notify=for_notify.length;
+unshowed.forEach(element => {
+    if (element.type == "like") {
+        let find_user=post_feed.find(e=>e.post_id===element.liked)
+        if(find_user.unic_id===user_id){
+            for_notify.push(element)
+        }
+
+    }
+    if (element.type == "comment") {
+        let find_user=post_feed.find(e=>e.post_id===element.comment_post_id)
+        if(find_user.unic_id===user_id){
+            for_notify.push(element)
+        }
+    }
+    if(element.type == "follow") {
+
+        if(element.following===user_id){
+   
+            for_notify.push(element)
+        }
+    }   
+});
+console.log(for_notify);
+for_notify.splice(0,old_for_notify)
+let notification_dot=document.getElementById("notification_dot");
+console.log(for_notify);
+if(for_notify.length>0){
+    notification_dot.style.display="block"
+    localStorage.setItem("for_notify",JSON.stringify(for_notify));
+
+    for_notify=[];
+}
+else{
+    notification_dot.style.display="none"
+}
+
+// 
 
 
 // variables for get element from document
@@ -105,6 +159,8 @@ logout_option.addEventListener(
   function logout(e) {
     if (confirm("Are you sure")) {
       const user_id = "";
+      const for_notify=[]
+      localStorage.setItem("for_notify", JSON.stringify(for_notify));
       localStorage.setItem("user_id", JSON.stringify(user_id));
     location.href = "../index.html";
     }
@@ -153,7 +209,7 @@ delete_bn.addEventListener("click", function deletData(e) {
 
 const suggestion=user_list.filter((e)=>e.user_name!==logged_user);
 let count=5;
-console.log(suggestion);
+
 for(let i=0;i<suggestion.length;i++){
 if(i>count){
   break;
@@ -222,6 +278,7 @@ followBtnInner.addEventListener("click", function () {
       followee,
     });
     notification_data.push({
+      unic_id:uuidv4(),
       following,
       followee,
       notification,
@@ -242,6 +299,7 @@ followBtnInner.addEventListener("click", function () {
         followee
       });
       notification_data.push({
+        unic_id:uuidv4(),
         following,
         followee,
         notification,
@@ -358,7 +416,6 @@ if(follow_er_ing==="Followers_list"){
     
 }
 
-console.log(user_f_data);
 
 if (user_f_data == undefined) {
   followBtnInne.innerText = "follow";
@@ -387,6 +444,7 @@ followBtnInne.addEventListener("click", function () {
       followee,
     });
     notification_data.push({
+      unic_id:uuidv4(),
       following,
       followee,
       notification,
@@ -407,6 +465,7 @@ followBtnInne.addEventListener("click", function () {
         followee
       });
       notification_data.push({
+        unic_id:uuidv4(),
         following,
         followee,
         notification,

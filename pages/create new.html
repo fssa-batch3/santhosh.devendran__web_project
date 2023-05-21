@@ -8,7 +8,7 @@
 
         <link rel="stylesheet" href="../assets/css/create new.css">
         <script src="https://cdn.jsdelivr.net/npm/uuid@8.3.2/dist/umd/uuidv4.min.js"></script>
-
+        <script src="https://cdn.jsdelivr.net/npm/uuid@8.3.2/dist/umd/uuidv4.min.js"></script>
     </head>
 
     <body>
@@ -20,40 +20,40 @@
                     <div class="name">
                         <div class="firstname">
                             <lable class="lable">First Name:</lable>
-                            <input id="firstname" name="firstname" type="text" class="input" pattern="[a-zA-Z]+" placeholder="First Name"
+                            <input id="firstname" name="firstname" type="text" class="input" value="Santhosh" pattern="[a-zA-Z]+" placeholder="First Name"
                             >
                         </div>
                         <div class="lastname">
                             <label class="lable">Last Name:</label>
-                            <input id="lastname" name="lastname" type="text" class="input" pattern="[a-zA-Z]+" placeholder="Last Name"
+                            <input id="lastname" name="lastname" type="text" class="input" value="D" pattern="[a-zA-Z]+" placeholder="Last Name"
                             >
                         </div>
                     </div>
                     <div class="flex">
                         <lable class="lable">User name:</lable>
-                        <input id="username" name="username" type="text" pattern="[a-zA-Z0-9]{6,12}" class="input" required>
+                        <input id="username" name="username" type="text" pattern="[a-zA-Z0-9]{6,12}" value="Sandy02" class="input" required>
                         <span id="user_name_l" class="password_required">user name should contain minimum 6~12 characters</span>
                     </div>
                     <div class="flex">
                         <lable class="lable">Date Of Birth:</lable>
-                        <input id="dob" name="dob" type="date" class="input" required>
+                        <input id="dob" name="dob" type="date" value="2002-08-28" class="input" required>
                     </div>
                     <div class="flex">
                         <lable class="lable">Email ID:</lable>
-                        <input id="email" name="email" type="email" class="input" placeholder="name@domain.com" required>
+                        <input id="email" name="email" type="email" value="Santhosh@gmail.com" class="input" placeholder="name@domain.com" required>
                     </div>
                     <div class="flex">
                         <lable class="lable">Mobile Number:</lable>
-                        <input id="mobilenumber" name="mobilenumber" type="tel" pattern="[0-9]{10}" class="input" placeholder="+91 89250 *****" required>
+                        <input id="mobilenumber" name="mobilenumber" type="tel" value="8925054118" pattern="[0-9]{10}" class="input" placeholder="+91 89250 *****" required>
                     </div>
                     <div class="flex">
                         <lable class="lable">Password:</lable>
-                        <input id="password" name="password" type="password" class="input" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="Enter Your password" required>
+                        <input id="password" name="password" type="password" value="Sandy@2002" class="input" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="Enter Your password" required>
                         <span class="password_required">Must contain at least one number, one uppercase, lowercase and at least 8 characters.</span>
                     </div>
                     <div class="flex">
                         <lable class="lable">Confirm Password:</lable>
-                        <input id="confirmpassword" name="confirmpassword" type="password" class="input" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="Reenter Your Password"
+                        <input id="confirmpassword" name="confirmpassword" value="Sandy@2002" type="password" class="input" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="Reenter Your Password"
                             required>
                     </div>
 
