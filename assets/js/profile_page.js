@@ -5,17 +5,18 @@ const unic_id = params.get("unic_id");
 const post_feedd=JSON.parse(localStorage.getItem("post_feedd"));
 const comment_list=JSON.parse(localStorage.getItem("comment_list"))||[];
 
+const user_data_params=user_list.find((e)=>e.user_name===unic_id)
 
 
 //  set cover photo
 
 const cover_photo=document.getElementById("cover_photo");
 
-    if(log_in_user_data.user_cover_img==""){
+    if(user_data_params.user_cover_img==""){
         cover_photo.src="https://res.cloudinary.com/dvb2bkrx9/image/upload/v1684567732/wqoszgoorljdovwdevph.png"
       }
       else{
-        cover_photo.src=log_in_user_data.user_cover_img;
+        cover_photo.src=user_data_params.user_cover_img;
       }
 
 
@@ -23,36 +24,39 @@ const cover_photo=document.getElementById("cover_photo");
 
 const pro_user_dp=document.getElementById("pro_user_dp");
 
-if(log_in_user_data.user_dp==""){
+if(user_data_params.user_dp==""){
     pro_user_dp.src="https://res.cloudinary.com/dvb2bkrx9/image/upload/v1683662312/wyli3r0rjpxk5cnq2dze.jpg"
   }
   else{
-    pro_user_dp.src=log_in_user_data.user_dp;
+    pro_user_dp.src=user_data_params.user_dp;
   }
 
 // set user full name
 
 const pro_user_f_name=document.getElementById("pro_user_f_name");
 
-pro_user_f_name.innerText=log_in_user_data.first_name+" "+log_in_user_data.last_name;
+pro_user_f_name.innerText=user_data_params.first_name+" "+user_data_params.last_name;
 
 // set user name
 
 const pro_user_name=document.getElementById("pro_user_name");
 
-pro_user_name.innerText="@"+log_in_user_data.user_name;
+pro_user_name.innerText="@"+user_data_params.user_name;
 
 //  bio data 
 
 const user_bio_content=document.getElementById("user_bio_content");
 
 if(logged_user===unic_id){
-    if(log_in_user_data.user_bio==""){
+    if(user_data_params.user_bio==""){
         user_bio_content.innerText="write something about you...."
       }
       else{
-        user_bio_content.innerText=log_in_user_data.user_bio;
+        user_bio_content.innerText=user_data_params.user_bio;
       }
+}
+else{
+    user_bio_content.innerText=user_data_params.user_bio;
 }
 
 
@@ -71,9 +75,12 @@ else{
 }
 
 
+// follower folowing count
 
-
-
+let follower_count_pro=follow_data.filter(e=>e.following==unic_id).length;
+let following_count_pro=follow_data.filter(e=>e.followee==unic_id).length;
+document.getElementById("follower_count_pro").innerText=follower_count_pro;
+document.getElementById("following_count_pro").innerText=following_count_pro;
 
 
 
@@ -83,13 +90,7 @@ else{
 //  filter user post
 
 
-
 const filtered_post=post_feedd.filter(e=>e.unic_id===unic_id);
-
-
-
-
-
 
 //  create card for post
 
@@ -198,8 +199,26 @@ let ul = document.createElement("ul");
 // Create the li element
 let li = document.createElement("li");
 li.setAttribute("class", "post_delete");
+li.setAttribute("id",element.delete_bn)
 li.textContent = "Delete";
+li.addEventListener("click", function () {
+    if (confirm("Are you sure to Delete ?")) {
+        const post_id=this.id;
+      const post_feedd = JSON.parse(localStorage.getItem("post_feedd"));
+      function find_post(e) {
+        console.log(post_id);
+        return (
+          e.delete_bn == post_id
+        );
+      }
+      let find_post_delete = post_feedd.find(find_post);
+      const indexOfUser = post_feedd.indexOf(find_post_delete);
+      post_feedd.splice(indexOfUser, 1);
+      localStorage.setItem("post_feedd", JSON.stringify(post_feedd));
+    }
 
+    location.reload();
+  });
 // Append li to ul
 ul.appendChild(li);
 
@@ -303,7 +322,7 @@ postDiv.appendChild(likeComment);
 
 // Append postDiv to the document body or another parent element
 let parentElement = document.getElementById("user_post_list"); 
-parentElement.appendChild(postDiv);
+parentElement.prepend(postDiv);
 
 }
 
@@ -337,19 +356,19 @@ closePopup.addEventListener("click", function () {
 // for edit cover photo
 const edit_cover_img = document.getElementById("imgBox1");
 
-if (log_in_user_data.user_cover_img === "") {
+if (user_data_params.user_cover_img === "") {
     edit_cover_img.src = "https://res.cloudinary.com/dvb2bkrx9/image/upload/v1684567732/wqoszgoorljdovwdevph.png";
 } else {
-    edit_cover_img.src = log_in_user_data.user_cover_img;
+    edit_cover_img.src = user_data_params.user_cover_img;
 }
 
 // for edit dp img
 const edit_dp_img = document.getElementById("imgBox2");
 
-if (log_in_user_data.user_dp === "") {
+if (user_data_params.user_dp === "") {
     edit_dp_img.src = "https://res.cloudinary.com/dvb2bkrx9/image/upload/v1683662312/wyli3r0rjpxk5cnq2dze.jpg";
 } else {
-    edit_dp_img.src = log_in_user_data.user_dp;
+    edit_dp_img.src = user_data_params.user_dp;
 }
 // Profile image Upload API
 const CLOUDINARY_URL = "https://api.cloudinary.com/v1_1/dvb2bkrx9/upload";

@@ -223,6 +223,7 @@ a{
   
   .menu_delete li {
     padding: 12px 16px;
+    cursor: pointer;
   }
   
   .menu_svg_div:hover .menu_delete {

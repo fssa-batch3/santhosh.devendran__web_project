@@ -34,6 +34,7 @@ body{
 .profile_img{
     width: 60px;
     height: 60px;
+    border-radius: 50%;
 }
 .logo_img{
     margin-right: 40px;
@@ -155,7 +156,7 @@ cursor: pointer;
 }
 .suggesions_user{
     width: 320px;
-    height: 360px;
+    height: 375px;
     margin: 12px;
     border-radius: 10px;
     background-color: #FFFEFA;
@@ -213,7 +214,7 @@ cursor: pointer;
 /* followers following */
 .Followers_list,.Following_list{
     height: 340px;
-    max-height: 335px;
+    max-height: 330px;
     overflow-y: scroll;
 }
 /* for scrollbar design */

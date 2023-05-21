@@ -35,8 +35,8 @@ const header =`
                         <div class="dropdown-content" style="display: none;" id="dropdown_list">
                             <ul>
                                 <li class="selected" id="header_pro_link">profile</li>
-                                <li class="selected">log out</li>
-                                <li class="delete_op">delete account</li>
+                                <li class="selected" id="logout_bn">log out</li>
+                                <li class="delete_op" id="delete_bn">delete account</li>
                             </ul>
 
                         </div>

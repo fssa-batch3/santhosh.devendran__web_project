@@ -2,13 +2,11 @@
 
 const comment_list=JSON.parse(localStorage.getItem("comment_list"))||[];
 let post_feedd = JSON.parse(localStorage.getItem("post_feedd")) || [];
-const notification_data=JSON.parse(localStorage.getItem("notification_data")) || [];
 // variable what I asigned
 
 let for_row=1;
 let post_content_input="";
 new_post = false;
-const notification=false;
 
 // variables for get element from document
 const delete_img=document.getElementById("delete_img");
@@ -192,8 +190,14 @@ postUserNameTime.setAttribute("class", "post_user_name_time");
 // Create the post_user_name element
 var postUserName = document.createElement("p");
 postUserName.setAttribute("class", "post_user_name");
+postUserName.setAttribute("style", "cursor: pointer;");
+postUserName.setAttribute("id",findElementUser.user_name);
 postUserName.textContent = findElementUser.first_name+" "+findElementUser.last_name;
 
+postUserName.addEventListener("click",function (){
+  const user_name=this.id;
+  location.href="./profile_page.html?unic_id="+user_name;
+})
 // Create the time_ago element
 let timeAgo = document.createElement("p");
 timeAgo.setAttribute("class", "time_ago");
