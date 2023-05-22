@@ -19,6 +19,8 @@ userDOB.addEventListener("change", function() {
 
 const user_name = document.getElementById("username");
 
+const user_name_s=document.getElementById("username").value;
+
 user_name.addEventListener('input', function() {
   const user_list = JSON.parse(localStorage.getItem("user_list"));
   const user_name_l = document.getElementById("user_name_l");
@@ -68,7 +70,7 @@ function signUp(e) {
     e.preventDefault();
     const first_name = document.getElementById("firstname").value;
     const last_name = document.getElementById("lastname").value;
-    const user_name = user_name.value;
+    const user_name = user_name_s;
    const dob=userDOB.value;
     const email = document.getElementById("email").value;
     const mobile_number = document.getElementById("mobilenumber").value;
