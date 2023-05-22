@@ -2,14 +2,21 @@ const rootPath = window.location.origin;
 
 const unic_user_id2 = JSON.parse(localStorage.getItem("user_id"));
 
-const header =`
+const header = `
 <header>
         <div class="header_flex">
-            <div class=" align_row">
+            <div class=" align_row" >
                 <img src="${rootPath}/assets/img/doorstep_logo.png" alt="dore step logo" class="logo_img">
 
+                <div class="search_div">
                 <input type="text" class="explore_input" id="explore_input">
                 <i class="fa fa-search search_icon" style="font-size: 18px;"></i>
+                </div>
+                
+            <div class="search_result" id="dropdown-menu" style="display:none;" >
+        
+      
+        </div>
             </div>
             <div class="align_row navbar">
                 <div class="align_row">

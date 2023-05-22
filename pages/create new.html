@@ -3,12 +3,12 @@
 
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="../../assets/css/font style.css">
+        <!-- <link rel="stylesheet" href="../../assets/css/font style.css"> -->
         <title>Create New</title>
 
         <link rel="stylesheet" href="../assets/css/create new.css">
         <script src="https://cdn.jsdelivr.net/npm/uuid@8.3.2/dist/umd/uuidv4.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/uuid@8.3.2/dist/umd/uuidv4.min.js"></script>
+        <!-- <script src="https://cdn.jsdelivr.net/npm/uuid@8.3.2/dist/umd/uuidv4.min.js"></script> -->
     </head>
 
     <body>
@@ -32,7 +32,8 @@
                     <div class="flex">
                         <lable class="lable">User name:</lable>
                         <input id="username" name="username" type="text" pattern="[a-zA-Z0-9]{6,12}" value="Sandy02" class="input" required>
-                        <span id="user_name_l" class="password_required">user name should contain minimum 6~12 characters</span>
+                        <span id="user_validation" style="display: none;color: red;">username already exist.</span>
+                        <span id="user_name_l" style="display: none;" class="password_required">user name should contain minimum 6~12 characters</span>
                     </div>
                     <div class="flex">
                         <lable class="lable">Date Of Birth:</lable>
@@ -49,7 +50,7 @@
                     <div class="flex">
                         <lable class="lable">Password:</lable>
                         <input id="password" name="password" type="password" value="Sandy@2002" class="input" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="Enter Your password" required>
-                        <span class="password_required">Must contain at least one number, one uppercase, lowercase and at least 8 characters.</span>
+                        <span id="password_validation" class="password_required">Must contain at least one number, one uppercase, lowercase and at least 8 characters.</span>
                     </div>
                     <div class="flex">
                         <lable class="lable">Confirm Password:</lable>

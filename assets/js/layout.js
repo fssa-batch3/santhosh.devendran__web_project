@@ -235,8 +235,15 @@ if(i>count){
  userName.classList.add("suggesions_user_name");
 
  const fullName = document.createElement("p");
+ fullName.setAttribute("id",suggestion[i].user_name);
+ fullName.setAttribute("style","cursor:pointer")
  fullName.classList.add("user_full_name");
  fullName.textContent =suggestion[i].first_name+" "+suggestion[i].last_name ;
+ fullName.addEventListener("click",function(){
+  const user_id=this.id;
+window.location.href=`${rootPath}/pages/profile_page.html?unic_id=${user_id}`
+ });
+ 
 
  const userNameP = document.createElement("p");
  userNameP.classList.add("user_name_p");
@@ -374,8 +381,14 @@ userName.classList.add("suggesions_user_name");
 
 // Create the full name paragraph element
 const fullName = document.createElement("p");
+fullName.setAttribute("id",find_user.user_name);
+fullName.setAttribute("style","cursor:pointer")
 fullName.classList.add("user_full_name");
 fullName.textContent = find_user.first_name+" "+find_user.last_name;
+fullName.addEventListener("click",function(){
+  const user_id=this.id;
+window.location.href=`${rootPath}/pages/profile_page.html?unic_id=${user_id}`
+ });
 
 // Create the username paragraph element
 const userNameP = document.createElement("p");
@@ -415,7 +428,6 @@ if(follow_er_ing==="Followers_list"){
   
     
 }
-
 
 if (user_f_data == undefined) {
   followBtnInne.innerText = "follow";
@@ -510,3 +522,91 @@ const Following_list="Following_list";
 const Following=follow_data.filter((e)=>e.followee===logged_user);
 
 create_ele(Following,Following_list)
+
+
+// open drop down
+
+const exploreInput = document.getElementById("explore_input");
+const dropdownMenu = document.getElementById("dropdown-menu");
+
+exploreInput.addEventListener("click",function () {
+  dropdownMenu.style.display = dropdownMenu.style.display === "none" ? "block" : "none";
+}
+)
+
+// Close the dropdown when the user clicks outside of it
+window.addEventListener("click", function(event) {
+  if (!event.target.closest(".search_div")) {
+    dropdownMenu.style.display = "none";
+  }
+});
+
+
+
+
+
+
+function create_search_list(search_result){
+
+  for(let i=0;i<search_result.length;i++){
+const searchResultList = document.createElement('div');
+searchResultList.className = 'search_result_list';
+
+const imageContainer = document.createElement('div');
+const image = document.createElement('img');
+image.className = 'search_pro_img';
+
+if(search_result[i].user_dp==""){
+  image.src="https://res.cloudinary.com/dvb2bkrx9/image/upload/v1683662312/wyli3r0rjpxk5cnq2dze.jpg"
+}
+else{
+  image.src=search_result[i].user_dp;
+}
+
+imageContainer.appendChild(image);
+
+const textContainer = document.createElement('div');
+
+const atag = document.createElement('a');
+atag.setAttribute("href",`${rootPath}/pages/profile_page.html?unic_id=${search_result[i].user_name}`)
+
+
+const fullName = document.createElement('p');
+fullName.setAttribute("id",search_result[i].user_name)
+fullName.className = 'search_user_full_name';
+fullName.textContent = search_result[i].first_name+" "+search_result[i].last_name;
+
+const userName = document.createElement('p');
+userName.className = 'search_user_name';
+userName.textContent = '@'+search_result[i].user_name;
+
+textContainer.appendChild(atag);
+atag.appendChild(fullName);
+textContainer.appendChild(userName);
+
+searchResultList.appendChild(imageContainer);
+searchResultList.appendChild(textContainer);
+
+// Append the search result list to its parent container
+const parentContainer = document.querySelector('.search_result');
+parentContainer.appendChild(searchResultList);
+
+}
+}
+
+
+// for search function
+
+
+exploreInput.addEventListener('input', function() {
+  const searchQuery = exploreInput.value.toLowerCase();
+
+  const find_user = user_list.filter(item => item.user_name.toLowerCase().includes(searchQuery));
+  const parentContainer = document.querySelector('.search_result');
+  parentContainer.innerHTML="";
+  create_search_list(find_user);
+  console.log(find_user);
+});
+
+
+

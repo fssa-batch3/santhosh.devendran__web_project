@@ -109,7 +109,7 @@ body main .form{
 
   .password_required{
     max-width: 23rem;
-    color: #00acee;
+    margin-left: 10px;
   }
 
 
