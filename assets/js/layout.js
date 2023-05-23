@@ -235,12 +235,12 @@ if(i>count){
  userName.classList.add("suggesions_user_name");
 
  const fullName = document.createElement("p");
- fullName.setAttribute("id",suggestion[i].user_name);
+ fullName.setAttribute("id",suggestion[i].user_name+"a");
  fullName.setAttribute("style","cursor:pointer")
  fullName.classList.add("user_full_name");
  fullName.textContent =suggestion[i].first_name+" "+suggestion[i].last_name ;
  fullName.addEventListener("click",function(){
-  const user_id=this.id;
+  const user_id=this.id+"a";
 window.location.href=`${rootPath}/pages/profile_page.html?unic_id=${user_id}`
  });
  
