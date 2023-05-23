@@ -19,9 +19,9 @@ userDOB.addEventListener("change", function() {
 
 const user_name = document.getElementById("username");
 
-const user_name_s=document.getElementById("username").value;
-
+const user_name_s=""
 user_name.addEventListener('input', function() {
+   user_name_s=document.getElementById("username").value;
   const user_list = JSON.parse(localStorage.getItem("user_list"));
   const user_name_l = document.getElementById("user_name_l");
   const user_validation = document.getElementById("user_validation");
