@@ -165,6 +165,7 @@ for(const element of filtered_post){
 
     // Create the post_div element
 let postDiv = document.createElement("div");
+postDiv.setAttribute("id",element.post_id)
 postDiv.setAttribute("class", "post_div");
 
 // Create the post_user_details element
@@ -325,6 +326,7 @@ postImg.appendChild(postImgCo);
 }
 // Create the like_comment element
 let likeComment = document.createElement("div");
+likeComment.setAttribute("id",element.post_id);
 likeComment.setAttribute("class", "like_comment");
 
 // Create the like_icon element
@@ -334,6 +336,7 @@ likeIcon.setAttribute("class", "like_icon");
 // Create the heart icon
 let i_like = document.createElement("i");
 i_like.setAttribute("class", "fa fa-heart-o");
+i_like.setAttribute("id","like_button")
 i_like.setAttribute("style", "font-size:24px");
 
 const like_data = JSON.parse(localStorage.getItem("like_data")) || [];
@@ -348,10 +351,12 @@ const like_data = JSON.parse(localStorage.getItem("like_data")) || [];
       i_like.setAttribute("style", "font-size:24px;color: red;");
     }
 
+   
+
 // Create the l_c_count span for like count
 let likeCount = document.createElement("span");
 likeCount.setAttribute("class", "l_c_count");
-likeCount.setAttribute("id", "count"+element.post_id);
+
 likeCount.textContent = element.like;
 
 // Append heartIcon and likeCount to likeIcon
@@ -362,10 +367,22 @@ likeIcon.appendChild(likeCount);
 let commentIcon = document.createElement("div");
 commentIcon.setAttribute("class", "comment_icon");
 
+
 // Create the comment icon
 let commentIconI = document.createElement("i");
 commentIconI.setAttribute("class", "fa fa-comment-o");
 commentIconI.setAttribute("style", "font-size:24px");
+
+commentIconI.addEventListener("click",function (){
+
+  const nearestButton = commentIconI.closest('.like_comment');
+  const uuid = nearestButton.id;
+  window.location.href=`${rootPath}/pages/post_comment.html?post_id=${uuid}`;
+
+})
+
+
+
 
 // Create the l_c_count span for comment count
 let commentCount = document.createElement("span");
@@ -451,6 +468,7 @@ const imgPreview = document.getElementById("imgBox2");
 const fileUpload = document.getElementById("profile_upload");
 
 fileUpload.addEventListener("change", function (event) {
+  imgPreview.src="../assets/img/___dp____.gif";
     const file = event.target.files[0];
     const formData = new FormData();
     formData.append("file", file);
@@ -488,6 +506,7 @@ const cover_imgPreview = document.getElementById("imgBox1");
 const coverfileUpload = document.getElementById("profile_upload_cover");
 
 coverfileUpload.addEventListener("change", function (event) {
+  cover_imgPreview.src="../assets/img/1_CsJ05WEGfunYMLGfsT2sXA.gif"
     const file = event.target.files[0];
     const formData = new FormData();
     formData.append("file", file);
@@ -561,3 +580,103 @@ const user_data = user_records.find(login_data);
     alert("updated successfully");
     
 });
+
+
+
+
+
+// for post like option
+
+
+const likeIcons = document.querySelectorAll('#like_button');
+
+
+likeIcons.forEach(function (icon) {
+  icon.addEventListener('click', function () {
+   
+  
+
+  const nearestButton = icon.closest('.like_comment');
+  const liked = nearestButton.id;
+  const who_liked = logged_user;
+
+  // const like_bn = 
+  const likeCount=nearestButton.querySelector(".l_c_count");
+  const like_data =
+    JSON.parse(localStorage.getItem("like_data")) || [];
+  if (like_data.length === 0) {
+    like_data.push({
+      liked,
+      who_liked,
+    });
+    notification_data.push({
+      unic_id:uuidv4(),
+      liked,
+      who_liked,
+      notification,
+      type:"like"
+    });
+    localStorage.setItem("notification_data", JSON.stringify(notification_data));
+    icon.setAttribute("class", "fa fa-heart");
+    icon.setAttribute("style", "font-size:24px;color: red;");
+    localStorage.setItem("like_data", JSON.stringify(like_data));
+    // instend add like count
+    let find_post = post_feedd.find((e) => e.post_id === liked);
+    const new_count = find_post.like + 1;
+    likeCount.innerText = new_count;
+  } else {
+    const user_l_data = like_data.find(
+      (e) => e.liked === liked && e.who_liked === logged_user
+    );
+    const indexOfuser_f = like_data.indexOf(user_l_data);
+    if (user_l_data === undefined) {
+      like_data.push({
+        liked,
+        who_liked,
+      });
+      notification_data.push({
+        unic_id:uuidv4(),
+        liked,
+        who_liked,
+        notification,
+        type:"like"
+      }
+      );
+      localStorage.setItem("notification_data", JSON.stringify(notification_data));
+      icon.setAttribute("class", "fa fa-heart");
+      icon.setAttribute("style", "font-size:24px;color: red;");
+      localStorage.setItem("like_data", JSON.stringify(like_data));
+      // instend add like count
+      const find_post = post_feedd.find((e) => e.post_id === liked);
+      const new_count = find_post.like + 1;
+      likeCount.innerText = new_count;
+    } else {
+      like_data.splice(indexOfuser_f, 1);
+      localStorage.setItem("like_data", JSON.stringify(like_data));
+      icon.setAttribute("class", "fa fa-heart-o");
+      icon.setAttribute("style", "font-size:24px;color: Black;");
+      // instend add like count
+      const find_post = post_feedd.find((e) => e.post_id === liked);
+      if (find_post.like >= 1) {
+        const new_count = find_post.like - 1;
+        likeCount.innerText = new_count;
+      }
+    }
+   
+  }
+
+  //  for like count set
+  //  add comand count in post details
+
+  const filterlike = like_data.filter((like) => like.liked == liked);
+
+  const find_post = post_feedd.find((e) => e.post_id === liked);
+  find_post.like = filterlike.length;
+
+  localStorage.setItem("post_feedd", JSON.stringify(post_feedd));
+  });
+});
+
+
+
+

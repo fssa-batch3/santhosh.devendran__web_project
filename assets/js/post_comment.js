@@ -220,7 +220,6 @@ comment_post_bn.addEventListener("click",function () {
                 comment_post_id: post_id
             });
             notification_data.push({
-              unic_id:uuidv4(),
                 unic_id: comment_id,
                 user_name,
                 comment_post_id: post_id,

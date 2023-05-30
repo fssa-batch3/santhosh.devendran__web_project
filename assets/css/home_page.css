@@ -95,7 +95,11 @@ outline: none;
 .post_div{
     display: flex;
     flex-direction: column;
+    background-color: #FFFEFA;
+    border-radius: 10px;
+    margin: 12px 0px;
 }
+
 .post_user_dp_img{
     width: 60px;
     height: 60px;
@@ -121,11 +125,7 @@ outline: none;
     padding-top: 12px;
     margin: 0px 12px;
 }
-.post_div{
-    background-color: #FFFEFA;
-    border-radius: 10px;
-    margin: 12px 0px;
-}
+
 .post_user_name_time{
     margin:8px;
 }
@@ -150,7 +150,7 @@ padding:0px 24px;
     max-height: 350px;
     max-width: 620px;
     border-radius: 10px;
-    
+    border: 1px solid black;
 }
 .like_comment{
     display: flex;
