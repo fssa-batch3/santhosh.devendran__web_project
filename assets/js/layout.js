@@ -765,10 +765,13 @@ function chat_list(followingEachOther) {
     let followAlertContainer = document.createElement('div');
     followAlertContainer.classList.add('suggesions_follow_alert');
 
-    const chat_data=JSON.parse(localStorage.getItem("chat_data"))
+    const chat_data=JSON.parse(localStorage.getItem("chat_data"))||[];
+    let find_new="";
     const find_chat_read=chat_data.find((e)=>e.unic_id===logged_user+find_user.user_name||e.unic_id===find_user.user_name+logged_user);
-
-    const find_new=find_chat_read.chat.filter((e)=>e.sender===find_user.user_name&&e.read===false);
+if (find_chat_read!==undefined) {
+   find_new=find_chat_read.chat.filter((e)=>e.sender===find_user.user_name&&e.read===false);
+}
+ 
 
     if(find_new.length>0){
       let chatAlert = document.createElement('span');
@@ -858,14 +861,16 @@ function show_chat_page(chat_user) {
 
 // console.log(find_chat.chat);
 
+console.log(find_chat.chat.length);
+if(find_chat.chat.length>0){
 for(let i=0;i<find_chat.chat.length;i++){
 console.log(i);
 if(find_chat.chat[i].sender===logged_user){
 // Create the div element
 let divElement = document.createElement('div');
-divElement.classList.add('send_message');
+divElement.classList.add('send_message',"message");
 if(find_chat.chat[i].read===true){
-  divElement.classList.add('message_read');
+  divElement.classList.add('message_read',"message");
 };
 
 // Create the paragraph element
@@ -909,7 +914,7 @@ document.querySelector(".message_list").appendChild(divElement);
 }
 
 
-
+}
 
 // message send 
 const send_button=document.getElementById("send_button");
@@ -936,7 +941,7 @@ send_button.addEventListener("click", function (){
   localStorage.setItem(("chat_data"),JSON.stringify(chat_data));
 
   let sendContainer = document.createElement('div');
-  sendContainer.classList.add('send_message');
+  sendContainer.classList.add('send_message',"message");
   // sendContainer.classList.add('message_read');
   
   

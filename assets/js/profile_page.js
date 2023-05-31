@@ -544,7 +544,7 @@ const unic_id_login = JSON.parse(localStorage.getItem("user_id"));
 const edit_submit=document.getElementById("edit_submit");
 
 edit_submit.addEventListener("click",function proubdate(e) {
-console.log("3456");
+
 
     const user_records = JSON.parse(localStorage.getItem("user_list"));
 
