@@ -1,0 +1,104 @@
+*{
+    margin: o;
+    padding: 0;
+    box-sizing: border-box;
+    cursor: pointer;
+    overflow: hidden;
+}
+html,body{
+    height: 100%;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #00acee;
+    /* background: linear-gradient(to bottom right,#45EAB1,#00acee ); */
+}
+form{
+    width: 90%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    background: rgba(255, 255, 255, 0.06);
+    box-shadow: 0px 8px 32px 0px rgba(31, 38, 135, 0.4);
+    border-radius: 30px;
+}
+input{
+    width: 80%;
+    margin: 2% auto;
+    margin-bottom: 3%;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: #ffffff;
+    border-bottom: 1px solid #ffffff;
+    opacity: 0.8;
+    font-size: 20px;
+    padding: 5px;
+}
+button{
+    width: 50%;
+    margin: 3% auto;
+    color: #ffffff;
+    font-size: 15px;
+    opacity: 0.7;
+    background: rgba(255, 255, 255, 0.06);
+    padding: 10px 30px;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.2);
+    box-shadow: 1px 1px 5px rgba(31, 38, 135, 0.2);
+}
+label{
+    font-size: 17px;
+    color: #ffffff;
+    margin-left: 10%;
+    opacity: 0.8;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+h1{
+    font-size: 25px;
+    text-align: center;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    letter-spacing: 2px;
+    margin-bottom: 5%;
+}
+a{
+    font-size: 12px;
+    text-align: center;
+    margin-top: 6px;
+    text-decoration: none;
+    margin-bottom: 8%;
+
+}
+.name{
+    display: flex;
+}
+
+.name input{
+    width: 70%;
+    margin: 3% auto;
+    margin-left: 32px;
+    margin-bottom: 3%;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: #ffffff;
+    border-bottom: 1px solid #ffffff;
+    opacity: 0.8;
+    font-size: 20px;
+    
+}
+.name label{
+    margin-left: 32px;
+}
+.name .lastname{
+    margin-left: -30px;
+}
+.name .lastname input{
+    width: 63%;
+    background: transparent;
+}

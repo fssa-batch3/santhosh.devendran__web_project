@@ -1,0 +1,58 @@
+/*--notification--*/
+.notification_list{
+    width: 42rem;
+    margin: 12px;
+    
+}
+.notification_list .list{
+    display: flex;
+    flex-direction: row;
+    background-color: #fff;
+    height: 5rem;
+    width: 38rem;
+    margin: auto;
+    border-radius: 20px;
+    margin-top: 10px;
+}
+.notification_list .list:hover{
+    background-color: lightgrey;
+}
+  .notification_list .list .profile{
+    margin-top: 10px;
+    margin-left: 10px;
+}
+.notification_list .list .profile img{
+    border-radius: 25px;
+}
+.notification_list .list .content{
+   width:18rem;
+}
+.notification_list .list .content p{
+    margin-left: 20px;
+    padding-top: 10px;
+    max-width: 15rem;
+}
+.notification_list .list .content a{
+    text-decoration: none;
+    color: black;
+}
+.notification_list .list .follow button{
+    margin-top: 25px;
+    margin-left: 85px;
+    border: 2px solid #00acee;
+    border-radius: 10px;
+    padding: 10px 10px;
+    width: 100px;
+    background-color: #ffffff;
+}
+.notification_list .time{
+    color: gray;
+}
+.Notification_high{
+padding-bottom: 20px;
+}
+.clrear_all{
+    color: #00acee;
+    font-weight: 600;
+    padding-left: 50px;
+}

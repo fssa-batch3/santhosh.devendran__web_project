@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Door Step</title>
+    <link rel="stylesheet" href="../assets/css/layout.css">
+    <link rel="stylesheet" href="../assets/css/post_comment.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/uuid@8.3.2/dist/umd/uuidv4.min.js"></script>
+</head>
+
+<body>
+
+  <!-- header -->
+
+    <div class="container">
+        <div class="container_div">
+
+
+            <section class="section_left">
+                <div class="pro_data_div">
+                    <div class="user_dp">
+                        <img id="user_pro_lay"
+                            
+                            alt="profile_photo">
+                    </div>
+                    <div class="user_name_dev">
+                        <div class="user_full_name_div">
+                            <p class="user_full_name" id="user_full_name"></p>
+                        </div>
+                        <div class="user_name">
+                            <p class="user_name_p" id="user_name_p"></p>
+                        </div>
+                    </div>
+                    <div>
+                        <a class="view_profile_div" id="view_profile">view profile</a>
+                    </div>
+                </div>
+                <div class="suggesions_user">
+                    <div class="suggesions_div">
+                        <h4>suggesions for you</h4>
+                    </div>
+                    <div class="suggesions_user_list">
+                        
+                    </div>
+
+                </div>
+
+            </section>
+
+            <section class="section_center">
+
+
+                <div class="post_div">
+
+                    <div class="post_user_details">
+                        <div class="post_pro_flex">
+                            <div class="post_user_dp">
+                                <img class="post_user_dp_img"
+                                    id="post_user_dp_img"
+                                    alt="post profile">
+                            </div>
+                            <div class="post_user_name_time">
+                                <p class="post_user_name" id="post_user_name"></p>
+                                <p id="time_diff_post"></p>
+                            </div>
+                        </div>
+                        <div class="menu_svg_div">
+                            <img class="menu_svg" src="../assets/img/ellipsis-v-icon.svg" alt="menu">
+                        </div>
+                    </div>
+                    <div class="post_content">
+                        <p class="post_content_p" id="post_content_p"></p>
+                    </div>
+                    <div class="post_img">
+                        
+                    </div>
+                    <div class="like_comment">
+                        <div class="like_icon">
+                            <i class='fa fa-heart-o' id="heart_icon" style='font-size:24px'></i>
+                            <span class="l_c_count" id="like_count_nu" ></span>
+                        </div>
+                            <div class="comment_icon">
+                                <i class='fa fa-comment-o' style='font-size:24px'></i>
+                                <span class="l_c_count" id="comant_count"></span>
+                            </div>
+                        
+                            <div class="comment_input">
+                                <textarea class="comment_create_input" name="share something..." id="comment_input" cols="30" rows="1"
+                                maxlength="200" type="text" placeholder="Write your comment..."></textarea>
+                                <div class="comment_send_icon"><p class="comment_post" id="comment_post_bn">post</p></div>
+                            </div>
+                    </div>
+
+
+                </div>
+
+
+
+                <div class="comment_list" id="comment_list">
+
+                     <!-- <div class="post_comment">
+                        <div class="post_user_details">
+                            <div class="post_pro_flex">
+                                <div class="post_user_dp">
+                                    <img class="post_user_dp_img"
+                                        src="../assets/img/default-avatar-profile-icon-of-social-media-user-vector.jpg"
+                                        alt="post profile">
+                                </div>
+                                <div class="post_user_name_time">
+                                    <p class="post_user_name">user_full_name</p>
+                                    <p class="time_ago">2 hours ago</p>
+                                </div>
+                            </div>
+                            <div class="menu_svg_div" >
+                                <img class="menu_svg" src="../assets/img/ellipsis-v-icon.svg" alt="menu">
+                                <div class="menu_delete" >
+                                    <ul>
+                                        <li class="post_delete">Delete</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="post_content">
+                            <p class="post_content_p">Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse
+                                accusamus sit, laboriosam, fuga quod ab atque magnam, earum vitae
+                                incidunt excepturi</p>
+                        </div>
+
+                    </div> -->
+
+
+                </div> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </section>
+
+            <section class="section_right">
+                <div class="follow_div" id="followers_div" style="height: 315px;">
+                    <div class="suggesions_div">
+                        <div>
+                            <h4>Followers</h4>
+                        </div>
+                        <div class="drop_down_up_icon" >
+                        <i class="fa fa-angle-up" id="Followers_drop_down_up" style="font-size:24px"></i>
+                        </div>
+                    </div>
+                    <div class="Followers_list" id="Followers_list_div" style="display: block;">
+
+                        <!-- <div class="suggesions_pro">
+                            <div class="suggesions_user_dp">
+                                <img class="suggesions_user_img"
+                                    src="../assets/img/default-avatar-profile-icon-of-social-media-user-vector.jpg"
+                                    alt="">
+                            </div>
+                            <div class="suggesions_user_name">
+                                <p class="user_full_name">user_full_name</p>
+                                <p class="user_name_p">user_name</p>
+                            </div>
+                            <div class="suggesions_follow">
+                                <button class="suggesions_follow_bn">follow</button>
+                            </div>
+                        </div>
+ -->
+
+                        
+                    </div>
+                </div>
+                <div class="follow_div following_div" id="following_div" style="height: 55px;">
+                    <div class="suggesions_div">
+                        <div>
+                            <h4>Following</h4>
+                        </div>
+                        <div class="drop_down_up_icon" >
+                        <i class="fa fa-angle-up" id="Followingdrop_down_up" style="font-size:24px"></i>
+                        </div>
+                        
+                    </div>
+                    <div class="Following_list Following_list_div" id="Following_list_div" style="display: none;">
+
+
+                        <!-- <div class="suggesions_pro">
+                            <div class="suggesions_user_dp">
+                                <img class="suggesions_user_img"
+                                    src="../assets/img/default-avatar-profile-icon-of-social-media-user-vector.jpg"
+                                    alt="">
+                            </div>
+                            <div class="suggesions_user_name">
+                                <p class="user_full_name">user_full_name</p>
+                                <p class="user_name_p">user_name</p>
+                            </div>
+                            <div class="suggesions_follow">
+                                <button class="suggesions_follow_bn">follow</button>
+                            </div>
+                        </div> -->
+
+
+
+                    </div>
+                </div>
+
+                <div class="follow_div chat_follow_div">
+                    <div class="suggesions_div">
+                        <div>
+                            <h4>Chat</h4>
+                        </div>
+                        
+                    </div>
+                    <div class="Followers_list chat_Followers_list">
+
+                        <!-- <div class="chat_suggesions_pro">
+                            <div class="chat_suggesions_user_dp">
+                                <img class="user_suggesions_user_img"
+                                    src="../assets/img/default-avatar-profile-icon-of-social-media-user-vector.jpg"
+                                    alt="">
+                            </div>
+                            <div class="suggesions_user_name">
+                                <p class="chat_user_full_name">user_full_name</p>
+                            </div>
+                            <div class="suggesions_follow_alert">
+                               <span class="chat_alert">2</span>
+                            </div>
+                        </div> -->
+
+
+                        <!-- <div class="chat_suggesions_pro_user">
+                            <div class="suggesions_follow_alert" id="back_bn_function">
+                                <i class="fa fa-arrow-left" style="font-size:20px;color: black;"></i>
+                             </div>
+                            <div class="chat_suggesions_user_chat_img">
+                                <img class="user_suggesions_user_img"
+                                    src="../assets/img/default-avatar-profile-icon-of-social-media-user-vector.jpg"
+                                    alt="">
+                            </div>
+                            <div class="suggesions_user_name">
+                                <p class="chat_user_full_name" style="color:#00acee;">user_full_name</p>
+                            </div>
+
+                        </div>
+
+                        <div class="message_list" >
+                            
+                      
+                                <div class="send_message message_read">
+                                   <p>hi da</p> </div>
+                       
+                                <div class="received_message">
+                                     <p> how are you</p></div>
+                    
+
+
+                        </div>
+                        <div class="message_input_div">
+                            <div class="chat_text">
+                                <input type="text" class="chat_input" >
+                            </div>
+                            <div class="chat_send_div">
+                                <img class="chat_send_icon" src="../assets/img/icons8-send-90.png" alt="">
+                            </div>
+
+                        </div> -->
+                        
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+
+    <script src="../assets/js/header.js"></script>
+    <script src="../assets/js/layout.js"></script>
+    <script src="../assets/js/post_comment.js"></script>
+</body>
+
+</html>
