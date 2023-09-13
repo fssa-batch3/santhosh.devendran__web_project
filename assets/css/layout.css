@@ -386,88 +386,6 @@ a {
 
 /*  chat design div */
 
-
-.chat_alert{
-    display: block;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background-color: #00acee;
-    color: #fff;
-    text-align: center;
-    font-size: 13px;
-}
-
-.suggesions_follow_alert{
-    width: 30px;
-    margin-left: 20px;
-}
-.user_suggesions_user_img{
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    /* border: 1px solid #000000; */
-    margin-top: 7px;
-}
-.chat_user_full_name{
-    /* margin-top: -12px; */
-    font-weight: 600;
-    margin-left: 5px;
-}
-.chat_suggesions_pro {
-    width: 300px;
-    margin: auto;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    border: 1px solid lightgray;
-    border-radius: 10px;
-    margin-top: 5px;
-}
-.chat_suggesions_user_dp{
-    margin-left: 10px;
-}
-.chat_suggesions_pro_user {
-    background-color: #fff;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    width: 300px;
-    margin: auto;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin-top: 5px;
-    border-left: 1px solid gray;
-    border-top: 1px solid gray;
-    border-right: 1px solid gray;
-}
-.message_container{
-    display: flex; 
-    overflow-y: scroll;
-    flex-direction: column;
-    /* justify-content: flex-end; */
-    height: 250px;
-    max-height: 250px;
-    /* justify-content: flex-end; */
-    /* align-items: flex-end; */
-
-}
-
-.message_list{
-    width: 299px; 
-    height: 250px;
-    margin: auto;
-    display: flex;
-    margin-left: 7px;
-    flex-direction: column;
-    /* justify-content: flex-end; */
-    border: 1px solid gray;
-    background-color: #f2f2f2;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-    overflow-y: scroll;
-}
-
  /* .message_container {
     height: 250px;
     max-height: 250px;
@@ -565,22 +483,6 @@ a {
 .message_read p{
     border-left: 3px solid #ff6347;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 @keyframes slide-down {
     0% {

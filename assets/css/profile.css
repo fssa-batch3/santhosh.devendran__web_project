@@ -73,7 +73,7 @@
     text-align: center;
     border-right: 1px solid black;
 }
-.following_div{
+.following_div1{
     display: flex;
     flex-direction: column;
     width: 200px;
